@@ -91,6 +91,9 @@
 
 
 
+  <meta property="fb:admins" content="GuaHsu" />
+  <meta property="fb:app_id" content="1251302748300663" />
+
 
 
 <meta name="description" content="紀錄去年底第一次接觸到AWS(Amazon Web Services)到在AWS上實作一個JSON格式的API，並在AWS上建立AP&amp;amp;DB的方式">
@@ -157,6 +160,24 @@
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
 
   
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1251302748300663',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_tw/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 
 
 
@@ -555,6 +576,22 @@
 
       
       
+        <div class="post-widgets">
+        
+
+        
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
+        </div>
+      
       
 
       
@@ -598,6 +635,13 @@
 
           
   <div class="comments" id="comments">
+    
+      <div class="fb-comments"
+           data-href="http://guahsu.io/2017/01/build-api-on-aws-use-spring-boot/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
     
   </div>
 

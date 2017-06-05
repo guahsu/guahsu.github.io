@@ -91,6 +91,9 @@
 
 
 
+  <meta property="fb:admins" content="GuaHsu" />
+  <meta property="fb:app_id" content="1251302748300663" />
+
 
 
 <meta name="description" content="背不起來的就寫下來吧。">
@@ -142,6 +145,24 @@
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
 
   
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1251302748300663',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_tw/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 
 
 
@@ -319,6 +340,13 @@
 
           
   <div class="comments" id="comments">
+    
+      <div class="fb-comments"
+           data-href="http://guahsu.io/tags/index.html"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
     
   </div>
 
