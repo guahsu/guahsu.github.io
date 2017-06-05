@@ -1,0 +1,1216 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="AWS,JAVA,API,SpringBoot," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="紀錄去年底第一次接觸到AWS(Amazon Web Services)到在AWS上實作一個JSON格式的API，並在AWS上建立AP&amp;amp;DB的方式">
+<meta name="keywords" content="AWS,JAVA,API,SpringBoot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在AWS上用SpringBoot建立API">
+<meta property="og:url" content="http://guahsu.io/2017/01/build-api-on-aws-use-spring-boot/index.html">
+<meta property="og:site_name" content="Gua&#39;s Note">
+<meta property="og:description" content="紀錄去年底第一次接觸到AWS(Amazon Web Services)到在AWS上實作一個JSON格式的API，並在AWS上建立AP&amp;amp;DB的方式">
+<meta property="og:image" content="http://guahsu.io/2017/01/build-api-on-aws-use-spring-boot/ohno.jpg">
+<meta property="og:image" content="http://guahsu.io/2017/01/build-api-on-aws-use-spring-boot/1.png">
+<meta property="og:image" content="http://guahsu.io/2017/01/build-api-on-aws-use-spring-boot/2-1.png">
+<meta property="og:image" content="http://guahsu.io/2017/01/build-api-on-aws-use-spring-boot/2-2.png">
+<meta property="og:image" content="http://guahsu.io/2017/01/build-api-on-aws-use-spring-boot/2-3.png">
+<meta property="og:image" content="http://guahsu.io/2017/01/build-api-on-aws-use-spring-boot/3-1.png">
+<meta property="og:image" content="http://guahsu.io/2017/01/build-api-on-aws-use-spring-boot/3-2.png">
+<meta property="og:image" content="http://guahsu.io/2017/01/build-api-on-aws-use-spring-boot/3-3.png">
+<meta property="og:image" content="http://guahsu.io/2017/01/build-api-on-aws-use-spring-boot/3-4.png">
+<meta property="og:image" content="http://guahsu.io/2017/01/build-api-on-aws-use-spring-boot/4-1.png">
+<meta property="og:image" content="http://guahsu.io/2017/01/build-api-on-aws-use-spring-boot/4-2.png">
+<meta property="og:image" content="http://guahsu.io/2017/01/build-api-on-aws-use-spring-boot/4-3.png">
+<meta property="og:image" content="http://guahsu.io/2017/01/build-api-on-aws-use-spring-boot/4-4.png">
+<meta property="og:updated_time" content="2017-06-04T14:39:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在AWS上用SpringBoot建立API">
+<meta name="twitter:description" content="紀錄去年底第一次接觸到AWS(Amazon Web Services)到在AWS上實作一個JSON格式的API，並在AWS上建立AP&amp;amp;DB的方式">
+<meta name="twitter:image" content="http://guahsu.io/2017/01/build-api-on-aws-use-spring-boot/ohno.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '作者'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://guahsu.io/2017/01/build-api-on-aws-use-spring-boot/"/>
+
+
+
+
+
+  <title>在AWS上用SpringBoot建立API | Gua's Note</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gua's Note</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">瓜的筆記</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            檢索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://guahsu.io/2017/01/build-api-on-aws-use-spring-boot/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GuaHsu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gua's Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">在AWS上用SpringBoot建立API</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-01-22T00:05:14+08:00">
+                2017-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CODE/" itemprop="url" rel="index">
+                    <span itemprop="name">CODE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/01/build-api-on-aws-use-spring-boot/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://guahsu.io/2017/01/build-api-on-aws-use-spring-boot/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>紀錄去年底第一次接觸到AWS(Amazon Web Services)到在AWS上實作一個JSON格式的API，並在AWS上建立AP&amp;DB的方式</p>
+</blockquote>
+<a id="more"></a>
+<p>有了目的之後，經過初步查詢後理解基礎功能後的想法是：</p>
+<ol>
+<li>開一台RDB(postgreSQL)</li>
+<li>建立table塞資料</li>
+<li>開一台EC2(ubuntu)</li>
+<li>將EC2環境建置好</li>
+<li>寫CODE(java)</li>
+<li>放到EC2中啟動web server</li>
+</ol>
+<h3 id="後來根本就卡在4啊"><a href="#後來根本就卡在4啊" class="headerlink" title="後來根本就卡在4啊!!!!!!!"></a>後來根本就卡在4啊!!!!!!!</h3><img src="/2017/01/build-api-on-aws-use-spring-boot/ohno.jpg" alt="ohno.jpg" title=""> 
+<p>因為不熟命令列&amp;linux的環境，導致建置期各種問號<br>我在EC2開好之後，使用putty連線，並爬文找了相關指令來下載java環境..等<br>以及一直開鳥哥看怎麼操作vi瀏覽器，最後甚至還找了<a href="http://xionghuilin.com/?p=562" target="_blank" rel="external">XRDP</a>來連線看到桌面環境XD</p>
+<p>後來我覺得應該要找更簡單輕鬆的方法來先實作出東西..<br>不然依我的腦容量又不常用的東西很快就忘了，<br>又繼續找更輕鬆的方法…就找到了<strong>Elastic Beanstalk!</strong> (#小叮噹圖)</p>
+<p>這個只需我程式寫好，打包壓縮好上傳就會自己幫你長一台EC2出來，<br>剛剛上述各種痛苦(之於菜鳥我而言)就不見了，變成一條簡單的路。</p>
+<h4 id="流程改為："><a href="#流程改為：" class="headerlink" title="流程改為："></a>流程改為：</h4><ol>
+<li>開一台RDB(postgreSQL)</li>
+<li>建立table塞資料</li>
+<li>寫CODE(java)</li>
+<li>打包丟到AWS上</li>
+</ol>
+<p>總算是把環境搞定後就開始找如何透過JAVA實作API的方法了，<br>雖然對於使用JAVA的經驗很少，也是聽過<strong>Spring</strong>的，<br>發現spring boot很類似php的感覺，只要把專案設定好就可以開始了，<br>不用編輯pom.xml(對此實作而言)，也沒有spring的web.xml之類要設定，<br>像是把xampp開好就可以自己生一個php file來實作的感覺了！</p>
+<p>最後是使用spring boot開發，並使用data jpa &amp; Rest Repositories來實作API，<br>所以就來紀錄一下如何使用Spring Boot來實作簡易的API，並上傳至AWS。</p>
+<h2 id="以下正文開始"><a href="#以下正文開始" class="headerlink" title="以下正文開始"></a>以下正文開始</h2><blockquote>
+<p>開發環境:windows7<br>使用工具:sts</p>
+</blockquote>
+<h3 id="1-開一台RDS"><a href="#1-開一台RDS" class="headerlink" title="1. 開一台RDS"></a>1. 開一台RDS</h3><ul>
+<li>進到RDS介面建立資料庫(我選用postgreSql)<img src="/2017/01/build-api-on-aws-use-spring-boot/1.png" alt="記得把這個勾起來以選取預設的免費規格" title="記得把這個勾起來以選取預設的免費規格"> </li>
+<li>設定資料庫名稱、帳號密碼</li>
+<li>安全群組的部分是選擇default</li>
+<li>會花數分鐘時間建立RDS</li>
+</ul>
+<h3 id="2-建立Table"><a href="#2-建立Table" class="headerlink" title="2.建立Table"></a>2.建立Table</h3><ul>
+<li>下載PGadmin<a href="https://www.pgadmin.org/download" target="_blank" rel="external">PostgreSQLe管理工具</a></li>
+<li>設定PGadmin，建立連線<blockquote>
+<p>在RDS查詢連線資訊</p>
+<img src="/2017/01/build-api-on-aws-use-spring-boot/2-1.png" alt="2-1.png" title=""> 
+<p>範例如下</p>
+<img src="/2017/01/build-api-on-aws-use-spring-boot/2-2.png" alt="2-2.png" title=""> </blockquote>
+</li>
+<li>接著透過介面操作資料庫來建立一個USERS table<blockquote>
+<img src="/2017/01/build-api-on-aws-use-spring-boot/2-3.png" alt="2-3.png" title=""> 
+</blockquote>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">USERS</span>(</div><div class="line">    <span class="keyword">id</span> <span class="built_in">serial</span> PRIMARY <span class="keyword">KEY</span>,</div><div class="line">    <span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">    email <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">    <span class="keyword">password</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</div><div class="line">    create_date <span class="built_in">date</span></div><div class="line">);</div></pre></td></tr></table></figure>
+<ul>
+<li>INSERT三筆資料</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">USERS</span>(<span class="keyword">id</span>, <span class="keyword">name</span>, email, <span class="keyword">password</span>, create_date) <span class="keyword">VALUES</span></div><div class="line">(<span class="number">1</span>, <span class="string">'testUser1'</span>, <span class="string">'testUser1@email.com'</span>, <span class="string">'11111'</span>, <span class="keyword">CURRENT_TIMESTAMP</span>),</div><div class="line">(<span class="number">2</span>, <span class="string">'testUser2'</span>, <span class="string">'testUser2@email.com'</span>, <span class="string">'22222'</span>, <span class="keyword">CURRENT_TIMESTAMP</span>),</div><div class="line">(<span class="number">3</span>, <span class="string">'testUser3'</span>, <span class="string">'testUser3@email.com'</span>, <span class="string">'33333'</span>, <span class="keyword">CURRENT_TIMESTAMP</span>)</div></pre></td></tr></table></figure>
+<h4 id="3-寫CODE"><a href="#3-寫CODE" class="headerlink" title="3.寫CODE"></a>3.寫CODE</h4><ul>
+<li>下載<a href="https://spring.io/tools/sts/all" target="_blank" rel="external">Spring Tool Suite(STS)</a></li>
+<li>建立專案(New-&gt;Other-&gt;Spring Starter Project)</li>
+<li>我的設定如圖，選擇war檔是為了最終上傳至Elastic Beanstalk的格式<blockquote>
+<img src="/2017/01/build-api-on-aws-use-spring-boot/3-1.png" alt="3-1.png" title=""> 
+<img src="/2017/01/build-api-on-aws-use-spring-boot/3-2.png" alt="3-2.png" title=""> </blockquote>
+</li>
+<li>版本及使用項目如圖(JPA、PostgreSQL、Rest Repositories)</li>
+<li>建立好之後，於src/main/java建立一個packge:com.example.models</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.example.models;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.persistence.Column;</div><div class="line"><span class="keyword">import</span> javax.persistence.Entity;</div><div class="line"><span class="keyword">import</span> javax.persistence.GeneratedValue;</div><div class="line"><span class="keyword">import</span> javax.persistence.Id;</div><div class="line"><span class="keyword">import</span> javax.persistence.Table;</div><div class="line"></div><div class="line"><span class="comment">//這裡可加上@Table(name = "")來指定table名稱</span></div><div class="line"><span class="comment">//不加的話會自動以class name來找對應的表</span></div><div class="line"><span class="comment">//可避開java底線(_)保留字的問題</span></div><div class="line"><span class="meta">@Entity</span></div><div class="line"><span class="meta">@Table</span>(name = <span class="string">"users"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</div><div class="line">	<span class="meta">@Id</span></div><div class="line">	<span class="meta">@GeneratedValue</span></div><div class="line">	<span class="keyword">private</span> Long id;</div><div class="line">	</div><div class="line">    <span class="comment">//@Column可指定欄位名稱@Column(name = "")</span></div><div class="line">    <span class="comment">//可避開java底線(_)保留字的問題</span></div><div class="line">	<span class="meta">@Column</span>(name = <span class="string">"name"</span>)</div><div class="line">	<span class="keyword">private</span> String name;</div><div class="line"></div><div class="line">	<span class="meta">@Column</span>(name = <span class="string">"email"</span>)</div><div class="line">	<span class="keyword">private</span> String email;</div><div class="line"></div><div class="line">	<span class="meta">@Column</span>(name = <span class="string">"password"</span>)</div><div class="line">	<span class="keyword">private</span> String password;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.name = name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getEmail</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> email;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEmail</span><span class="params">(String email)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.email = email;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getPassword</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> password;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPassword</span><span class="params">(String password)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.password = password;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>建立Packge:com.example.repostitories，並在底下建立UserRespository</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.example.repostitories;</div><div class="line"><span class="keyword">import</span> org.springframework.data.domain.Page;</div><div class="line"><span class="keyword">import</span> org.springframework.data.domain.Pageable;</div><div class="line"><span class="keyword">import</span> org.springframework.data.repository.PagingAndSortingRepository;</div><div class="line"><span class="keyword">import</span> org.springframework.data.repository.query.Param;</div><div class="line"><span class="keyword">import</span> org.springframework.data.rest.core.annotation.RepositoryRestResource;</div><div class="line"><span class="keyword">import</span> org.springframework.data.rest.core.annotation.RestResource;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.example.models.User;</div><div class="line"></div><div class="line"><span class="meta">@RepositoryRestResource</span>(collectionResourceRel = <span class="string">"Users"</span>, path=<span class="string">"Users"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserRepository</span> <span class="keyword">extends</span> <span class="title">PagingAndSortingRepository</span>&lt;<span class="title">User</span>, <span class="title">Long</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@RestResource</span>(path = <span class="string">"find"</span>, rel = <span class="string">"find"</span>)</div><div class="line">    <span class="function">Page&lt;User&gt; <span class="title">findByNameIgnoreCaseContaining</span><span class="params">(@Param(<span class="string">"name"</span>)</span> String name, Pageable pageable)</span>;</div><div class="line">    <span class="comment">/*</span></div><div class="line">     * 方法findBy[column name]必須指定為欄位名稱，要注意的是要用domain建立的欄位名稱</div><div class="line">     * RepositoryRestResource的用途是指定一個路徑，對我來說是避免查詢名稱過長</div><div class="line">     * 因為以此例不指定的話會長這樣http://domain/users/findByNameIgnoreCaseContaining</div><div class="line">     * 若查詢結果需分頁可改為Page&lt;Users&gt;並加上參數Pageable pageable,</div><div class="line">     * 不然就是List&lt;User&gt; findByNameIgnoreCaseContaining(@Param("name") String name)就好了</div><div class="line">  */</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>設定application.properties設定連線資訊</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#設定這個可指定連入api的路徑</div><div class="line">spring.data.rest.base-path=/api</div><div class="line">spring.jpa.database=POSTGRESQL</div><div class="line">spring.datasource.platform=postgres</div><div class="line">spring.jpa.show-sql=true</div><div class="line">spring.jpa.hibernate.ddl-auto=update</div><div class="line">spring.database.driverClassName=org.postgresql.Driver</div><div class="line">#要加port號及所建立的資料庫名稱</div><div class="line">spring.datasource.url=jdbc:postgresql://domain:5432/database</div><div class="line">spring.datasource.username=username</div><div class="line">spring.datasource.password=password</div><div class="line">#這裡改5000因為EB會用nginx來轉，port必須改為5000</div><div class="line">server.port = 5000</div></pre></td></tr></table></figure>
+<ul>
+<li>完成後的結構圖如下<blockquote>
+<img src="/2017/01/build-api-on-aws-use-spring-boot/3-3.png" alt="3-3.png" title=""> </blockquote>
+</li>
+<li><p>進行Local端測試<a href="http://localhost:5000/api" target="_blank" rel="external">http://localhost:5000/api</a>會獲得這個畫面↓</p>
+<blockquote>
+<img src="/2017/01/build-api-on-aws-use-spring-boot/3-4.png" alt="3-4.png" title=""> 
+<p>自動生成了關於這個API的操作</p>
+</blockquote>
+</li>
+<li><p>進一步測試關於Users這個function<br><a href="http://localhost:5000/api/Users" target="_blank" rel="external">http://localhost:5000/api/Users</a><br><a href="http://localhost:5000/api/Users/search" target="_blank" rel="external">http://localhost:5000/api/Users/search</a></p>
+</li>
+</ul>
+<p>####4.打包丟到AWS上面</p>
+<ul>
+<li>專案右鍵選擇Meven Build<blockquote>
+<p>Goals輸入package後run</p>
+<img src="/2017/01/build-api-on-aws-use-spring-boot/4-1.png" alt="4-1.png" title=""> </blockquote>
+</li>
+<li>找到產生的war檔(路徑會在consle顯示)<blockquote>
+<img src="/2017/01/build-api-on-aws-use-spring-boot/4-2.png" alt="4-2.png" title=""> </blockquote>
+</li>
+<li>利用EB來上傳程式(平台選擇Tomcat)<blockquote>
+<img src="/2017/01/build-api-on-aws-use-spring-boot/4-3.png" alt="4-3.png" title=""> </blockquote>
+</li>
+<li>系統會開始建置，完成後可見此程式外部連結<blockquote>
+<img src="/2017/01/build-api-on-aws-use-spring-boot/4-4.png" alt="4-4.png" title=""> </blockquote>
+</li>
+<li>便可同在Local測試時一樣，只是把連結改成eb的<br><a href="http://yourAwsDomain/api/" target="_blank" rel="external">http://yourAwsDomain/api/</a><br><a href="http://yourAwsDomain/api/User" target="_blank" rel="external">http://yourAwsDomain/api/User</a><br><a href="http://yourAwsDomain/User/search" target="_blank" rel="external">http://yourAwsDomain/User/search</a></li>
+</ul>
+<p>結束！<br>從來沒想過會寫JAVA的心得囧..</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/AWS/" rel="tag"># AWS</a>
+          
+            <a href="/tags/JAVA/" rel="tag"># JAVA</a>
+          
+            <a href="/tags/API/" rel="tag"># API</a>
+          
+            <a href="/tags/SpringBoot/" rel="tag"># SpringBoot</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/mac-install-laravel-composer-valet-mysql/" rel="next" title="紀錄Mac OS安裝laravel開發環境(composer + valet + mysql)">
+                <i class="fa fa-chevron-left"></i> 紀錄Mac OS安裝laravel開發環境(composer + valet + mysql)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/guas-blog-v1-online/" rel="prev" title="好久沒有這麼晚睡了..終於上線了~~">
+                好久沒有這麼晚睡了..終於上線了~~ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站資料
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="GuaHsu" />
+          <p class="site-author-name" itemprop="name">GuaHsu</p>
+           
+              <p class="site-description motion-element" itemprop="description">背不起來的就寫下來吧。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分類</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/guahsu" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#後來根本就卡在4啊"><span class="nav-text">後來根本就卡在4啊!!!!!!!</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#流程改為："><span class="nav-text">流程改為：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#以下正文開始"><span class="nav-text">以下正文開始</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-開一台RDS"><span class="nav-text">1. 開一台RDS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-建立Table"><span class="nav-text">2.建立Table</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-寫CODE"><span class="nav-text">3.寫CODE</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GuaHsu</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (search_path.endsWith("json")) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

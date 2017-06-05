@@ -1,0 +1,1134 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,CSS,JavaScript30," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="主題用CSS與JS來製作一個點擊後會動畫展開的圖片展示效果，運用到了CSS的flex、transform、transition.. 這篇比較偏向css知識！">
+<meta name="keywords" content="JavaScript,CSS,JavaScript30">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「JS30紀錄＆心得」05 - Flex Panel Gallery">
+<meta property="og:url" content="http://guahsu.io/2017/05/JavaScript30-05-Flex-Panel-Gallery/index.html">
+<meta property="og:site_name" content="Gua&#39;s Note">
+<meta property="og:description" content="主題用CSS與JS來製作一個點擊後會動畫展開的圖片展示效果，運用到了CSS的flex、transform、transition.. 這篇比較偏向css知識！">
+<meta property="og:updated_time" content="2017-06-04T15:10:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="「JS30紀錄＆心得」05 - Flex Panel Gallery">
+<meta name="twitter:description" content="主題用CSS與JS來製作一個點擊後會動畫展開的圖片展示效果，運用到了CSS的flex、transform、transition.. 這篇比較偏向css知識！">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '作者'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://guahsu.io/2017/05/JavaScript30-05-Flex-Panel-Gallery/"/>
+
+
+
+
+
+  <title>「JS30紀錄＆心得」05 - Flex Panel Gallery | Gua's Note</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gua's Note</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">瓜的筆記</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            檢索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://guahsu.io/2017/05/JavaScript30-05-Flex-Panel-Gallery/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GuaHsu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gua's Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">「JS30紀錄＆心得」05 - Flex Panel Gallery</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-05-20T22:12:17+08:00">
+                2017-05-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript30/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript30</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/JavaScript30-05-Flex-Panel-Gallery/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://guahsu.io/2017/05/JavaScript30-05-Flex-Panel-Gallery/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="主題"><a href="#主題" class="headerlink" title="主題"></a><strong>主題</strong></h2><p>用CSS與JS來製作一個點擊後會動畫展開的圖片展示效果，<br>運用到了CSS的flex、transform、transition.. 這篇比較偏向css知識！</p>
+<a id="more"></a>
+<blockquote>
+<p><a href="https://github.com/guahsu/JavaScript30" target="_blank" rel="external">[JavaScript30介紹與記錄格式]</a><br><a href="https://github.com/guahsu/JavaScript30/tree/master/05_Flex-Panel-Gallery" target="_blank" rel="external">[DEMO]</a> </p>
+</blockquote>
+<h2 id="步驟"><a href="#步驟" class="headerlink" title="步驟"></a><strong>步驟</strong></h2><h3 id="step1"><a href="#step1" class="headerlink" title="step1"></a>step1</h3><p>由於整體HTML的tag是由1個<code>panels</code>包覆5個<code>panel</code>，<br>為了使其設定為flex，先在外層容器<code>panels</code>加上<code>display: flex</code><br>接著為每個<code>panel</code>加上<code>flex: 1</code>來使各子元件最大占比為1<br>也就會變成同容器中的5個元件都設1，那就是每個元件最大占比為20%。<br>(因對flex並不熟悉，我是用占比來理解，若有錯請在指正..感謝@@)</p>
+<h3 id="step2"><a href="#step2" class="headerlink" title="step2"></a>step2</h3><p>在為<code>panel</code>加上<code>justify-content: center</code>使其水平置中，<br>並在加上了<code>display: flex</code>及<code>flex-direction: column</code>，<br>再加上一層<code>display: flex</code>可以使<code>panel</code>底下的元件也變成flex控管</p>
+<h3 id="step3"><a href="#step3" class="headerlink" title="step3"></a>step3</h3><p>對panel底下的<code>first-child</code>及<code>last-child</code>做位移效果，<br>使其能在預設狀態於可視範圍外，並設計<code>open-active</code><br>當觸發時，配合<code>transition</code>產生移回原位的動畫，<br>也在<code>.panel.open</code>中新增了<code>flex: 5</code>使其觸發時會有展開的動畫。 </p>
+<h3 id="step4"><a href="#step4" class="headerlink" title="step4"></a>step4</h3><p>編寫JS先取得所有panel的節點，<br>接著設計toggle function使執行的物件藉由<code>.classList.toggle</code>來新增/移除動畫class<br>並透過addEventListener來監測當<code>click</code>&amp;<code>transitionend</code>時觸發toggle function。  </p>
+<blockquote>
+<p><code>.classList</code>&amp;<code>transitionend</code>&amp;<code>toggle</code>在&gt;<a href="https://github.com/guahsu/JavaScript30/tree/master/01_Java-Script-Drum-Kit" target="_blank" rel="external">第一篇</a>&lt;剛好有提到。</p>
+</blockquote>
+<h2 id="Javascript語法-amp-備註"><a href="#Javascript語法-amp-備註" class="headerlink" title="Javascript語法&amp;備註"></a><strong>Javascript語法&amp;備註</strong></h2><h3 id="e-propertyName-amp-includes"><a href="#e-propertyName-amp-includes" class="headerlink" title="e.propertyName &amp; includes()"></a><strong>e.propertyName &amp; includes()</strong></h3><p>在範例中，觸發動畫效果的順序為：</p>
+<ol>
+<li><code>click</code>其中一張圖(panel)觸發<code>addEventLinstner</code>中的<code>toggleOpen</code></li>
+<li>為其增加<code>.open</code>，增加<code>Flex: 5</code>的效果，同時也是使用了<code>.panel</code>中的<code>transition: flex</code>這段</li>
+<li>當<code>.open</code>的<code>transition</code>結束時，觸發了<code>transitionend</code>來作動<code>toggleActive</code></li>
+<li>為其增加<code>.open-active</code>效果，讓原本可是範圍外的<code>p</code>文字滑入</li>
+</ol>
+<p>在<code>順序:4</code>時有個判斷，<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">toggleActive</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (e.propertyName.includes(<span class="string">'flex'</span>)) &#123;</div><div class="line">        <span class="keyword">this</span>.classList.toggle(<span class="string">'open-active'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>e.propertyName可以抓到觸發<code>transitionend</code>的屬性名稱，<br>而<code>.open</code>中觸發的<code>transition</code>屬性有兩個，分別為<code>font</code>與<code>flex</code><br>要使其在<code>flex</code>之後在觸發的話，就要判斷進來的是不是<code>flex</code><br>但因為<code>transition: flex 0.7s..</code>這段在sarafi是<code>flex</code>，而其他瀏覽器為<code>flex-grow</code><br>所以不能用<code>e.property === &#39;flex&#39;</code>來寫，會使其中一方瀏覽器抓不到值，<br>作者提到因為兩者都有flex的字眼，所以利用<code>.includes(&#39;flex&#39;)來判斷，  
+只要</code>e.property`有包含到flex的字串就使其通過判斷，加入動畫效果。</p>
+<blockquote>
+<p>參閱:<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes" target="_blank" rel="external">MDN-String.prototype.includes()</a></p>
+</blockquote>
+<h2 id="CSS語法-amp-備註"><a href="#CSS語法-amp-備註" class="headerlink" title="CSS語法&amp;備註"></a><strong>CSS語法&amp;備註</strong></h2><h3 id="flex"><a href="#flex" class="headerlink" title="flex"></a><strong>flex</strong></h3><p>flex我目前還不熟，他還在我的待讀清單中XD<br>僅依據目前這篇使用到的做筆記：</p>
+<h4 id="display-flex"><a href="#display-flex" class="headerlink" title="display: flex"></a>display: flex</h4><p>把該容器設定為flex模式，可以在其他flex中設定(角色為子元素時)</p>
+<h4 id="flex-flex-grow-flex-shrink-flex-basis"><a href="#flex-flex-grow-flex-shrink-flex-basis" class="headerlink" title="flex: flex-grow flex-shrink flex-basis"></a>flex: flex-grow flex-shrink flex-basis</h4><p>flex的簡寫，第一個為占比、第二個為壓縮值、第三個為默認尺寸</p>
+<h4 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h4><p>flex排列的方向，<code>colume</code>(垂直向)或<code>row</code>(水平向)，預設為<code>row</code></p>
+<blockquote>
+<p>行與列的中文用法，我自己有點混淆<br>像是我會說<code>第314行要加個分號喔</code>，也會說<code>工具列上第3個icon</code><br>兩者都是在描述水平向，但我卻用了不同的字去形容囧</p>
+<h4 id="justify-content-amp-align-items"><a href="#justify-content-amp-align-items" class="headerlink" title="justify-content &amp; align-items"></a>justify-content &amp; align-items</h4><p>依據flex-direction設定的主/側軸來決定排列方式，<br>例如設定<code>flex-direction: row</code>那麼<br><code>justify-content: center</code>就指水平置中，<br>而<code>align-items: center</code>代表垂直置中。<br>參閱：<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout" target="_blank" rel="external">MDN-CSS Flexible Box Layout</a></p>
+</blockquote>
+<h3 id="first-child-amp-last-child"><a href="#first-child-amp-last-child" class="headerlink" title=":first-child() &amp; :last-child()"></a><strong>:first-child() &amp; :last-child()</strong></h3><p>CSS的<code>:偽類別</code>，分別可以選取first(第一個)/last(最後一個)子元素，<br>在範例的panel中，除了主圖的大字外，上下各有一個<code>p</code>包含了點擊後進場的動畫文字：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"panel panel1"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Hey<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Let's<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Dance<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>透過<code>panel &gt; *:first-child</code>選取<code>Hey</code><br>透過<code>panel &gt; *:last-child</code>選取<code>Dance</code></p>
+<h2 id="探索"><a href="#探索" class="headerlink" title="探索"></a><strong>探索</strong></h2><p>當展開其中一個時，在點其他的<code>panel</code>並不會關閉第一個已展開的效果，<br>若要達到每次點擊都是一個聚焦效果(關閉其他已展開的)的感覺得話，<br>我是這麼做的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//宣告一個上次點擊的Panel，預設先給他panels</span></div><div class="line"><span class="keyword">let</span> lastClickPanel = <span class="built_in">document</span>.querySelector(<span class="string">'.panels'</span>);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">toggleOpen</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//每次檢查進入的element與上次進入的element是不是相同</span></div><div class="line">    <span class="comment">//若不相同，則把上次點擊的element移除opev效果</span></div><div class="line">    <span class="comment">//再把lastClickPanel指向為這次的elment</span></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> !== lastClickPanel) &#123;</div><div class="line">        lastClickPanel.classList.remove(<span class="string">'open'</span>);</div><div class="line">        lastClickPanel = <span class="keyword">this</span>;</div><div class="line">    &#125;</div><div class="line"><span class="keyword">this</span>.classList.toggle(<span class="string">'open'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+            <a href="/tags/JavaScript30/" rel="tag"># JavaScript30</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/JavaScript30-04-Array-Cardio-Day-1/" rel="next" title="「JS30紀錄＆心得」04 - Array Cardio Day 1">
+                <i class="fa fa-chevron-left"></i> 「JS30紀錄＆心得」04 - Array Cardio Day 1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/JavaScript30-06-Type-Ahead/" rel="prev" title="「JS30紀錄＆心得」06 - Type Ahead">
+                「JS30紀錄＆心得」06 - Type Ahead <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站資料
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="GuaHsu" />
+          <p class="site-author-name" itemprop="name">GuaHsu</p>
+           
+              <p class="site-description motion-element" itemprop="description">背不起來的就寫下來吧。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分類</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/guahsu" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主題"><span class="nav-text">主題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步驟"><span class="nav-text">步驟</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#step1"><span class="nav-text">step1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step2"><span class="nav-text">step2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step3"><span class="nav-text">step3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step4"><span class="nav-text">step4</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Javascript語法-amp-備註"><span class="nav-text">Javascript語法&備註</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#e-propertyName-amp-includes"><span class="nav-text">e.propertyName & includes()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS語法-amp-備註"><span class="nav-text">CSS語法&備註</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#flex"><span class="nav-text">flex</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#display-flex"><span class="nav-text">display: flex</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flex-flex-grow-flex-shrink-flex-basis"><span class="nav-text">flex: flex-grow flex-shrink flex-basis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flex-direction"><span class="nav-text">flex-direction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#justify-content-amp-align-items"><span class="nav-text">justify-content & align-items</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#first-child-amp-last-child"><span class="nav-text">:first-child() & :last-child()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#探索"><span class="nav-text">探索</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GuaHsu</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (search_path.endsWith("json")) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
