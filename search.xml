@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[「JS30紀錄＆心得」08 - Fun with HTML5 Canvas]]></title>
+    <url>%2F2017%2F06%2FJavaScript30-08-Fun-with-HTML5-Canvas%2F</url>
+    <content type="text"><![CDATA[主題使用HTML5的Canvas來製作一個畫布，透過滑鼠來繪製彩色粗細不一的線條～ [JavaScript30介紹與記錄格式][DEMO] 步驟step1先在HTML的地方建立一個&lt;canvas&gt;的區塊，並設置一個變數ctx作為canvas的操作元素，設定顏色strokeStyle、樣式lineJoin、lineCap、lineWidth… step2接著設定變數各種待會會應用到的變數 12345678910111213const canvas = document.querySelector('#draw');const ctx = canvas.getContext('2d');canvas.width = window.innerWidth;canvas.height = window.innerHeight;ctx.strokeStyle = '#BADA55'; // 線條顏色ctx.lineJoin = 'round'; // 線條連接樣式（轉角）ctx.lineCap = 'round'; // 線條結束樣式ctx.lineWidth = 100; // 線條寬度let isDrawing = false; // 判斷是否執行畫圖中let lastX = 0; let lastY = 0;let hue = 0; // 色相值，在hsl中使用let direction = true; // 判斷粗細增減用 step3寫function來執行畫圖！12345678910111213141516171819202122232425262728293031function draw(e) &#123; // 判斷是否`isDrawing`，`false`則`return`不觸發此function if (!isDrawing) &#123; return; &#125; // 設定線條顏色為hsl模式，吃變數hue ctx.strokeStyle = `hsl($&#123;hue&#125;, 100%, 50%)`; // 起始畫圖路徑 ctx.beginPath(); // 將路徑指針移動到X、Y點 ctx.moveTo(lastX, lastY); // 將起始點與目前滑鼠位置的X、Y用線條連接起來 ctx.lineTo(e.offsetX, e.offsetY); // 將線條繪製出來 ctx.stroke(); // 把結束點放進X、Y變數中 [lastX, lastY] = [e.offsetX, e.offsetY]; // 做顏色的變化效果，當色相值超過360後歸零 hue++; if (hue &gt;= 360) &#123; hue = 0; &#125; // 做線條寬度的變化效果，當寬度達到指令值得時候，切換direction的true/false if (ctx.lineWidth &gt;= 100 || ctx.lineWidth &lt;= 1) &#123; direction = !direction; &#125; if (direction) &#123; ctx.lineWidth++; &#125; else &#123; ctx.lineWidth--; &#125; &#125; step3接著設定滑鼠對應的addEventListener效果12345678910// 當滑鼠按下時，將目前滑鼠的位置設定為變數中的X、Y並讓isDrawing為truecanvas.addEventListener('mousedown', (e) =&gt; &#123; isDrawing = true; [lastX, lastY] = [e.offsetX, e.offsetY];&#125;);// 滑鼠移動中，執行function drawcanvas.addEventListener('mousemove', draw);// 滑鼠放開，滑鼠離開 都將isDrawing改為false不觸發function drawcanvas.addEventListener('mouseup', () =&gt; isDrawing = false);canvas.addEventListener('mouseout', () =&gt; isDrawing = false); Javascript語法&amp;備註direction = !direction學到的是透過這個方式來做true/false的切換。 HTML5語法&amp;備註這篇幾乎都是使用到canvas的功能，紀錄若要製作像這樣的畫布效果在canvas中的使用順序： 1. 定義線條樣式(1) strokeStyle線條顏色(2) lineWidth線條寬度(3) lineJoin線條的轉角樣式(4) lineCap線條的結束樣式 2. 移動順序(1) beginPath()開啟一個新的繪製路徑(2) moveTo()將繪製路徑的起點移動到指定的座標中(3) lineTo()連接路徑終點到指定的座標中(4) stroke()繪製路徑 參閱：MDN-CanvasRenderingContext2D 探索作者有提到最後可以去加入一個圖片相疊時的效果globalCompositeOperation還滿有趣的，可以再嘗試看看寫各種效果，或是弄幾個checkbox就可以設定很多畫筆跟效果了！ 參閱：CanvasRenderingContext2D.globalCompositeOperation]]></content>
+      <categories>
+        <category>JavaScript30</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>CSS</tag>
+        <tag>HTML5</tag>
+        <tag>Canvas</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[AWS帳單退款記]]></title>
     <url>%2F2017%2F06%2Faws-bill-refund%2F</url>
     <content type="text"><![CDATA[之前自己在測AWS時忘記關閉服務，導致連續兩個月產生帳單..寫信與客服說明原因及確定這段期間並無使用後成功退費。 前天上班時收到信用卡即時刷卡通知1472元，回想了一下我沒有啥自動扣款是今天扣的，就打電話去銀行問，銀行告知是Amazon的網路消費，當下反應是我沒買東西，難道是盜刷，就請銀行端先幫我停卡，然後我去查原因。 … 結果是自己之前在測的服務忘記關啊啊啊，而且還不止五月份的帳單，連四月都有35.9美金的費用產生，但我完全沒注意到，可能就跟著帳單直接全繳了囧。 於是就寫信試著跟AWS反應看看，如果沒辦法也就認了畢竟自己忘記關，結果就是收到這張成功退款信啦，還很貼心的補了$10的credit來抵消本月帳單。 於是我就回傳首圖那隻貓及我的感謝給那位客服人員XD 之前開EC2也是開了兩台忘記關一台，真的要注意沒使用要關閉及信用卡扣款的問題啊…]]></content>
@@ -45,7 +59,6 @@
       <tags>
         <tag>JavaScript</tag>
         <tag>CSS</tag>
-        <tag>JavaScript30</tag>
       </tags>
   </entry>
   <entry>
@@ -58,7 +71,6 @@
       <tags>
         <tag>JavaScript</tag>
         <tag>CSS</tag>
-        <tag>JavaScript30</tag>
       </tags>
   </entry>
   <entry>
@@ -71,7 +83,6 @@
       <tags>
         <tag>JavaScript</tag>
         <tag>CSS</tag>
-        <tag>JavaScript30</tag>
       </tags>
   </entry>
   <entry>
@@ -83,7 +94,6 @@
       </categories>
       <tags>
         <tag>JavaScript</tag>
-        <tag>JavaScript30</tag>
       </tags>
   </entry>
   <entry>
@@ -96,7 +106,6 @@
       <tags>
         <tag>JavaScript</tag>
         <tag>CSS</tag>
-        <tag>JavaScript30</tag>
       </tags>
   </entry>
   <entry>
@@ -109,7 +118,6 @@
       <tags>
         <tag>JavaScript</tag>
         <tag>CSS</tag>
-        <tag>JavaScript30</tag>
       </tags>
   </entry>
   <entry>
@@ -121,7 +129,6 @@
       </categories>
       <tags>
         <tag>JavaScript</tag>
-        <tag>JavaScript30</tag>
       </tags>
   </entry>
   <entry>
