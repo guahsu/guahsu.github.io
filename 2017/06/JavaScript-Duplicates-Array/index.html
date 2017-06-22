@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Baby," />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -96,17 +96,17 @@
 
 
 
-<meta name="description" content="女兒出生啦～又有更多需要學習的了！記錄一下目前用到的新東西跟部分購買項目！">
-<meta name="keywords" content="Baby">
+<meta name="description" content="JavaScript取出陣列重複/不重複值的方法今天早上群組有人問了這樣的問題：如何檢視[11, 22, 33, 44, 44, 55, 55, 66]的陣列重複值。經討論後出現了各種解法，覺得收穫很多紀錄下來。">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="三月紀錄">
-<meta property="og:url" content="http://guahsu.io/2017/04/log-201703/index.html">
+<meta property="og:title" content="JavaScript-Duplicates-Array">
+<meta property="og:url" content="http://guahsu.io/2017/06/JavaScript-Duplicates-Array/index.html">
 <meta property="og:site_name" content="Gua&#39;s Note">
-<meta property="og:description" content="女兒出生啦～又有更多需要學習的了！記錄一下目前用到的新東西跟部分購買項目！">
-<meta property="og:updated_time" content="2017-06-04T14:40:37.000Z">
+<meta property="og:description" content="JavaScript取出陣列重複/不重複值的方法今天早上群組有人問了這樣的問題：如何檢視[11, 22, 33, 44, 44, 55, 55, 66]的陣列重複值。經討論後出現了各種解法，覺得收穫很多紀錄下來。">
+<meta property="og:updated_time" content="2017-06-22T13:30:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="三月紀錄">
-<meta name="twitter:description" content="女兒出生啦～又有更多需要學習的了！記錄一下目前用到的新東西跟部分購買項目！">
+<meta name="twitter:title" content="JavaScript-Duplicates-Array">
+<meta name="twitter:description" content="JavaScript取出陣列重複/不重複值的方法今天早上群組有人問了這樣的問題：如何檢視[11, 22, 33, 44, 44, 55, 55, 66]的陣列重複值。經討論後出現了各種解法，覺得收穫很多紀錄下來。">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://guahsu.io/2017/04/log-201703/"/>
+  <link rel="canonical" href="http://guahsu.io/2017/06/JavaScript-Duplicates-Array/"/>
 
 
 
 
 
-  <title>三月紀錄 | Gua's Note</title>
+  <title>JavaScript-Duplicates-Array | Gua's Note</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -330,7 +330,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://guahsu.io/2017/04/log-201703/">
+    <link itemprop="mainEntityOfPage" href="http://guahsu.io/2017/06/JavaScript-Duplicates-Array/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GuaHsu">
@@ -347,7 +347,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">三月紀錄</h1>
+          <h1 class="post-title" itemprop="name headline">JavaScript-Duplicates-Array</h1>
         
 
         <div class="post-meta">
@@ -359,8 +359,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-04-16T23:19:25+08:00">
-                2017-04-16
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-06-22T20:40:13+08:00">
+                2017-06-22
               </time>
             
 
@@ -382,8 +382,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Diary/" itemprop="url" rel="index">
-                    <span itemprop="name">Diary</span>
+                  <a href="/categories/CODE/" itemprop="url" rel="index">
+                    <span itemprop="name">CODE</span>
                   </a>
                 </span>
 
@@ -400,8 +400,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/log-201703/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="http://guahsu.io/2017/04/log-201703/" itemprop="commentCount">0</span> comments
+                <a href="/2017/06/JavaScript-Duplicates-Array/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://guahsu.io/2017/06/JavaScript-Duplicates-Array/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -426,25 +426,24 @@
       
 
       
-        <blockquote>
-<p>女兒出生啦～又有更多需要學習的了！記錄一下目前用到的新東西跟部分購買項目！</p>
-</blockquote>
+        <h1 id="JavaScript取出陣列重複-不重複值的方法"><a href="#JavaScript取出陣列重複-不重複值的方法" class="headerlink" title="JavaScript取出陣列重複/不重複值的方法"></a>JavaScript取出陣列重複/不重複值的方法</h1><p>今天早上群組有人問了這樣的問題：<br>如何檢視[11, 22, 33, 44, 44, 55, 55, 66]的陣列重複值。<br>經討論後出現了各種解法，覺得收穫很多紀錄下來。</p>
 <a id="more"></a>
-<h1 id="可愛的女兒在2-28出生了！"><a href="#可愛的女兒在2-28出生了！" class="headerlink" title="可愛的女兒在2/28出生了！"></a>可愛的女兒在2/28出生了！</h1><p>過年期間買了支iPhone 6s，原本只想買32GB的覺得已夠用，<br>現在想想還好當初缺貨改買128GB的，一直拍女兒照片一下就用40G了。<br>記錄一下這整個月用到的新東西，跟部分購買物。</p>
-<h2 id="APP-Google-Photos"><a href="#APP-Google-Photos" class="headerlink" title="[APP]Google Photos"></a>[APP]Google Photos</h2><p>非常好用的APP，從之前拿A9時開始使用的，<br>拍照後可以自動同步到google account中，<br>容量則是選用原尺寸(高畫質的話無限，原尺寸的話會吃預設的15GB容量)，<br>因為之前買HTC有送兩年的100GB google空間。</p>
-<p>自動備份後可以刪除已備份的本機檔案來做空間管理，<br>重點是可以建立相簿來讓其他使用者共同編輯，<br>像是我跟老婆就建立了幾本孩子的相簿，來分別上傳我們各自拍的相片。</p>
-<h2 id="APP-寶寶生活紀錄"><a href="#APP-寶寶生活紀錄" class="headerlink" title="[APP]寶寶生活紀錄"></a>[APP]寶寶生活紀錄</h2><p>可以記錄每次餵奶時間，換尿布時間、擠奶次數及量，<br>還有睡眠時間及圖表顯示等，可以觀察每日的飲食狀況，<br>也可以幫助我知道我離上餐多久了！</p>
-<p>在找到這個APP前，原本還想說寫一支來做紀錄，<br>但想想還好，因為要忙著餵奶哄睡我想寫好時他可能都三個月大了XD。</p>
-<h2 id="APP-AndroMoney"><a href="#APP-AndroMoney" class="headerlink" title="[APP]AndroMoney"></a>[APP]AndroMoney</h2><p>雖然本來就會由老婆做記帳，<br>但孩子生出來後不免一直購買一些有的沒的，<br>決定找一個可以同步來共同記帳的軟體，<br>就選了這個評價不錯且開發很久仍有維護的APP。</p>
-<h2 id="實體-JOIE-Litetrax豪華休旅推車-JOIE提籃"><a href="#實體-JOIE-Litetrax豪華休旅推車-JOIE提籃" class="headerlink" title="[實體]JOIE-Litetrax豪華休旅推車 + JOIE提籃"></a>[實體]JOIE-Litetrax豪華休旅推車 + JOIE提籃</h2><p>同品牌JOIE的推車跟提籃可以輕鬆合體，<br>而且價格也滿親民的，全新的一組一萬內有找！<br>提籃是在蝦皮買二手的，因為提籃大概用到3個月大就要換汽座了，<br>推車則是買全新的，看到這台豪華休旅車就覺得滿棒的，<br>除了本來就想買大輪三輪車(覺得推起來順、舒服勝過輕量化)外，<br>他的造型也滿好看的，顏色也是屬於耐看耐髒的灰色系。<br>因為自己的車很小台(March)，在看推車時特別注意尺寸，<br>貨到時發現輪胎是可以快拆的，原本還想說要把後置物板拆掉，<br>後來發現輪胎快拆後整台塞進去剛剛好的時候都快落淚了XD</p>
-
-<h2 id="實體-nac-nac消毒鍋、調乳器"><a href="#實體-nac-nac消毒鍋、調乳器" class="headerlink" title="[實體]nac nac消毒鍋、調乳器"></a>[實體]nac nac消毒鍋、調乳器</h2><p>消毒鍋是一定要有的啦！<br>選擇蒸氣消毒是避免塑膠件被紫外線弄壞、<br>這台也有可設定時間的烘乾功能，消毒完直接烘乾很方便。</p>
-<p>調乳器則是可以當定溫熱水瓶使用的感覺，<br>當孩子在哭的時候去把快煮壺弄滾然後泡奶在降溫實在是來不急啊！<br>平常定溫放著，要泡時直接有剛好的溫度可以泡奶真的很方便！</p>
-<h2 id="實體-德國BRITA濾水壺"><a href="#實體-德國BRITA濾水壺" class="headerlink" title="[實體]德國BRITA濾水壺"></a>[實體]德國BRITA濾水壺</h2><p>因為是母奶+配方奶混喂，除了熱水壺燒開外，<br>也希望水質是有先過濾過的，所以買了這個。</p>
-<hr>
-<p>還有滿多哩哩渣渣的，但主要比較大條暫時就上面幾項。</p>
-<p>孩子出生後，仔細回頭看看自己這三年的過程，<br>很多事情跟想像中的真的不同，<br>還是要靠自己努力充實自己才能去做到理想中的自己啊..<br>不希望相同的還是只有存摺進帳的數字而已了哈哈。</p>
-<p>–<br>最近在重看JavaScript，從觀念在開始學習一遍。</p>
+<p>以下敘述我將變數分別設定為：</p>
+<ol>
+<li><code>origin</code>: 傳入要判斷的陣列，都是<code>[1, 2, &#39;a&#39;, 3, 1, &#39;b&#39;, &#39;a&#39;]</code></li>
+<li><code>result</code>: 不重複的回傳值</li>
+<li><code>repeat</code>: 重複的回傳值</li>
+</ol>
+<p>※以下順序為依據討論回答的順序決定，並非最佳解順序。</p>
+<h2 id="1-filter"><a href="#1-filter" class="headerlink" title="1. filter()"></a>1. filter()</h2><p>我查了自己之前存在EvetNote的資料，可以用ES6的<code>filter()</code>來解：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> origin = [<span class="number">1</span>, <span class="number">2</span>, <span class="string">'a'</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="string">'b'</span>, <span class="string">'a'</span>];</div><div class="line"><span class="keyword">var</span> result = origin.filter(<span class="function"><span class="keyword">function</span>(<span class="params">element, index, arr</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> arr.indexOf(element) === index;</div><div class="line">&#125;);</div><div class="line"><span class="keyword">var</span> repeat = origin.filter(<span class="function"><span class="keyword">function</span>(<span class="params">element, index, arr</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> arr.indexOf(element) !== index;</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(result); <span class="comment">// [1, 2, "a", 3, "b"]</span></div><div class="line"><span class="built_in">console</span>.log(repeat); <span class="comment">// [1, "a"]</span></div></pre></td></tr></table></figure></p>
+<h2 id="2-Set"><a href="#2-Set" class="headerlink" title="2. Set()"></a>2. Set()</h2><p>群組內的Dca大分享的方法，使用ES6的<code>Set()</code>來做唯一值確認，<br>可以利用<code>Set()</code>提供的<code>has</code>與<code>add</code>來簡潔的達到篩選：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> origin = [<span class="number">1</span>, <span class="number">2</span>, <span class="string">'a'</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="string">'b'</span>, <span class="string">'a'</span>];</div><div class="line"><span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Set</span>();</div><div class="line"><span class="keyword">var</span> repeat = <span class="keyword">new</span> <span class="built_in">Set</span>();</div><div class="line">origin.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</div><div class="line">    result.has(item) ? repeat.add(item) : result.add(item);</div><div class="line">&#125;)</div><div class="line"><span class="built_in">console</span>.log(result); <span class="comment">// &#123;1, 2, "a", 3, "b"&#125;</span></div><div class="line"><span class="built_in">console</span>.log(repeat); <span class="comment">// &#123;1, "a"&#125;</span></div></pre></td></tr></table></figure></p>
+<p>參閱：<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set" target="_blank" rel="external">MDN-Set</a></p>
+<h2 id="3-Object-Object-keys"><a href="#3-Object-Object-keys" class="headerlink" title="3. Object + Object.keys()"></a>3. Object + Object.keys()</h2><p>群內另一位龍大分享<strong>不使用ES6</strong>來完成的方法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> origin = [<span class="number">1</span>, <span class="number">2</span>, <span class="string">'a'</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="string">'b'</span>, <span class="string">'a'</span>];</div><div class="line"><span class="keyword">var</span> result = &#123;&#125;;</div><div class="line"><span class="keyword">var</span> repeat = &#123;&#125;;</div><div class="line">origin.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</div><div class="line">  result.hasOwnProperty(item)? repeat[item]++ : result[item]++;</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(result)) <span class="comment">// ["1", "2", "3", "a", "b"]</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(repeat)) <span class="comment">// ["1", "a"]</span></div></pre></td></tr></table></figure></p>
+<p>注意因為是使用<code>Object.keys()</code>來獲得重複/不重複的值，回傳為排序好的字串。<br>關於為何需要<code>repeat[item]++/repeat[item]++</code>則是因為要建立該物件屬性，<br>隨便賦予一個值來使屬性建立起來用而已，不一定要++，使用字串或其他都可如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;&#125;;</div><div class="line">obj[<span class="string">'a'</span>]; <span class="comment">// 沒賦值，此屬性不會被建立</span></div><div class="line">obj[<span class="string">'b'</span>]; <span class="comment">// 沒賦值，此屬性不會被建立</span></div><div class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// Object &#123;&#125;</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(obj)); <span class="comment">// []</span></div><div class="line"></div><div class="line">obj[<span class="string">'a'</span>]++; <span class="comment">// 有賦值(直接++會得到NaN)，所以有建立屬性a</span></div><div class="line">obj[<span class="string">'b'</span>] = <span class="string">''</span>; <span class="comment">// 有賦值(給了一個空字串'')，所以有建立屬性b</span></div><div class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// Object &#123;a: NaN, b: ""&#125;</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(obj)); <span class="comment">// (2) ["a", "b"]</span></div></pre></td></tr></table></figure></p>
+<h2 id="4-reduce"><a href="#4-reduce" class="headerlink" title="4. reduce()"></a>4. reduce()</h2><p>Dca大分享的方法2，可用來回傳不重複值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> origin = [<span class="number">1</span>, <span class="number">2</span>, <span class="string">'a'</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="string">'b'</span>, <span class="string">'a'</span>];</div><div class="line"><span class="keyword">var</span> result = origin.reduce(<span class="function">(<span class="params">obj, item</span>) =&gt;</span> &#123;</div><div class="line">    obj[item] = <span class="number">1</span>;</div><div class="line">    <span class="keyword">return</span> obj;</div><div class="line">&#125;, &#123;&#125;);</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(result)); <span class="comment">// ["1", "2", "3", "a", "b"]</span></div></pre></td></tr></table></figure></p>
+<p>或是將其出現次數記錄下來，之後在寫判斷次數取用(七索大提供思路)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> origin = [<span class="number">1</span>, <span class="number">2</span>, <span class="string">'a'</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="string">'b'</span>, <span class="string">'a'</span>];</div><div class="line"><span class="keyword">var</span> result = origin.reduce(<span class="function">(<span class="params">obj, item</span>) =&gt;</span> &#123;</div><div class="line">    obj[item] = obj[item] ? ++obj[item] : <span class="number">1</span>;</div><div class="line">    <span class="keyword">return</span> obj;</div><div class="line">&#125;, &#123;&#125;);</div><div class="line"><span class="built_in">console</span>.log(result); <span class="comment">// Object &#123;1: 2, 2: 1, 3: 1, a: 2, b: 1&#125;</span></div></pre></td></tr></table></figure></p>
+<h2 id="5-Set-Array-from"><a href="#5-Set-Array-from" class="headerlink" title="5. Set() + Array.from()"></a>5. Set() + Array.from()</h2><p>後來又查到的新方法，更加簡潔的獲取不重複值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> origin = [<span class="number">1</span>, <span class="number">2</span>, <span class="string">'a'</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="string">'b'</span>, <span class="string">'a'</span>];</div><div class="line"><span class="keyword">var</span> result = <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(origin));</div><div class="line"><span class="built_in">console</span>.log(result); <span class="comment">// [1, 2, "a", 3, "b"]</span></div></pre></td></tr></table></figure></p>
+<p>參閱：<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from" target="_blank" rel="external">MDN-Array.from</a></p>
 
       
     </div>
@@ -474,7 +473,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Baby/" rel="tag"># Baby</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
         </div>
       
@@ -503,8 +502,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/guas-blog-v1-online/" rel="next" title="好久沒有這麼晚睡了..終於上線了~~">
-                <i class="fa fa-chevron-left"></i> 好久沒有這麼晚睡了..終於上線了~~
+              <a href="/2017/06/JavaScript30-08-Fun-with-HTML5-Canvas/" rel="next" title="「JS30紀錄＆心得」08 - Fun with HTML5 Canvas">
+                <i class="fa fa-chevron-left"></i> 「JS30紀錄＆心得」08 - Fun with HTML5 Canvas
               </a>
             
           </div>
@@ -512,10 +511,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/JavaScript-TravelMap/" rel="prev" title="JavaScript練習-臺北市旅遊景點">
-                JavaScript練習-臺北市旅遊景點 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -542,7 +537,7 @@
   <div class="comments" id="comments">
     
       <div class="fb-comments"
-           data-href="http://guahsu.io/2017/04/log-201703/"
+           data-href="http://guahsu.io/2017/06/JavaScript-Duplicates-Array/"
            data-numposts="10"
            data-width="100%"
            data-colorscheme="light">
@@ -662,7 +657,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#可愛的女兒在2-28出生了！"><span class="nav-text">可愛的女兒在2/28出生了！</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#APP-Google-Photos"><span class="nav-text">[APP]Google Photos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#APP-寶寶生活紀錄"><span class="nav-text">[APP]寶寶生活紀錄</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#APP-AndroMoney"><span class="nav-text">[APP]AndroMoney</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#實體-JOIE-Litetrax豪華休旅推車-JOIE提籃"><span class="nav-text">[實體]JOIE-Litetrax豪華休旅推車 + JOIE提籃</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#實體-nac-nac消毒鍋、調乳器"><span class="nav-text">[實體]nac nac消毒鍋、調乳器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#實體-德國BRITA濾水壺"><span class="nav-text">[實體]德國BRITA濾水壺</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript取出陣列重複-不重複值的方法"><span class="nav-text">JavaScript取出陣列重複/不重複值的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-filter"><span class="nav-text">1. filter()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Set"><span class="nav-text">2. Set()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Object-Object-keys"><span class="nav-text">3. Object + Object.keys()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-reduce"><span class="nav-text">4. reduce()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Set-Array-from"><span class="nav-text">5. Set() + Array.from()</span></a></li></ol></li></ol></div>
             
 
           </div>
