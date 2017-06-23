@@ -100,10 +100,10 @@
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript取出陣列重複&#x2F;不重複值的方法">
-<meta property="og:url" content="http://guahsu.io/2017/06/JavaScript-Duplicates-Array/index.html">
+<meta property="og:url" content="https://guahsu.io/2017/06/JavaScript-Duplicates-Array/index.html">
 <meta property="og:site_name" content="Gua&#39;s Note">
 <meta property="og:description" content="今天早上群組有人問了這樣的問題：如何檢視[11, 22, 33, 44, 44, 55, 55, 66]的陣列重複值。經討論後出現了各種解法，覺得收穫很多紀錄下來。">
-<meta property="og:updated_time" content="2017-06-22T22:42:34.000Z">
+<meta property="og:updated_time" content="2017-06-23T02:41:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript取出陣列重複&#x2F;不重複值的方法">
 <meta name="twitter:description" content="今天早上群組有人問了這樣的問題：如何檢視[11, 22, 33, 44, 44, 55, 55, 66]的陣列重複值。經討論後出現了各種解法，覺得收穫很多紀錄下來。">
@@ -134,7 +134,7 @@
 
 
 
-  <link rel="canonical" href="http://guahsu.io/2017/06/JavaScript-Duplicates-Array/"/>
+  <link rel="canonical" href="https://guahsu.io/2017/06/JavaScript-Duplicates-Array/"/>
 
 
 
@@ -330,7 +330,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://guahsu.io/2017/06/JavaScript-Duplicates-Array/">
+    <link itemprop="mainEntityOfPage" href="https://guahsu.io/2017/06/JavaScript-Duplicates-Array/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GuaHsu">
@@ -401,7 +401,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/06/JavaScript-Duplicates-Array/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="http://guahsu.io/2017/06/JavaScript-Duplicates-Array/" itemprop="commentCount">0</span> comments
+                  <span class="post-comments-count fb-comments-count" data-href="https://guahsu.io/2017/06/JavaScript-Duplicates-Array/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -435,9 +435,14 @@
 <li><code>repeat</code>: 重複的回傳值</li>
 </ol>
 <p>※以下順序為依據討論回答的順序決定，並非最佳解順序。</p>
-<h2 id="1-filter"><a href="#1-filter" class="headerlink" title="1. filter()"></a>1. filter()</h2><p>我查了自己之前存在EvetNote的資料，可以用ES6的<code>filter()</code>來解：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> origin = [<span class="number">1</span>, <span class="number">2</span>, <span class="string">'a'</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="string">'b'</span>, <span class="string">'a'</span>];</div><div class="line"><span class="keyword">var</span> result = origin.filter(<span class="function"><span class="keyword">function</span>(<span class="params">element, index, arr</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> arr.indexOf(element) === index;</div><div class="line">&#125;);</div><div class="line"><span class="keyword">var</span> repeat = origin.filter(<span class="function"><span class="keyword">function</span>(<span class="params">element, index, arr</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> arr.indexOf(element) !== index;</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(result); <span class="comment">// [1, 2, "a", 3, "b"]</span></div><div class="line"><span class="built_in">console</span>.log(repeat); <span class="comment">// [1, "a"]</span></div></pre></td></tr></table></figure></p>
+<h2 id="1-filter"><a href="#1-filter" class="headerlink" title="1. filter()"></a>1. filter()</h2><p>我查了自己之前存在EverNote的資料，可以用<del>ES6的</del><code>filter()</code>來解：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> origin = [<span class="number">1</span>, <span class="number">2</span>, <span class="string">'a'</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="string">'b'</span>, <span class="string">'a'</span>];</div><div class="line"><span class="keyword">var</span> result = origin.filter(<span class="function"><span class="keyword">function</span>(<span class="params">element, index, arr</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> arr.indexOf(element) === index;</div><div class="line">&#125;);</div><div class="line"><span class="keyword">var</span> repeat = origin.filter(<span class="function"><span class="keyword">function</span>(<span class="params">element, index, arr</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> arr.indexOf(element) !== index;</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(result); <span class="comment">// [1, 2, "a", 3, "b"]</span></div><div class="line"><span class="built_in">console</span>.log(repeat); <span class="comment">// [1, "a"]</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>感謝<a href="https://www.facebook.com/groups/javascript.tw/" target="_blank" rel="external">FB社團</a>-承諺提醒:filter()不是ES6新增的語法<br>參閱：<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter" target="_blank" rel="external">MDN-Array.prototype.filter()</a></p>
+</blockquote>
 <h2 id="2-Set"><a href="#2-Set" class="headerlink" title="2. Set()"></a>2. Set()</h2><p>群組內的Dca大分享的方法，使用ES6的<code>Set()</code>來做唯一值確認，<br>可以利用<code>Set()</code>提供的<code>has</code>與<code>add</code>來簡潔的達到篩選：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> origin = [<span class="number">1</span>, <span class="number">2</span>, <span class="string">'a'</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="string">'b'</span>, <span class="string">'a'</span>];</div><div class="line"><span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Set</span>();</div><div class="line"><span class="keyword">var</span> repeat = <span class="keyword">new</span> <span class="built_in">Set</span>();</div><div class="line">origin.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</div><div class="line">    result.has(item) ? repeat.add(item) : result.add(item);</div><div class="line">&#125;)</div><div class="line"><span class="built_in">console</span>.log(result); <span class="comment">// &#123;1, 2, "a", 3, "b"&#125;</span></div><div class="line"><span class="built_in">console</span>.log(repeat); <span class="comment">// &#123;1, "a"&#125;</span></div></pre></td></tr></table></figure></p>
+<blockquote>
 <p>參閱：<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set" target="_blank" rel="external">MDN-Set</a></p>
+</blockquote>
 <h2 id="3-Object-Object-keys"><a href="#3-Object-Object-keys" class="headerlink" title="3. Object + Object.keys()"></a>3. Object + Object.keys()</h2><p>群內另一位龍大分享<strong>不使用ES6</strong>來完成的方法<br>可以取得不重複值，也可以用物件去判斷出現次數來做重複值的選取：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> origin = [<span class="number">1</span>, <span class="number">2</span>, <span class="string">'a'</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="string">'b'</span>, <span class="string">'a'</span>];</div><div class="line"><span class="keyword">var</span> result = &#123;&#125;;</div><div class="line">origin.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>) </span>&#123;</div><div class="line">  result[item] = result[item] ? result[item] + <span class="number">1</span> : <span class="number">1</span>;</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(result)); <span class="comment">// ["1", "2", "3", "a", "b"]</span></div><div class="line"><span class="built_in">console</span>.log(result); <span class="comment">// Object &#123;1: 2, 2: 1, 3: 1, a: 2, b: 1&#125;</span></div></pre></td></tr></table></figure></p>
 <blockquote>
 <hr>
@@ -447,10 +452,17 @@
 </blockquote>
 <h2 id="4-reduce"><a href="#4-reduce" class="headerlink" title="4. reduce()"></a>4. reduce()</h2><p>Dca大分享的方法2，可用來回傳不重複值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> origin = [<span class="number">1</span>, <span class="number">2</span>, <span class="string">'a'</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="string">'b'</span>, <span class="string">'a'</span>];</div><div class="line"><span class="keyword">var</span> result = origin.reduce(<span class="function">(<span class="params">obj, item</span>) =&gt;</span> &#123;</div><div class="line">    obj[item] = <span class="number">1</span>;</div><div class="line">    <span class="keyword">return</span> obj;</div><div class="line">&#125;, &#123;&#125;);</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(result)); <span class="comment">// ["1", "2", "3", "a", "b"]</span></div></pre></td></tr></table></figure></p>
 <p>或是將其出現次數記錄下來，之後在寫判斷次數取用(七索大提供思路)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> origin = [<span class="number">1</span>, <span class="number">2</span>, <span class="string">'a'</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="string">'b'</span>, <span class="string">'a'</span>];</div><div class="line"><span class="keyword">var</span> result = origin.reduce(<span class="function">(<span class="params">obj, item</span>) =&gt;</span> &#123;</div><div class="line">    obj[item] = obj[item] ? obj[item] + <span class="number">1</span> : <span class="number">1</span>;</div><div class="line">    <span class="keyword">return</span> obj;</div><div class="line">&#125;, &#123;&#125;);</div><div class="line"><span class="built_in">console</span>.log(result); <span class="comment">// Object &#123;1: 2, 2: 1, 3: 1, a: 2, b: 1&#125;</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>參閱：<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce" target="_blank" rel="external">MDN-Array.prototype.reduce()</a></p>
+</blockquote>
 <h2 id="5-Set-Array-from"><a href="#5-Set-Array-from" class="headerlink" title="5. Set() + Array.from()"></a>5. Set() + Array.from()</h2><p>後來又查到的新方法，更加簡潔的獲取不重複值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> origin = [<span class="number">1</span>, <span class="number">2</span>, <span class="string">'a'</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="string">'b'</span>, <span class="string">'a'</span>];</div><div class="line"><span class="keyword">var</span> result = <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(origin));</div><div class="line"><span class="built_in">console</span>.log(result); <span class="comment">// [1, 2, "a", 3, "b"]</span></div></pre></td></tr></table></figure></p>
+<blockquote>
 <p>參閱：<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from" target="_blank" rel="external">MDN-Array.from</a></p>
+</blockquote>
 <h2 id="6-Set-Spread"><a href="#6-Set-Spread" class="headerlink" title="6. Set() + Spread"></a>6. Set() + Spread</h2><p><a href="https://www.facebook.com/groups/javascript.tw/" target="_blank" rel="external">FB社團</a>-建汶分享的，也是一個簡潔獲取不重複值的做法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> origin = [<span class="number">1</span>, <span class="number">2</span>, <span class="string">'a'</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="string">'b'</span>, <span class="string">'a'</span>];</div><div class="line"><span class="keyword">var</span> result = [...(<span class="keyword">new</span> <span class="built_in">Set</span>(origin))];</div><div class="line"><span class="built_in">console</span>.log(result); <span class="comment">// [1, 2, "a", 3, "b"]</span></div></pre></td></tr></table></figure></p>
+<blockquote>
 <p>參閱：<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator" target="_blank" rel="external">MDN-Spread syntax</a></p>
+</blockquote>
 <h2 id="其他關於Array的心得記錄"><a href="#其他關於Array的心得記錄" class="headerlink" title="其他關於Array的心得記錄"></a>其他關於Array的心得記錄</h2><p><a href="https://guahsu.io/2017/05/JavaScript30-04-Array-Cardio-Day-1/">「JS30紀錄＆心得」04 - Array Cardio Day 1</a><br><a href="https://guahsu.io/2017/05/JavaScript30-07-Array-Cardio-Day-2/">「JS30紀錄＆心得」07 - Array Cardio Day 2</a></p>
 
       
@@ -545,7 +557,7 @@
   <div class="comments" id="comments">
     
       <div class="fb-comments"
-           data-href="http://guahsu.io/2017/06/JavaScript-Duplicates-Array/"
+           data-href="https://guahsu.io/2017/06/JavaScript-Duplicates-Array/"
            data-numposts="10"
            data-width="100%"
            data-colorscheme="light">
