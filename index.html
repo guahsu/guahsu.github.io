@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="zh-tw">
+<html class="theme-next mist use-motion" lang="zh_TW">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -118,7 +118,7 @@
     motion: true,
     duoshuo: {
       userId: '0',
-      author: '作者'
+      author: 'Author'
     },
     algolia: {
       applicationID: '',
@@ -145,18 +145,19 @@
     FB.init({
       appId      : '1251302748300663',
       xfbml      : true,
-      version    : 'v2.6'
+      version    : 'v2.9'
     });
+    FB.AppEvents.logPageView();
   };
 
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
      if (d.getElementById(id)) {return;}
      js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/zh_tw/sdk.js";
+     js.src = "//connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-</script>
+
 
 
 
@@ -181,9 +182,14 @@
 
 
 
+  <script type="text/javascript">
+    var host = "guahsu.io";
+    if ((host == window.location.host) && (window.location.protocol != "https:"))
+        window.location.protocol = "https";
+  </script>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh_TW">
 
   
   
@@ -229,41 +235,41 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
+          <a href="/about/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            關於
+            Über
           </a>
         </li>
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            歸檔
+            Archiv
           </a>
         </li>
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
+          <a href="/categories/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            分類
+            Kategorien
           </a>
         </li>
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            標籤
+            Tags
           </a>
         </li>
       
@@ -276,7 +282,7 @@
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
-            檢索
+            Suche
           </a>
         </li>
       
@@ -296,7 +302,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
+             placeholder="Searching..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -359,9 +365,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">發表於</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-06-24T13:05:45+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-24T13:05:45+08:00">
                 2017-06-24
               </time>
             
@@ -380,7 +386,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分類於</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -433,7 +439,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/JavaScript30-09-Dev-Tools-Domination/#more" rel="contents">
-              閱讀全文 &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -507,9 +513,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">發表於</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-06-22T20:40:13+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-22T20:40:13+08:00">
                 2017-06-22
               </time>
             
@@ -528,7 +534,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分類於</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -581,7 +587,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/JavaScript-Duplicates-Array/#more" rel="contents">
-              閱讀全文 &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -655,9 +661,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">發表於</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-06-11T23:22:52+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-11T23:22:52+08:00">
                 2017-06-11
               </time>
             
@@ -676,7 +682,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分類於</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -730,7 +736,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/JavaScript30-08-Fun-with-HTML5-Canvas/#more" rel="contents">
-              閱讀全文 &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -804,9 +810,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">發表於</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-06-06T23:17:15+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-06T23:17:15+08:00">
                 2017-06-06
               </time>
             
@@ -825,7 +831,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分類於</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -881,7 +887,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/aws-bill-refund/#more" rel="contents">
-              閱讀全文 &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -955,9 +961,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">發表於</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-06-05T21:50:50+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-05T21:50:50+08:00">
                 2017-06-05
               </time>
             
@@ -976,7 +982,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分類於</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1032,7 +1038,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/first-macbook-pro/#more" rel="contents">
-              閱讀全文 &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1106,9 +1112,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">發表於</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-05-27T21:46:02+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-27T21:46:02+08:00">
                 2017-05-27
               </time>
             
@@ -1127,7 +1133,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分類於</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1184,7 +1190,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/05/JavaScript-ETH-Linstener/#more" rel="contents">
-              閱讀全文 &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1268,9 +1274,9 @@
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives">
+              <a href="/archives/">
                 <span class="site-state-item-count">19</span>
-                <span class="site-state-item-name">文章</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
@@ -1281,7 +1287,7 @@
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">分類</span>
+                <span class="site-state-item-name">Kategorien</span>
               </a>
             </div>
           
@@ -1292,7 +1298,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
                 <span class="site-state-item-count">14</span>
-                <span class="site-state-item-name">標籤</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -1353,7 +1359,7 @@
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
