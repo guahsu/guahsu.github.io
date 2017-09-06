@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://guahsu.io/2017/09/JavaScript30-15-LocalStorage/</loc>
+    
+    <lastmod>2017-09-06T13:59:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://guahsu.io/2017/08/JavaScript30-14-JavaScript-References-VS-Copying/</loc>
     
     <lastmod>2017-08-30T02:11:34.000Z</lastmod>
