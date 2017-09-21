@@ -109,7 +109,7 @@
 <meta property="og:image" content="https://guahsu.io/2017/09/vue-firebase-realtime-line-chat/vue_firebase_chat_3.png">
 <meta property="og:image" content="https://guahsu.io/2017/09/vue-firebase-realtime-line-chat/vue_firebase_chat_4.png">
 <meta property="og:image" content="https://guahsu.io/2017/09/vue-firebase-realtime-line-chat/vue_firebase_chat_5.png">
-<meta property="og:updated_time" content="2017-09-21T14:56:26.000Z">
+<meta property="og:updated_time" content="2017-09-21T15:12:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue-firebase-realtime-line-chat">
 <meta name="twitter:description" content="這幾天在練習用vue &amp;amp; firebase刻一個仿line即時同步聊天的功能，直接初體驗vue.js + firebase + webpack三種願望一次滿足XD！">
@@ -442,6 +442,7 @@
         <img src="/2017/09/vue-firebase-realtime-line-chat/vue_firebase_chat.gif" alt="vue_firebase_chat.gif" title="">
 <p>這幾天在練習用vue &amp; firebase刻一個仿line即時同步聊天的功能，<br>直接初體驗vue.js + firebase + webpack三種願望一次滿足XD！</p>
 <a id="more"></a>
+<h3 id="原始碼"><a href="#原始碼" class="headerlink" title="原始碼"></a>原始碼</h3><p>我放在我的<a href="https://github.com/guahsu/vue-firebase-line-chat/blob/master/src/components/ChatRoom.vue" target="_blank" rel="external">GitHub</a>中。</p>
 <h3 id="環境設定步驟"><a href="#環境設定步驟" class="headerlink" title="環境設定步驟"></a>環境設定步驟</h3><ol>
 <li>首先安裝node.js，理論目前的版本都會有內建npm了。<blockquote>
 <p>下載位置：<a href="https://nodejs.org" target="_blank" rel="external">https://nodejs.org</a><br>可以透過<code>node -v</code>及<code>npm -v</code>來查證是否已安裝完成node與npm。</p>
@@ -501,7 +502,6 @@
 <p>但這小練習我都把邏輯整在同一個vue中，<br>還未學到/使用在vue中正確拆分邏輯的做法。</p>
 <h4 id="Firebase-1"><a href="#Firebase-1" class="headerlink" title="Firebase"></a><strong>Firebase</strong></h4><p>之前有稍微聽過被google合併，但就僅此於而已此從未使用及了解過XD<br>這次練習中使用到的database覺得很新奇阿，是一個雲端即時同步的noSQL，<br>設定非常簡單方便，也是第一次親身寫出/感受到websoket的效果感(超酷)。<br>其他相關的功能也很多，之後有機會一定要在多研究一下(越來越多待讀項目..)</p>
 <h4 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a><strong>Webpack</strong></h4><p>一直有聽到，看過，但從未使用過，<br>但其實這次使用後的算是知道如何使用，但不了解內容，<br>對於設定檔目前沒有細讀，並不是很熟悉各相關設定檔，<br>反而覺得最特別的是熱加載及編譯後的程式碼壓縮混淆!<br>但日後練習都用webpack起，遇到問題找解答，應該會越來越熟吧XD  </p>
-<h3 id="原始碼"><a href="#原始碼" class="headerlink" title="原始碼"></a>原始碼</h3><p>我放在我的<a href="https://github.com/guahsu/vue-firebase-line-chat/blob/master/src/components/ChatRoom.vue" target="_blank" rel="external">GitHub</a>中。</p>
 <h3 id="感謝"><a href="#感謝" class="headerlink" title="感謝"></a>感謝</h3><p>六角學院放出的<a href="https://www.youtube.com/watch?v=8O3teHziU_E&amp;list=PLYrA-SsMvTPNPhv8KeSNtPTY8q85-SSJA" target="_blank" rel="external">Vue教學系列</a>，從幼幼班入門到vue-cli &amp; firebase介紹，<br>讓我能從零學習相關知識，從而建立完這個練習:)</p>
 <p>六角學院在本週日也要釋放Bootstrap的課程了！<br>但不知何時才有空可以把全系列看過並實作完啊QQ….</p>
 <p><a href="https://www.facebook.com/hexschool/?fref=ts" target="_blank" rel="external">六角學院-FB</a><br><a href="https://www.facebook.com/sfismy?fref=ts" target="_blank" rel="external">洧杰老師-FB</a><br><a href="https://www.facebook.com/WccCasper/?fref=ts" target="_blank" rel="external">卡斯伯老師-FB</a></p>
@@ -722,7 +722,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#環境設定步驟"><span class="nav-text">環境設定步驟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-cli-amp-webpack"><span class="nav-text">Vue-cli & webpack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Firebase"><span class="nav-text">Firebase</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-router設定"><span class="nav-text">vue-router設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主程式撰寫ChatRoom"><span class="nav-text">主程式撰寫ChatRoom</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#執行與編譯"><span class="nav-text">執行與編譯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#心得"><span class="nav-text">心得</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vue-js"><span class="nav-text">vue.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Firebase-1"><span class="nav-text">Firebase</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Webpack"><span class="nav-text">Webpack</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原始碼"><span class="nav-text">原始碼</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#感謝"><span class="nav-text">感謝</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#原始碼"><span class="nav-text">原始碼</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#環境設定步驟"><span class="nav-text">環境設定步驟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-cli-amp-webpack"><span class="nav-text">Vue-cli & webpack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Firebase"><span class="nav-text">Firebase</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-router設定"><span class="nav-text">vue-router設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主程式撰寫ChatRoom"><span class="nav-text">主程式撰寫ChatRoom</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#執行與編譯"><span class="nav-text">執行與編譯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#心得"><span class="nav-text">心得</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vue-js"><span class="nav-text">vue.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Firebase-1"><span class="nav-text">Firebase</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Webpack"><span class="nav-text">Webpack</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#感謝"><span class="nav-text">感謝</span></a></li></ol></div>
             
 
           </div>
