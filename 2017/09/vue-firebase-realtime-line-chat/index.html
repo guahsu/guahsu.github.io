@@ -1,0 +1,1225 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Vue,Firebase,Webpack," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+  <meta property="fb:admins" content="GuaHsu" />
+  <meta property="fb:app_id" content="327431334344582" />
+
+
+
+<meta name="description" content="這幾天在練習用vue &amp;amp; firebase刻一個仿line即時同步聊天的功能，直接初體驗vue.js + firebase + webpack三種願望一次滿足XD！">
+<meta name="keywords" content="Vue,Firebase,Webpack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue-firebase-realtime-line-chat">
+<meta property="og:url" content="https://guahsu.io/2017/09/vue-firebase-realtime-line-chat/">
+<meta property="og:site_name" content="Gua&#39;s Note">
+<meta property="og:description" content="這幾天在練習用vue &amp;amp; firebase刻一個仿line即時同步聊天的功能，直接初體驗vue.js + firebase + webpack三種願望一次滿足XD！">
+<meta property="og:image" content="https://guahsu.io/2017/09/vue-firebase-realtime-line-chat/vue_firebase_chat.gif">
+<meta property="og:image" content="https://guahsu.io/2017/09/vue-firebase-realtime-line-chat/vue_firebase_chat_1.png">
+<meta property="og:image" content="https://guahsu.io/2017/09/vue-firebase-realtime-line-chat/vue_firebase_chat_2.png">
+<meta property="og:image" content="https://guahsu.io/2017/09/vue-firebase-realtime-line-chat/vue_firebase_chat_3.png">
+<meta property="og:image" content="https://guahsu.io/2017/09/vue-firebase-realtime-line-chat/vue_firebase_chat_4.png">
+<meta property="og:image" content="https://guahsu.io/2017/09/vue-firebase-realtime-line-chat/vue_firebase_chat_5.png">
+<meta property="og:updated_time" content="2017-09-21T14:56:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue-firebase-realtime-line-chat">
+<meta name="twitter:description" content="這幾天在練習用vue &amp;amp; firebase刻一個仿line即時同步聊天的功能，直接初體驗vue.js + firebase + webpack三種願望一次滿足XD！">
+<meta name="twitter:image" content="https://guahsu.io/2017/09/vue-firebase-realtime-line-chat/vue_firebase_chat.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '作者'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://guahsu.io/2017/09/vue-firebase-realtime-line-chat/"/>
+
+
+
+
+
+  <title>vue-firebase-realtime-line-chat | Gua's Note</title>
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '327431334344582',
+      xfbml      : true,
+      version    : 'v2.9'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_TW/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-84594235-4', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    var host = "guahsu.io";
+    if ((host == window.location.host) && (window.location.protocol != "https:"))
+        window.location.protocol = "https";
+  </script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gua's Note</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">瓜的筆記</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            檢索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://guahsu.io/2017/09/vue-firebase-realtime-line-chat/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GuaHsu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gua's Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vue-firebase-realtime-line-chat</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-09-21T22:10:10+08:00">
+                2017-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CODE/" itemprop="url" rel="index">
+                    <span itemprop="name">CODE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/09/vue-firebase-realtime-line-chat/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://guahsu.io/2017/09/vue-firebase-realtime-line-chat/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <img src="/2017/09/vue-firebase-realtime-line-chat/vue_firebase_chat.gif" alt="vue_firebase_chat.gif" title="">
+<p>這幾天在練習用vue &amp; firebase刻一個仿line即時同步聊天的功能，<br>直接初體驗vue.js + firebase + webpack三種願望一次滿足XD！</p>
+<a id="more"></a>
+<h3 id="環境設定步驟"><a href="#環境設定步驟" class="headerlink" title="環境設定步驟"></a>環境設定步驟</h3><ol>
+<li>首先安裝node.js，理論目前的版本都會有內建npm了。<blockquote>
+<p>下載位置：<a href="https://nodejs.org" target="_blank" rel="external">https://nodejs.org</a><br>可以透過<code>node -v</code>及<code>npm -v</code>來查證是否已安裝完成node與npm。</p>
+</blockquote>
+</li>
+<li>安裝vue-cli，透過指令<code>npm install --g vue-cli</code>安裝。<blockquote>
+<p>可以透過<code>vue -V</code>來查證是否已安裝完成(-V是大寫唷)。</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="Vue-cli-amp-webpack"><a href="#Vue-cli-amp-webpack" class="headerlink" title="Vue-cli &amp; webpack"></a>Vue-cli &amp; webpack</h3><ol>
+<li>先起一個資料夾來存放專案，並進入該資料夾內，</li>
+<li>接著建立專案，透過vue-cli可以透過指令直接建立一包專案，<br>這裡我們使用指令<code>vue init webpack</code>來建立webpack的專案包。<blockquote>
+<p>安裝vue-cli後，可以在命令列下<code>vue list</code>列出可用的template<br>建立專案使用<code>vue init &lt;template&gt;</code>這次用到的是webpack。</p>
+</blockquote>
+</li>
+<li><p>建立設定項目:[]&lt;方框內的是我的設定選項</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">? Generate project in current directory? //建於當前資料夾[Yes]</div><div class="line">? Project name (folder_name) //專案名稱，注意需小寫 [自訂專案名稱]</div><div class="line">? Project description A Vue.js project //專案描述 [自訂描述]</div><div class="line">? Author //作者，預設抓當前環境git user [自訂]</div><div class="line">? Vue build standalone [Enter]</div><div class="line">? Install vue-router? //安裝vue-router [Yes]</div><div class="line">? Use ESLint to lint your code? [No]</div><div class="line">? Setup unit tests with Karma + Mocha? [No]</div><div class="line">? Setup e2e tests with Nightwatch? [No]</div></pre></td></tr></table></figure>
+</li>
+<li><p>當環境建立好後，輸入指令<code>npm install</code>使相依套件都下載到當前專案中</p>
+</li>
+<li>主要目錄結構：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">|- build (webpack的設定檔)</div><div class="line">|- config (專案設定檔)</div><div class="line">|- dist (編譯後產出的位置)</div><div class="line">|- src (專案程式碼目錄)</div><div class="line">  |- assets (其他 css, js, images)</div><div class="line">  |- components (主要 vue 元件)</div><div class="line">  |- router (vue 的路由器)</div><div class="line">  |- App.vue (主要樣版檔)</div><div class="line">  |- main.js (vue js 主檔案)</div><div class="line">|- index.js 靜態首頁(進入點)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="Firebase"><a href="#Firebase" class="headerlink" title="Firebase"></a>Firebase</h3><ol>
+<li>建立一個專案<img src="/2017/09/vue-firebase-realtime-line-chat/vue_firebase_chat_1.png" alt="vue_firebase_chat_1.png" title=""></li>
+<li>將Firebase的連結資訊複製起來<img src="/2017/09/vue-firebase-realtime-line-chat/vue_firebase_chat_2.png" alt="vue_firebase_chat_2.png" title="">
+<img src="/2017/09/vue-firebase-realtime-line-chat/vue_firebase_chat_3.png" alt="vue_firebase_chat_3.png" title=""></li>
+<li>進入Database<img src="/2017/09/vue-firebase-realtime-line-chat/vue_firebase_chat_4.png" alt="vue_firebase_chat_4.png" title=""></li>
+<li>修改權限並發布<img src="/2017/09/vue-firebase-realtime-line-chat/vue_firebase_chat_5.png" alt="vue_firebase_chat_5.png" title="">
+</li>
+</ol>
+<h3 id="vue-router設定"><a href="#vue-router設定" class="headerlink" title="vue-router設定"></a>vue-router設定</h3><ol>
+<li>到index.html把firebase剛才複製的那串載入至head中</li>
+<li>到router/index.js修改程式:<br>vue-router是vue的路由器，備註內部使用方式如下：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></div><div class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'vue-router'</span></div><div class="line"><span class="comment">//載入元件ChatRoom</span></div><div class="line"><span class="keyword">import</span> ChatRoom <span class="keyword">from</span> <span class="string">'@/components/ChatRoom'</span></div><div class="line"></div><div class="line">Vue.use(Router)</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</div><div class="line">  <span class="attr">routes</span>: [</div><div class="line">    &#123;</div><div class="line">      <span class="comment">//路徑用於網址列</span></div><div class="line">      path: <span class="string">'/'</span>,</div><div class="line">      <span class="comment">//name用於設定連結，例如樣板頁中可用下面方式來寫連結，就不用寫&lt;a&gt;掛path了</span></div><div class="line">      <span class="comment">//&lt;router-link :to="&#123; name: 'ChatRoom' &#125;&gt;ChatRoom Page&lt;/router-link&gt;</span></div><div class="line">      name: <span class="string">'ChatRoom'</span>,</div><div class="line">      <span class="comment">//到這個ChatRoom(/)時，使用ChatRoom元件</span></div><div class="line">      component: ChatRoom</div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>而routes內是陣列包覆物件，所以要再新增一個就只要透過逗號(,)的物件新增方式即可，<br>而router的結果都會被呈現在<code>&lt;router-view&gt;&lt;/router-view&gt;</code>中(參考main.js)。</p>
+<blockquote>
+<p>在我的程式碼中，Hello已被替換為ChatRoom(預設範例為Hello)<br>其實這個練習中目前並沒有實際用到router的功能，因為僅載入一頁XD。<br>詳細設定可參閱官方文件<a href="https://router.vuejs.org/zh-cn/" target="_blank" rel="external">vue-router 2官方文件</a></p>
+</blockquote>
+<h3 id="主程式撰寫ChatRoom"><a href="#主程式撰寫ChatRoom" class="headerlink" title="主程式撰寫ChatRoom"></a>主程式撰寫ChatRoom</h3><ol>
+<li>到components/ChatRoom.vue(預設是Hello.vue我改名了)</li>
+<li>HTML與JS都有用到vue的寫法，我將撰寫的程式已備註如下：<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 區塊：name area --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"name"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">h3</span>&gt;</span>Name：&#123;&#123; userName &#125;&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line">      <span class="comment">&lt;!-- 註解：使用@click來偵測click，觸發時執行method中的setName() --&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"reset"</span> @<span class="attr">click</span>=<span class="string">"setName()"</span>&gt;</span>Reset Name<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 區塊：chat room --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"chatRoom"</span>&gt;</span></div><div class="line">      <span class="comment">&lt;!-- 區塊：head --&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"roomHead"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"roomHead__topButtons"</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"roomHead__button close"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"roomHead__button minimize"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"roomHead__button zoom"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://lorempixel.com/50/50/"</span> <span class="attr">class</span>=<span class="string">"roomHead__img"</span> <span class="attr">draggable</span>=<span class="string">"false"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"roomHead__title"</span>&gt;</span>Test Room<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      <span class="comment">&lt;!-- 區塊：body --&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"js-roomBody"</span> <span class="attr">class</span>=<span class="string">"roomBody"</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!-- 註解：使用template來當迴圈容器，或是判斷用的容器，當條件達成時產出template內容 --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-for</span>=<span class="string">"item in messages"</span>&gt;</span></div><div class="line">          <span class="comment">&lt;!-- other people --&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-if</span>=<span class="string">"item.userName != userName"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"messageBox"</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://lorempixel.com/40/40/"</span> <span class="attr">class</span>=<span class="string">"messageBox__img"</span> <span class="attr">draggable</span>=<span class="string">"false"</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"messageBox__content"</span>&gt;</span></div><div class="line">                <span class="comment">&lt;!-- 註解：Vue使用雙花括號&#123;&#123;&#125;&#125;來顯示script中data:的資料 --&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"messageBox__name"</span>&gt;</span>&#123;&#123;item.userName&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"messageBox__text"</span>&gt;</span>&#123;&#123;item.message&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">              <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"messageBox__time"</span>&gt;</span>&#123;&#123;item.timeStamp&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line">          <span class="comment">&lt;!-- 區塊：self --&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">template</span> <span class="attr">v-if</span>=<span class="string">"item.userName == userName"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"messageBox messageBox--self"</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"messageBox__time messageBox__time--self"</span>&gt;</span>&#123;&#123;item.timeStamp&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"messageBox__content messageBox__content--self"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"messageBox__text messageBox__text--self"</span>&gt;</span>&#123;&#123;item.message&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">              <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      <span class="comment">&lt;!-- 區塊：bottom --&gt;</span></div><div class="line">      <span class="comment">&lt;!-- 註解：使用:class來寫class是否顯示的判斷式&#123; class: 判斷式 &#125; --&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"roomBottom"</span> <span class="attr">:class</span>=<span class="string">"&#123; disable: !userName &#125;"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"roomBottom__tools"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"roomBottom__input"</span>&gt;</span></div><div class="line">          <span class="comment">&lt;!-- 若要再帶入原生js的event(e)到function中，必須使用$event當參數傳入 --&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">id</span>=<span class="string">"js-message"</span> <span class="attr">class</span>=<span class="string">"roomBottom__input__textarea"</span></span></div><div class="line">                    <span class="attr">:class</span>=<span class="string">"&#123; disable: !userName &#125;"</span></div><div class="line">                    @<span class="attr">keydown.enter</span>=<span class="string">"sendMessage($event)"</span>&gt;<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 區塊：modal --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"js-modal"</span> <span class="attr">class</span>=<span class="string">"modal"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"modal__container"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">header</span> <span class="attr">class</span>=<span class="string">"modal__header"</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">"view-title"</span>&gt;</span>輸入名稱<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">header</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"modal__body"</span>&gt;</span></div><div class="line">          <span class="comment">&lt;!-- 註解：使用@keydown.enter來偵測keydown enter，觸發時執行method中的saveName() --&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"js-userName"</span> <span class="attr">class</span>=<span class="string">"userName"</span> <span class="attr">maxlength</span>=<span class="string">"6"</span> @<span class="attr">keydown.enter.</span>=<span class="string">"saveName()"</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"button"</span> @<span class="attr">click</span>=<span class="string">"saveName()"</span>&gt;</span>設定<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">footer</span> <span class="attr">class</span>=<span class="string">"modal__footer"</span>&gt;</span><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="comment">// msgRef = firebase中的資料表/messages/，若沒有的會自動建立</span></div><div class="line"><span class="keyword">const</span> msgRef = firebase.database().ref(<span class="string">'/messages/'</span>);</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">  <span class="comment">// 指定此頁使用的name</span></div><div class="line">  name: <span class="string">'ChatRoom'</span>,</div><div class="line">  <span class="comment">// 資料位置，於html中可用&#123;&#123;&#125;&#125;渲染出來</span></div><div class="line">  data() &#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">userName</span>: <span class="string">''</span>,</div><div class="line">      <span class="attr">messages</span>: []</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="comment">// 這個頁面的functions</span></div><div class="line">  methods: &#123;</div><div class="line">    <span class="comment">/** 彈出設定視窗 */</span></div><div class="line">    setName() &#123;</div><div class="line">      <span class="built_in">document</span>.querySelector(<span class="string">'#js-modal'</span>).style.display = <span class="string">'block'</span>;</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">/** 儲存設定名稱 */</span></div><div class="line">    saveName() &#123;</div><div class="line">      <span class="comment">// vue的mtthod中this是指export中這整塊的資料</span></div><div class="line">      <span class="keyword">const</span> vm = <span class="keyword">this</span>;</div><div class="line">      <span class="keyword">const</span> userName = <span class="built_in">document</span>.querySelector(<span class="string">'#js-userName'</span>).value;</div><div class="line">      <span class="keyword">if</span> (userName.trim() == <span class="string">''</span>) &#123; <span class="keyword">return</span>; &#125;</div><div class="line">      <span class="comment">// 這裡的vm.userName(this.userName)就是data()裡面的userName</span></div><div class="line">      vm.userName = userName;</div><div class="line">      <span class="built_in">document</span>.querySelector(<span class="string">'#js-modal'</span>).style.display = <span class="string">'none'</span>;</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">/** 取得時間 */</span></div><div class="line">    getTime() &#123;</div><div class="line">      <span class="keyword">const</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">      <span class="keyword">const</span> hours = now.getHours();</div><div class="line">      <span class="keyword">const</span> minutes = now.getMinutes();</div><div class="line">      <span class="keyword">const</span> format = (hours &gt;= <span class="number">12</span>) ? <span class="string">"下午"</span> : <span class="string">"上午"</span>;</div><div class="line">      <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;format&#125;</span> <span class="subst">$&#123;hours&#125;</span>:<span class="subst">$&#123;minutes&#125;</span>`</span>;</div><div class="line">    &#125;,</div><div class="line">    <span class="comment">/** 傳送訊息 */</span></div><div class="line">    sendMessage(e) &#123;</div><div class="line">      <span class="keyword">const</span> vm = <span class="keyword">this</span>;</div><div class="line">      <span class="keyword">let</span> userName = <span class="built_in">document</span>.querySelector(<span class="string">'#js-userName'</span>);</div><div class="line">      <span class="keyword">let</span> message = <span class="built_in">document</span>.querySelector(<span class="string">'#js-message'</span>);</div><div class="line">      <span class="comment">// 如果是按住shift則不傳送訊息(多行輸入)</span></div><div class="line">      <span class="keyword">if</span> (e.shiftKey) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">      &#125;</div><div class="line">      <span class="comment">// 如果輸入是空則不傳送訊息</span></div><div class="line">      <span class="keyword">if</span>(message.value.length &lt;=<span class="number">1</span> &amp;&amp; message.value.trim() == <span class="string">''</span>) &#123;</div><div class="line">        <span class="comment">// 避免enter產生的空白換行</span></div><div class="line">        e.preventDefault();</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">      &#125;</div><div class="line">      <span class="comment">// 對firebase的db做push，db只能接受json物件格式，若要用陣列要先轉字串來存</span></div><div class="line">      msgRef.push(&#123;</div><div class="line">        <span class="attr">userName</span>: userName.value,</div><div class="line">        <span class="attr">message</span>: message.value,</div><div class="line">        <span class="comment">// 取得時間，這裡的vm.getTime()就是method中的getTime</span></div><div class="line">        timeStamp: vm.getTime()</div><div class="line">      &#125;)</div><div class="line">      <span class="comment">// 清空輸入欄位並避免enter產生的空白換行</span></div><div class="line">      message.value = <span class="string">''</span>;</div><div class="line">      e.preventDefault();</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="comment">// mounted是vue的生命週期之一，代表模板已編譯完成，已經取值準備渲染HTML畫面了</span></div><div class="line">  mounted() &#123;</div><div class="line">    <span class="keyword">const</span> vm = <span class="keyword">this</span>;</div><div class="line">    msgRef.on(<span class="string">'value'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">snapshot</span>) </span>&#123;</div><div class="line">      <span class="keyword">const</span> val = snapshot.val();</div><div class="line">      vm.messages = val;</div><div class="line">    &#125;)</div><div class="line">  &#125;,</div><div class="line">  <span class="comment">// update是vue的生命週期之一，接再munted後方代表HTML元件渲染完成後</span></div><div class="line">  updated() &#123;</div><div class="line">    <span class="comment">// 當畫面渲染完成，把聊天視窗滾到最底部(讀取最新消息)</span></div><div class="line">    <span class="keyword">const</span> roomBody = <span class="built_in">document</span>.querySelector(<span class="string">'#js-roomBody'</span>);</div><div class="line">    roomBody.scrollTop = roomBody.scrollHeight;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">scoped</span>&gt;</span><span class="css"></span></div><div class="line"><span class="comment">/* CSS太多，不占版面放於github供參考 */</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="執行與編譯"><a href="#執行與編譯" class="headerlink" title="執行與編譯"></a>執行與編譯</h3><ol>
+<li>使用指令<code>npm run dev</code>來讓這專案在本機掛server起來(預設8080port)，<br>之後每次調整檔案內容，網頁就會自動刷新，非常方便開發及測試:D!</li>
+<li>編譯使用<code>npm run build</code>會將我們src中所撰寫的資訊都壓縮至dist資料夾內。<blockquote>
+<p>稍微備註，編譯後的index在載入js/css時的路徑有多一個<code>.</code>，<br>會導致放靜態主機時讀取錯誤(因為其實是在同一層)，<br>所以可以到config/index.js中將設定調整為<code>assetsPublicPat = &#39;&#39;</code>來解決</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h3><p>目前還有卡著JS30尚未練習及寫完心得，<br>但看著各路大神分享的資源，就一直很想寫看看XD<br>vue-cli &amp; firebase &amp; webpack都是第一次使用，<br>這個練習後，對這三神器有很基礎的理解了。</p>
+<h4 id="vue-js"><a href="#vue-js" class="headerlink" title="vue.js"></a><strong>vue.js</strong></h4><p>我最初會想學習vue是因為有中文文件(遮臉)，<br>以及方便載入(可以直接掛載一個vue.js在head來使用，像jQuery一樣)，<br>目前這專案我學習到的是HTML中的template及v-if/v-for，<br>以及on(@),bind(:)的用法，很方便可以組織動態的前端邏輯，<br>而不用在js中組大量的字串模板。</p>
+<p>在js控制中，我覺得生命周期的設定很棒，<br>可以很方便且”清楚”的在預想的狀況中設定應該出現的效果，<br>例如整個渲染完成前可以掛一個加載的效果等等..</p>
+<p>但這小練習我都把邏輯整在同一個vue中，<br>還未學到/使用在vue中正確拆分邏輯的做法。</p>
+<h4 id="Firebase-1"><a href="#Firebase-1" class="headerlink" title="Firebase"></a><strong>Firebase</strong></h4><p>之前有稍微聽過被google合併，但就僅此於而已此從未使用及了解過XD<br>這次練習中使用到的database覺得很新奇阿，是一個雲端即時同步的noSQL，<br>設定非常簡單方便，也是第一次親身寫出/感受到websoket的效果感(超酷)。<br>其他相關的功能也很多，之後有機會一定要在多研究一下(越來越多待讀項目..)</p>
+<h4 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a><strong>Webpack</strong></h4><p>一直有聽到，看過，但從未使用過，<br>但其實這次使用後的算是知道如何使用，但不了解內容，<br>對於設定檔目前沒有細讀，並不是很熟悉各相關設定檔，<br>反而覺得最特別的是熱加載及編譯後的程式碼壓縮混淆!<br>但日後練習都用webpack起，遇到問題找解答，應該會越來越熟吧XD  </p>
+<h3 id="原始碼"><a href="#原始碼" class="headerlink" title="原始碼"></a>原始碼</h3><p>我放在我的<a href="https://github.com/guahsu/vue-firebase-line-chat/blob/master/src/components/ChatRoom.vue" target="_blank" rel="external">GitHub</a>中。</p>
+<h3 id="感謝"><a href="#感謝" class="headerlink" title="感謝"></a>感謝</h3><p>六角學院放出的<a href="https://www.youtube.com/watch?v=8O3teHziU_E&amp;list=PLYrA-SsMvTPNPhv8KeSNtPTY8q85-SSJA" target="_blank" rel="external">Vue教學系列</a>，從幼幼班入門到vue-cli &amp; firebase介紹，<br>讓我能從零學習相關知識，從而建立完這個練習:)</p>
+<p>六角學院在本週日也要釋放Bootstrap的課程了！<br>但不知何時才有空可以把全系列看過並實作完啊QQ….</p>
+<p><a href="https://www.facebook.com/hexschool/?fref=ts" target="_blank" rel="external">六角學院-FB</a><br><a href="https://www.facebook.com/sfismy?fref=ts" target="_blank" rel="external">洧杰老師-FB</a><br><a href="https://www.facebook.com/WccCasper/?fref=ts" target="_blank" rel="external">卡斯伯老師-FB</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
+          
+            <a href="/tags/Firebase/" rel="tag"># Firebase</a>
+          
+            <a href="/tags/Webpack/" rel="tag"># Webpack</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/JavaScript30-15-LocalStorage/" rel="next" title="「JS30紀錄＆心得」15 - LocalStorage">
+                <i class="fa fa-chevron-left"></i> 「JS30紀錄＆心得」15 - LocalStorage
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="fb-comments"
+           data-href="https://guahsu.io/2017/09/vue-firebase-realtime-line-chat/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站資料
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="GuaHsu" />
+          <p class="site-author-name" itemprop="name">GuaHsu</p>
+           
+              <p class="site-description motion-element" itemprop="description">背不起來的就寫下來吧。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分類</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/guahsu" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#環境設定步驟"><span class="nav-text">環境設定步驟</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-cli-amp-webpack"><span class="nav-text">Vue-cli & webpack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Firebase"><span class="nav-text">Firebase</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-router設定"><span class="nav-text">vue-router設定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主程式撰寫ChatRoom"><span class="nav-text">主程式撰寫ChatRoom</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#執行與編譯"><span class="nav-text">執行與編譯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#心得"><span class="nav-text">心得</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#vue-js"><span class="nav-text">vue.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Firebase-1"><span class="nav-text">Firebase</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Webpack"><span class="nav-text">Webpack</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原始碼"><span class="nav-text">原始碼</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#感謝"><span class="nav-text">感謝</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GuaHsu</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (search_path.endsWith("json")) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
