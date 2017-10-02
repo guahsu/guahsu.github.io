@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="GuaHsu, Gua's Note" />
+  <meta name="keywords" content="JavaScript,CSS," />
 
 
 
@@ -96,17 +96,17 @@
 
 
 
-<meta name="description" content="背不起來的就寫下來吧。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gua&#39;s Note">
-<meta property="og:url" content="https://guahsu.io/archives/">
+<meta name="description" content="主題透過textShadow讓文字的陰影隨滑鼠位置偏移，並稍微帶到ES6的解構賦值的用法。">
+<meta name="keywords" content="JavaScript,CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「JS30紀錄＆心得」16 - Mouse Move Shadow">
+<meta property="og:url" content="https://guahsu.io/2017/10/JavaScript30-16-Mouse-Move-Shadow/">
 <meta property="og:site_name" content="Gua&#39;s Note">
-<meta property="og:description" content="背不起來的就寫下來吧。">
-<meta property="og:image" content="https://guahsu.io/images/avatar.jpg">
+<meta property="og:description" content="主題透過textShadow讓文字的陰影隨滑鼠位置偏移，並稍微帶到ES6的解構賦值的用法。">
+<meta property="og:updated_time" content="2017-10-02T14:59:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gua&#39;s Note">
-<meta name="twitter:description" content="背不起來的就寫下來吧。">
-<meta name="twitter:image" content="https://guahsu.io/images/avatar.jpg">
+<meta name="twitter:title" content="「JS30紀錄＆心得」16 - Mouse Move Shadow">
+<meta name="twitter:description" content="主題透過textShadow讓文字的陰影隨滑鼠位置偏移，並稍微帶到ES6的解構賦值的用法。">
 
 
 
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://guahsu.io/archives/"/>
+  <link rel="canonical" href="https://guahsu.io/2017/10/JavaScript30-16-Mouse-Move-Shadow/"/>
 
 
 
 
 
-  <title>歸檔 | Gua's Note</title>
+  <title>「JS30紀錄＆心得」16 - Mouse Move Shadow | Gua's Note</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -198,7 +198,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -326,1065 +326,220 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共計 28 篇文章。 繼續努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://guahsu.io/2017/10/JavaScript30-16-Mouse-Move-Shadow/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GuaHsu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gua's Note">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">「JS30紀錄＆心得」16 - Mouse Move Shadow</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-10-02T22:49:19+08:00">
+                2017-10-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript30/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript30</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/JavaScript30-16-Mouse-Move-Shadow/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://guahsu.io/2017/10/JavaScript30-16-Mouse-Move-Shadow/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <h2 id="主題"><a href="#主題" class="headerlink" title="主題"></a><strong>主題</strong></h2><p>透過textShadow讓文字的陰影隨滑鼠位置偏移，<br>並稍微帶到ES6的解構賦值的用法。</p>
+<a id="more"></a>
+<h2 id="步驟"><a href="#步驟" class="headerlink" title="步驟"></a><strong>步驟</strong></h2><h3 id="step1-設定目標區域與基本偏移量"><a href="#step1-設定目標區域與基本偏移量" class="headerlink" title="step1 設定目標區域與基本偏移量"></a>step1 設定目標區域與基本偏移量</h3><ol>
+<li>抓取HTML中的<code>hero</code>與<code>text</code>做為目標區域</li>
+<li>設定基本偏移基準<code>walk = 100</code></li>
+</ol>
+<h3 id="step2-建立觸發條件與事件"><a href="#step2-建立觸發條件與事件" class="headerlink" title="step2 建立觸發條件與事件"></a>step2 建立觸發條件與事件</h3><ol>
+<li>設定<code>hero.addEventListener(&#39;mousemove&#39;, shadow)</code></li>
+<li>觸發事件備註：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">shadow</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  <span class="comment">// 透過解構賦值取得並設定資訊</span></div><div class="line">  <span class="keyword">const</span> &#123; <span class="attr">offsetHeight</span>: height,</div><div class="line">          <span class="attr">offsetWidth</span>: width &#125; = hero;</div><div class="line">  <span class="keyword">let</span> &#123; <span class="attr">offsetX</span>: x,</div><div class="line">        <span class="attr">offsetY</span>: y  &#125; = e;</div><div class="line">  <span class="comment">// 如果在目標區域外，則在加上目標座標值</span></div><div class="line">  <span class="keyword">if</span> (<span class="keyword">this</span> !== e.target) &#123;</div><div class="line">    x = x + e.target.offsetLeft;</div><div class="line">    y = y + e.target.offsetTop;</div><div class="line">  &#125;</div><div class="line">  <span class="comment">// 四捨五入最終偏移值</span></div><div class="line">  <span class="keyword">const</span> xWalk = <span class="built_in">Math</span>.round((x / width * walk) - (walk/<span class="number">2</span>));</div><div class="line">  <span class="keyword">const</span> yWalk = <span class="built_in">Math</span>.round((y / height * walk) - (walk/<span class="number">2</span>));</div><div class="line">  <span class="built_in">console</span>.log(xWalk, yWalk);</div><div class="line">  <span class="comment">// 使用textShadow來設定文字陰影</span></div><div class="line">  text.style.textShadow = <span class="string">`</span></div><div class="line">    <span class="subst">$&#123;xWalk&#125;</span>px <span class="subst">$&#123;yWalk&#125;</span>px 0px rgba(0, 0, 0, 0.5),</div><div class="line">    <span class="subst">$&#123;xWalk * <span class="number">-1</span>&#125;</span>px <span class="subst">$&#123;yWalk&#125;</span>px 0px rgba(0, 0, 0, 0.5),</div><div class="line">    <span class="subst">$&#123;yWalk&#125;</span>px <span class="subst">$&#123;xWalk * <span class="number">-1</span>&#125;</span>px 0px rgba(0, 0, 0, 0.5),</div><div class="line">    <span class="subst">$&#123;yWalk * <span class="number">-1</span>&#125;</span>px <span class="subst">$&#123;xWalk&#125;</span>px 0px rgba(0, 0, 0, 0.5)</div><div class="line">    `</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Javascript語法-amp-備註"><a href="#Javascript語法-amp-備註" class="headerlink" title="Javascript語法&amp;備註"></a><strong>Javascript語法&amp;備註</strong></h2><p><strong>解構賦值(Destructuring assignment)</strong><br>透過解構賦值，可以把直接把物件/陣列中的值塞入變數中，<br>擷取一小段程式碼做說明：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 下面這段等同於 const height = hero.offsetHeight;</span></div><div class="line"><span class="keyword">const</span> &#123; <span class="attr">offsetHeight</span>: height &#125; = hero;</div><div class="line"><span class="comment">// 下面這段等同於 let x = e.offsetX;</span></div><div class="line"><span class="keyword">let</span> &#123; <span class="attr">offsetX</span>: x &#125; = e;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>參閱:<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment" target="_blank" rel="external">MDN-Destructuring assignment</a><br>關於解構賦值對我來說目前還是需要很用力的去閱讀才能讀懂，<br>雖然可以簡寫並縮短不少程式碼，但使用上滿不直覺的，<br>所以我自己目前還是會用舊的賦值寫法多，努力中。</p>
+</blockquote>
+<p><strong>Math.round</strong><br>可以將內容的數值進行四捨五入的動作。</p>
+<blockquote>
+<p>參閱:<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round" target="_blank" rel="external">MDN-Math.round()</a></p>
+</blockquote>
+<h2 id="CSS語法備註"><a href="#CSS語法備註" class="headerlink" title="CSS語法備註"></a><strong>CSS語法備註</strong></h2><p>// offset-x | offset-y | blur-radius | color<br>text-shadow: 1px 1px 2px black;</p>
+<blockquote>
+<p>參閱:<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow" target="_blank" rel="external">MDN-text-shadow</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
         </div>
       
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/vue-firebase-realtime-line-chat-2-storage/" rel="next" title="用 Vue.js + Firebase 製作即時聊天功能(2) - storage">
+                <i class="fa fa-chevron-left"></i> 用 Vue.js + Firebase 製作即時聊天功能(2) - storage
+              </a>
+            
+          </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          <span class="post-nav-divider"></span>
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/JavaScript30-16-Mouse-Move-Shadow/" itemprop="url">
-              
-                <span itemprop="name">「JS30紀錄＆心得」16 - Mouse Move Shadow</span>
-              
-            </a>
-        
-      </h2>
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-02T22:49:19+08:00"
-              content="2017-10-02" >
-          10-02
-        </time>
-      </div>
-
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/vue-firebase-realtime-line-chat-2-storage/" itemprop="url">
-              
-                <span itemprop="name">用 Vue.js + Firebase 製作即時聊天功能(2) - storage</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-23T17:06:30+08:00"
-              content="2017-09-23" >
-          09-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/vue-firebase-realtime-line-chat/" itemprop="url">
-              
-                <span itemprop="name">用 Vue.js + Firebase 製作即時聊天功能</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-21T23:56:10+08:00"
-              content="2017-09-21" >
-          09-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/JavaScript30-15-LocalStorage/" itemprop="url">
-              
-                <span itemprop="name">「JS30紀錄＆心得」15 - LocalStorage</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-06T21:50:57+08:00"
-              content="2017-09-06" >
-          09-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/JavaScript30-14-JavaScript-References-VS-Copying/" itemprop="url">
-              
-                <span itemprop="name">「JS30紀錄＆心得」14 - JavaScript References VS Copying</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-26T21:32:24+08:00"
-              content="2017-08-26" >
-          08-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/JavaScript30-13-Slide-in-on-Scroll/" itemprop="url">
-              
-                <span itemprop="name">「JS30紀錄＆心得」13 - Slide in on Scroll</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-06T17:16:40+08:00"
-              content="2017-08-06" >
-          08-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/JavaScript30-12-Key-Sequence-Detection/" itemprop="url">
-              
-                <span itemprop="name">「JS30紀錄＆心得」12 - Key Sequence Detection</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-26T00:23:34+08:00"
-              content="2017-07-26" >
-          07-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/JavaScript30-11-Custom-Video-Player/" itemprop="url">
-              
-                <span itemprop="name">「JS30紀錄＆心得」11 - Custom Video Player</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-23T19:43:10+08:00"
-              content="2017-07-23" >
-          07-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/JavaScript30-10-Hold-Shift-and-Check-Checkboxes/" itemprop="url">
-              
-                <span itemprop="name">「JS30紀錄＆心得」10 - Hold Shift and Check Checkboxes</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-02T20:57:27+08:00"
-              content="2017-07-02" >
-          07-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/JavaScript30-09-Dev-Tools-Domination/" itemprop="url">
-              
-                <span itemprop="name">「JS30紀錄＆心得」09 - Dev Tools Domination</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-24T13:05:45+08:00"
-              content="2017-06-24" >
-          06-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/JavaScript-Duplicates-Array/" itemprop="url">
-              
-                <span itemprop="name">JavaScript取出陣列重複/不重複值的方法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-22T20:40:13+08:00"
-              content="2017-06-22" >
-          06-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/JavaScript30-08-Fun-with-HTML5-Canvas/" itemprop="url">
-              
-                <span itemprop="name">「JS30紀錄＆心得」08 - Fun with HTML5 Canvas</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-11T23:22:52+08:00"
-              content="2017-06-11" >
-          06-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/aws-bill-refund/" itemprop="url">
-              
-                <span itemprop="name">AWS帳單退款記</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-06T23:17:15+08:00"
-              content="2017-06-06" >
-          06-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/first-macbook-pro/" itemprop="url">
-              
-                <span itemprop="name">13" MACBOOK PRO 2016</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-05T21:50:50+08:00"
-              content="2017-06-05" >
-          06-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/JavaScript-ETH-Linstener/" itemprop="url">
-              
-                <span itemprop="name">JavaScript-ETH-Linstener</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-27T21:46:02+08:00"
-              content="2017-05-27" >
-          05-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/JavaScript30-07-Array-Cardio-Day-2/" itemprop="url">
-              
-                <span itemprop="name">「JS30紀錄＆心得」07 - Array Cardio Day 2</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-23T23:11:22+08:00"
-              content="2017-05-23" >
-          05-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/JavaScript30-06-Type-Ahead/" itemprop="url">
-              
-                <span itemprop="name">「JS30紀錄＆心得」06 - Type Ahead</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-21T21:22:23+08:00"
-              content="2017-05-21" >
-          05-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/JavaScript30-05-Flex-Panel-Gallery/" itemprop="url">
-              
-                <span itemprop="name">「JS30紀錄＆心得」05 - Flex Panel Gallery</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-20T22:12:17+08:00"
-              content="2017-05-20" >
-          05-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/JavaScript30-04-Array-Cardio-Day-1/" itemprop="url">
-              
-                <span itemprop="name">「JS30紀錄＆心得」04 - Array Cardio Day 1</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-19T23:42:17+08:00"
-              content="2017-05-19" >
-          05-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/JavaScript30-03-CSS-Variables/" itemprop="url">
-              
-                <span itemprop="name">「JS30紀錄＆心得」03 - CSS Variables</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-18T22:32:17+08:00"
-              content="2017-05-18" >
-          05-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/JavaScript30-02-JS-and-CSS-Clock/" itemprop="url">
-              
-                <span itemprop="name">「JS30紀錄＆心得」02 - JS and CSS Clock</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-17T21:02:17+08:00"
-              content="2017-05-17" >
-          05-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/JavaScript30-01-Java-Script-Drum-Kit/" itemprop="url">
-              
-                <span itemprop="name">「JS30紀錄＆心得」01 - JavaScript Drum Kit</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-16T22:09:17+08:00"
-              content="2017-05-16" >
-          05-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/JavaScript-TravelMap/" itemprop="url">
-              
-                <span itemprop="name">JavaScript練習-臺北市旅遊景點</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-07T03:19:58+08:00"
-              content="2017-05-07" >
-          05-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/log-201703/" itemprop="url">
-              
-                <span itemprop="name">三月紀錄</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-16T23:19:25+08:00"
-              content="2017-04-16" >
-          04-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/01/guas-blog-v1-online/" itemprop="url">
-              
-                <span itemprop="name">好久沒有這麼晚睡了..終於上線了~~</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-26T02:54:21+08:00"
-              content="2017-01-26" >
-          01-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/01/build-api-on-aws-use-spring-boot/" itemprop="url">
-              
-                <span itemprop="name">在AWS上用SpringBoot建立API</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-22T00:05:14+08:00"
-              content="2017-01-22" >
-          01-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/01/mac-install-laravel-composer-valet-mysql/" itemprop="url">
-              
-                <span itemprop="name">紀錄Mac OS安裝laravel開發環境(composer + valet + mysql)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-21T23:16:35+08:00"
-              content="2017-01-21" >
-          01-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/01/first-use-mac/" itemprop="url">
-              
-                <span itemprop="name">Mac初體驗</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-15T22:43:18+08:00"
-              content="2017-01-15" >
-          01-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-
+    </div>
+  </div>
 
 
           </div>
@@ -1392,6 +547,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="fb-comments"
+           data-href="https://guahsu.io/2017/10/JavaScript30-16-Mouse-Move-Shadow/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -1411,8 +577,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站資料
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -1485,6 +660,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主題"><span class="nav-text">主題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步驟"><span class="nav-text">步驟</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#step1-設定目標區域與基本偏移量"><span class="nav-text">step1 設定目標區域與基本偏移量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step2-建立觸發條件與事件"><span class="nav-text">step2 建立觸發條件與事件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Javascript語法-amp-備註"><span class="nav-text">Javascript語法&備註</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS語法備註"><span class="nav-text">CSS語法備註</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1598,11 +789,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
