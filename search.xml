@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Spotify的歌詞顯示工具-LyricsX]]></title>
+    <url>%2F2017%2F10%2FLyricsX-spotify-lyrics-for-mac%2F</url>
+    <content type="text"><![CDATA[從使用Spotify到現在，最難過的就是內建歌詞顯示功能..(還有一堆中文歌找不到，有時候就是很想聽杰倫回味一下啊！) 然後今天再找的時候終於找到了一款好的歌詞程式LyricsX。 下載位置(GitHub)下載位置(App Store) 下載安裝後，全開介面如下有三個歌詞顯示位置如紅色框標示區，部分歌詞也可以再去搜尋其他歌詞（有些有中英文並行的）。 常常聽歌會突然很想知道歌詞的意思然後又拼不出單字，就會很需要歌詞顯示來幫忙找，不然就要去魔境歌詞網了XD。 裝了之後神清氣爽啊～～寫程式分心的能力增加了87%呢：）]]></content>
+      <categories>
+        <category>Diary</category>
+      </categories>
+      <tags>
+        <tag>Spotify</tag>
+        <tag>Tools</tag>
+        <tag>Mac</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[「JS30紀錄＆心得」18-Adding Up Times with Reduce]]></title>
     <url>%2F2017%2F10%2FJavaScript30-18-Adding-Up-Times-with-Reduce%2F</url>
     <content type="text"><![CDATA[主題利用map()與reduce()來取得播放清單的總秒數。 [DEMO] ｜ GitHub-JavaScript30介紹與記錄格式 步驟step1 取得全部的時間值在HTML中，時間資訊放在&lt;li data-time&gt;中，所以透過querySelectorAll來取得，因為接著會使用map及reduce操作，資料型態必須先轉為Array。12// 透過Array.from或是[...]來將querySelectorAll取回的NodeList轉Arrayconst timeNodes = Array.from(document.querySelectorAll('[data-time')); step2 將取回的資料轉為秒數並加總123456789101112const seconds = timeNodes // 取出每個元素中的data-time資料 .map(node =&gt; node.dataset.time) .map(timeCode =&gt; &#123; // 用解構賦值的方式分別取出split(':')後的分與秒 // 再透過一個map執行parseFloat將字串轉數值 const [mins, secs] = timeCode.split(':').map(parseFloat); // 回傳這組資料轉換後的總秒數 return (mins * 60) + secs; &#125;) // 用reduce來加總每次執行結果 .reduce((total, seconds) =&gt; total + seconds); step3 把總秒數轉為時分秒格式1234567// 利用取得的總秒數來進行總共時分秒的計算// 使用Math.floor取整數，再利用%來操作餘數let secondsLeft = seconds;const hours = Math.floor(secondsLeft / 3600);secondsLeft = secondsLeft % 3600;const mins = Math.floor(secondsLeft / 60);secondsLeft = secondsLeft % 60; step4 印出結果1console.log(`$&#123;hours&#125;:$&#123;mins&#125;:$&#123;secondsLeft&#125;`); 其他這篇也算是之前學習的再次運用，比較特別的是發現map中可以直接使用function！12345const [mins, secs] = timeCode.split(':').map(parseFloat);//等同於const [mins, secs] = timeCode.split(':').map(function(str)&#123; return parseFloat(str);&#125;);]]></content>
