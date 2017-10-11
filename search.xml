@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[「JS30紀錄＆心得」20 - Speech-Detection]]></title>
+    <title><![CDATA[「JS30紀錄＆心得」21 - Geolocation]]></title>
+    <url>%2F2017%2F10%2FJavaScript30-21-Geolocation%2F</url>
+    <content type="text"><![CDATA[主題利用navigator.geolocation來取得裝置的地理位置與速率。 [DEMO] ｜ GitHub-JavaScript30介紹與記錄格式 步驟step1 啟動Local Server這個練習需要使用到local server，如果你已經有一個可在本機run起來的server可以直接使用，或在這層資料夾底下運行npm install來安裝browser-sync，安裝完成後可以透過指令npm start來啟動localserver(預設port3000)， npm指令需要下載node.js來使用 step2 測試由於這個練習是需要取得定位資訊，所以可以透過手機瀏覽器利用npm start啟動server後的內網ip來連線，或是使用Mac的Xcode開發工具來模擬移動中的裝置(影片教學是使用後者)。 step3 撰寫程式123456789101112131415// 取得HTML中的元素const arrow = document.querySelector('.arrow');const speed = document.querySelector('.speed-value');// 使用watchPosition來取得使用者的地理位置及海拔、速度navigator.geolocation.watchPosition((data) =&gt; &#123; // 若成功取回，則會回傳一組Position(這裡定義名稱為data) console.log(data); // 使用coords.speed取回速度(公尺/秒) speed.textContent = data.coords.speed; // 使用coords.heading取得方位，代表偏離北方的角度，0為正北、90為正東 arrow.style.transform = `rotate($&#123;data.coords.heading&#125;deg)`;&#125;, (err) =&gt; &#123; // 錯誤回傳訊息，例如未取得定位授權時 console.error(err);&#125;); 參閱：MDN-Geolocation]]></content>
+      <categories>
+        <category>JavaScript30</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>Geolocation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[「JS30紀錄＆心得」20 - Speech Detection]]></title>
     <url>%2F2017%2F10%2FJavaScript30-20-Speech-Detection%2F</url>
-    <content type="text"><![CDATA[主題利用SpeechRecognition來做語音識別，並透過interimResults來輸出識別的結果。 [DEMO] ｜ GitHub-JavaScript30介紹與記錄格式 步驟step1 將SpeechRecognition建立起來123456// 將全域環境中的SpeechRecognition指好(依據不同瀏覽器)window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;// 建立一個變數recognition來放為語音識別功能const recognition = new SpeechRecognition();// 讓語音識別回傳識別後的資訊（預設為false)recognition.interimResults = true; 參閱：MDN-SpeechRecognition.interimResults step2 把輸出區域準備好1234// 建立一個p元素在html設定好的文字區中let p = document.createElement('p');const words = document.querySelector('.words');words.appendChild(p); step3 對識別系統做監聽識別回傳的資料是NodeList，所以要用map操作得先轉array123456789101112131415161718192021222324// 監聽識別回傳recognition.addEventListener('result', e =&gt; &#123; // 將回傳資料先轉為array來操作 const transcript = Array.from(e.results) // 透過map取得回傳陣列中的第0筆 .map(result =&gt; result[0]) // 在取得第0筆中的transcript .map(result =&gt; result.transcript) // 用join把連結符號消掉 .join('') // 把回傳內容塞到p元素中 p.textContent = transcript; // 如果回傳內容已經結束（一段話的結尾）在建立一個新的p元素來放下一段文字 if (e.results[0].isFinal) &#123; p = document.createElement('p'); words.appendChild(p); &#125;&#125;)// 監聽如果語音識別結束，則在開啟一次新的識別recognition.addEventListener('end', recognition.start);// 開始識別recognition.start(); 其他在測試的過程中，不知道是我發音的問題還是怎麼回事，我在說出localhost的過程中居然被識別成tokyo hotXDDDD]]></content>
+    <content type="text"><![CDATA[主題利用SpeechRecognition來做語音識別，並透過interimResults來輸出識別的結果。 [DEMO] ｜ GitHub-JavaScript30介紹與記錄格式 步驟step1 啟動Local Server這個練習需要使用到local server，如果你已經有一個可在本機run起來的server可以直接使用，或在這層資料夾底下運行npm install來安裝browser-sync，安裝完成後可以透過指令npm start來啟動localserver(預設port3000)， npm指令需要下載node.js來使用 step2 將SpeechRecognition建立起來123456// 將全域環境中的SpeechRecognition指好(依據不同瀏覽器)window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;// 建立一個變數recognition來放為語音識別功能const recognition = new SpeechRecognition();// 讓語音識別回傳識別後的資訊（預設為false)recognition.interimResults = true; 參閱：MDN-SpeechRecognition.interimResults step3 把輸出區域準備好1234// 建立一個p元素在html設定好的文字區中let p = document.createElement('p');const words = document.querySelector('.words');words.appendChild(p); step4 對識別系統做監聽識別回傳的資料是NodeList，所以要用map操作得先轉array123456789101112131415161718192021222324// 監聽識別回傳recognition.addEventListener('result', e =&gt; &#123; // 將回傳資料先轉為array來操作 const transcript = Array.from(e.results) // 透過map取得回傳陣列中的第0筆 .map(result =&gt; result[0]) // 在取得第0筆中的transcript .map(result =&gt; result.transcript) // 用join把連結符號消掉 .join('') // 把回傳內容塞到p元素中 p.textContent = transcript; // 如果回傳內容已經結束（一段話的結尾）在建立一個新的p元素來放下一段文字 if (e.results[0].isFinal) &#123; p = document.createElement('p'); words.appendChild(p); &#125;&#125;)// 監聽如果語音識別結束，則在開啟一次新的識別recognition.addEventListener('end', recognition.start);// 開始識別recognition.start(); 其他在測試的過程中，不知道是我發音的問題還是怎麼回事，我在說出localhost的過程中居然被識別成Tokyo HotXDDDD]]></content>
       <categories>
         <category>JavaScript30</category>
       </categories>
