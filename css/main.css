@@ -1528,8 +1528,7 @@ pre .javascript .function {
 .posts-expand .post-eof {
   display: block;
   margin: 80px auto 60px;
-  height: 1px;
-  background: #ccc;
+  border-bottom: dashed 1px #ccc;
 }
 .post:last-child .post-eof.post-eof.post-eof {
   display: none;
@@ -1747,7 +1746,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #be9161;
+  background: #4508ff;
 }
 .links-of-blogroll {
   font-size: 13px;
