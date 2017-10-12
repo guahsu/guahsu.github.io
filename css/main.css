@@ -1159,7 +1159,6 @@ pre .javascript .function {
 @media (min-width: 992px) {
   .posts-expand .post-body {
     text-align: justify;
-    padding: 0px 15px;
   }
 }
 .posts-expand .post-body h2,
@@ -1381,7 +1380,7 @@ pre .javascript .function {
   font-size: 16px;
 }
 .posts-expand .post-meta {
-  margin: 5px 0px 20px 20px;
+  margin: 5px 0px 20px 0px;
   color: #999;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 12px;
@@ -1523,13 +1522,14 @@ pre .javascript .function {
   right: 0;
   left: auto;
 }
+.posts-expand .post-footer {
+  text-align: left;
+}
 .posts-expand .post-eof {
   display: block;
   margin: 80px auto 60px;
-  width: 8%;
   height: 1px;
   background: #ccc;
-  text-align: center;
 }
 .post:last-child .post-eof.post-eof.post-eof {
   display: none;
@@ -1747,7 +1747,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #219a8a;
+  background: #be9161;
 }
 .links-of-blogroll {
   font-size: 13px;

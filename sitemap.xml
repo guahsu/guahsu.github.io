@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://guahsu.io/2017/10/modify-blog-layout/</loc>
+    
+    <lastmod>2017-10-12T15:25:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://guahsu.io/2017/09/vue-firebase-realtime-line-chat/</loc>
     
     <lastmod>2017-10-12T15:14:34.000Z</lastmod>

@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[小改樣式]]></title>
+    <url>%2F2017%2F10%2Fmodify-blog-layout%2F</url>
+    <content type="text"><![CDATA[Hexo的NexT主題很夯，好多人使用，常常爬文看到一樣的主題，無奈現在還沒時間寫自己的樣板，今天小改用回Muse及調整部分樣式來避免撞臉XD..]]></content>
+      <categories>
+        <category>Diary</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Hexo-NexT</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[「JS30紀錄＆心得」21 - Geolocation]]></title>
     <url>%2F2017%2F10%2FJavaScript30-21-Geolocation%2F</url>
     <content type="text"><![CDATA[主題利用navigator.geolocation來取得裝置的地理位置與速率。 [DEMO] ｜ GitHub-JavaScript30介紹與記錄格式 步驟step1 啟動Local Server這個練習需要使用到local server，如果你已經有一個可在本機run起來的server可以直接使用，或在這層資料夾底下運行npm install來安裝browser-sync，安裝完成後可以透過指令npm start來啟動localserver(預設port3000)， npm指令需要下載node.js來使用 step2 測試由於這個練習是需要取得定位資訊，所以可以透過手機瀏覽器利用npm start啟動server後的內網ip來連線，或是使用Mac的Xcode開發工具來模擬移動中的裝置(影片教學是使用後者)。 step3 撰寫程式123456789101112131415// 取得HTML中的元素const arrow = document.querySelector('.arrow');const speed = document.querySelector('.speed-value');// 使用watchPosition來取得使用者的地理位置及海拔、速度navigator.geolocation.watchPosition((data) =&gt; &#123; // 若成功取回，則會回傳一組Position(這裡定義名稱為data) console.log(data); // 使用coords.speed取回速度(公尺/秒) speed.textContent = data.coords.speed; // 使用coords.heading取得方位，代表偏離北方的角度，0為正北、90為正東 arrow.style.transform = `rotate($&#123;data.coords.heading&#125;deg)`;&#125;, (err) =&gt; &#123; // 錯誤回傳訊息，例如未取得定位授權時 console.error(err);&#125;); 參閱：MDN-Geolocation]]></content>
