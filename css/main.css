@@ -966,7 +966,7 @@ pre .javascript .function {
 }
 .header .menu li a {
   color: #fbfbfb;
-  text-shadow: 1px 1px #333;
+  text-shadow: 0px 1px 3px #333;
 }
 @media (max-width: 767px) {
   .header .menu li a {
@@ -1746,7 +1746,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffff4f;
+  background: #7eabff;
 }
 .links-of-blogroll {
   font-size: 13px;
