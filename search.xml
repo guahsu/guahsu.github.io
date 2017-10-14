@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[JavaScript30-22-Follow-Along-Link-Highlighter]]></title>
+    <title><![CDATA[「JS30紀錄＆心得」22 - Follow Along Link Highlighter]]></title>
     <url>%2F2017%2F10%2FJavaScript30-22-Follow-Along-Link-Highlighter%2F</url>
     <content type="text"><![CDATA[主題透過getBoundingClientRect與CSS的transform來達到HightLight樣式會跟著指定位置移動的效果。 [DEMO] ｜ GitHub-JavaScript30介紹與記錄格式 步驟step1 取得頁面元素1234567// 取得HTML中所有的a元素const triggers = document.querySelectorAll('a');// 建立一個span來放置highlight效果const highlight = document.createElement('span');highlight.classList.add('highlight');// 將建立的span加到頁面中document.body.append(highlight); step2 撰寫移入狀態用以下的JS對目標(a連結)定位並設定樣式12345678910111213141516171819// 效果function highlightLink() &#123; // 取得this(由a.addEventListener傳入，所以會是該a)的資訊 const linkCoords = this.getBoundingClientRect(); // 建立一個coords物件來存放會使用的寬高與定位資訊 const cords = &#123; width: linkCoords.width, height: linkCoords.height, left: linkCoords.left + window.scrollX, top: linkCoords.top + window.scrollY &#125; // 設定highlight效果的寬高及定位 highlight.style.width = `$&#123;cords.width&#125;px`; highlight.style.height = `$&#123;cords.height&#125;px`; highlight.style.transform = `translate($&#123;cords.left&#125;px, $&#123;cords.top&#125;px`;&#125;// 監聽所有a元素的滑鼠移入，觸發highlightLinktriggers.forEach(a =&gt; a.addEventListener('mouseenter', highlightLink)); 位移的效果主要來自已經寫好的css與js裡面重新定位的translate123456789101112.highlight &#123; transition: all 0.2s; border-bottom:2px solid white; position: absolute; top:0; background:white; left:0; z-index: -1; border-radius:20px; display: block; box-shadow: 0 0 10px rgba(0,0,0,0.2)&#125; 語法&amp;備註Element.getBoundingClientRect()返回目標元素的大小與相對於瀏覽器視窗的位置資訊 參閱：MDN-Element.getBoundingClientRect()]]></content>
+      <categories>
+        <category>JavaScript30</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>CSS</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[小改樣式]]></title>
