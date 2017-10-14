@@ -1070,6 +1070,7 @@ pre .javascript .function {
   margin-top: 20px;
   padding-left: 0;
   text-align: center;
+  user-select: none;
 }
 .menu .menu-item {
   display: inline-block;
@@ -1092,7 +1093,7 @@ pre .javascript .function {
   transition-delay: 0s;
 }
 .menu .menu-item a:hover {
-  border-bottom-color: #222;
+  border-bottom-color: #cacaca;
 }
 .menu .menu-item .fa {
   margin-right: 5px;
@@ -1746,7 +1747,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #6facff;
+  background: #7e2b3e;
 }
 .links-of-blogroll {
   font-size: 13px;
