@@ -961,7 +961,7 @@ pre .javascript .function {
 }
 .header {
   background: transparent;
-  background-image: url("../../images/head_bk.jpeg");
+  background-image: url("../../images/header_bk.png");
   background-attachment: fixed;
 }
 .header .menu li a {
@@ -1746,7 +1746,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff3cbe;
+  background: #6facff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -1860,7 +1860,7 @@ pre .javascript .function {
 .footer {
   font-size: 14px;
   color: #999;
-  background-image: url("../../images/head_bk.jpeg");
+  background-image: url("../../images/footer_bk.png");
   background-attachment: fixed;
   background-position: bottom;
 }
