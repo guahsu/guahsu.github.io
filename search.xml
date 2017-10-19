@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[「JS30紀錄＆心得」25 - Event Capture, Propagation, Bubbling and Once]]></title>
+    <url>%2F2017%2F10%2FJavaScript30-25-Event-Capture-Propagation-Bubbling-and-Once%2F</url>
+    <content type="text"><![CDATA[主題解析addEventListener中事件的捕捉、傳遞、氣泡與單次執行方法 [DEMO] ｜ GitHub-JavaScript30介紹與記錄格式 步驟step1 建立事件模型與基本呼叫首先建立三層DIV作為稍後測試使用的模型，依序包覆為：紫色&gt;淺橘色&gt;深橘色123456&lt;div class="one"&gt; &lt;div class="two"&gt; &lt;div class="three"&gt; &lt;/div&gt; &lt;/div&gt;&lt;/div&gt; 接著建立click事件12345678910// 取得頁面的所有divconst divs = document.querySelectorAll('div');function logText(e) &#123; // 印出當前div的class name console.log(this.classList.value);&#125;// 為每個div加上click事件監聽divs.forEach(div =&gt; div.addEventListener('click', logText)); step2 預設的點擊事件當對著畫面中間(深橘色/one)做點擊時，console印出來的是123456789101112threetwoone``` 會從`click`的位置的最深處開始向外層連動所有的div`click`事件，像是氣泡一樣的從內向外浮出去。### step3 addEventListener的第三個參數-1:capture深入檢查，會發現其實`addEventListener`是有第三個參數的：```javascriptdivs.forEach(div =&gt; div.addEventListener('click', logText, &#123; capture: false, // 預設為false&#125;)); 第三個參數的第一個屬性Capture就是事件的捕捉順序，剛剛提到click後console印出來順序是由內向外，若將Capture設為true會在點擊中間(深橘色/one)會印出：1one 就只有印出one而已，這是因為對當前最外層的容器one去點了，就已經捕捉到目的了，所以他不會再往下找，只會到點擊的最外層目標為止。 step4 stopPropagation()但如果想從內層往外層點，而且是依選取層印出對應層級的話，就要在列印的function加上topPropagation()來使用：1234function logText(e) &#123; console.log(this.classList.value); e.stopPropagation(); // stop bubbling!&#125; 這會使原本向外延伸的氣泡事件停止。 step5 addEventListener的第三個參數-2:once而addEventListener的第三參數還有一個新屬性once，新增一個按鈕的click事件來測試：12345button.addEventListener('click', () =&gt; &#123; console.log('Click!!!');&#125;, &#123; once: true&#125;); 它可以使這個按鈕click被執行結束後，直接unbind這個元素與事件，之後這個按鈕就已經不會再被觸發click事件了！可以運用在很多避免重複點擊的狀況，例如表單送出後禁止user重複點擊。 其他在一開始的練習JavaScript練習-臺北市旅遊景點時也有記錄到這個第三參數，但當時只知道capture並不曉得once，對於整體的事件捕捉也不是很清楚，經由這個練習範例加深了這個印象，雖然目前還是沒有正式運用到，但這個觀念記著不吃虧，之後遇到相關問題會有更多可以思考的腦中資料：）。]]></content>
+      <categories>
+        <category>JavaScript30</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[「JS30紀錄＆心得」24 - Sticky Nav]]></title>
     <url>%2F2017%2F10%2FJavaScript30-24-Sticky-Nav%2F</url>
     <content type="text"><![CDATA[主題透過CSS的position:fixed與JavaScript的classList來製作網站常見的置頂選單。 [DEMO] ｜ GitHub-JavaScript30介紹與記錄格式 步驟step1 取得頁面元素並偵測選單到頂部的高度1234// 取得nav元素const nav = document.querySelector('#main');// 透過offsetTop取得nav頂部到整個page的頂部距離let topOfNav = nav.offsetTop; step2 對CSS增加樣式fixed-nav12345678910111213/* 當有fixed-nav時，把site-wrap縮放回1，讓整體有放大效果*/.fixed-nav .site-wrap &#123; transform: scale(1);&#125;/* 當有fixed-nav時，把nav改為fixed並加上陰影*/.fixed-nav nav &#123; position: fixed; box-shadow: 0 5px rgba(0,0,0,0.1);&#125;/* 當有fixed-nav時，把logo寬度增加，使其顯示出來*/.fixed-nav li.logo &#123; max-width: 500px;&#125; step3 進行網頁捲軸高度偵測，決定是否變更選單樣式12345678910111213141516function fixNav() &#123; // 如果目前捲軸的高度高過於nav的頂部 if (window.scrollY &gt;= topOfNav) &#123; /* 設定一個padding-top並增加fixed-nav 因為當position被設定為fixed時，將不會再佔據原有的高度 所以要動態的增加一個offsetHeight來將內容部位增高避免怪異的彈跳遮擋現象 */ document.body.style.paddingTop = nav.offsetHeight + 'px'; document.body.classList.add('fixed-nav'); &#125; else &#123; // 還原padding-top並移除fixed-nav document.body.style.paddingTop = 0; document.body.classList.remove('fixed-nav'); &#125;&#125;// 監聽scroll動作window.addEventListener('scroll', fixNav); 其他這個也是比較基礎的小練習，比較特別的是體驗到網站切換時使用transform: scale()來作些微縮放在視覺上感受滿棒的。]]></content>

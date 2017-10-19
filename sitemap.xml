@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://guahsu.io/2017/10/JavaScript30-25-Event-Capture-Propagation-Bubbling-and-Once/</loc>
+    
+    <lastmod>2017-10-19T15:52:30.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://guahsu.io/2017/10/JavaScript30-24-Sticky-Nav/</loc>
     
     <lastmod>2017-10-17T15:21:38.000Z</lastmod>
