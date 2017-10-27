@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Gua&#39;s Note">
 <meta property="og:description" content="主題透過JS使鍵盤按下後播放出對應按鍵的聲音，並同時產生一個特效，在按下其他鍵後會關閉該特效並於新按鍵中啟用。">
 <meta property="og:image" content="https://guahsu.io/2017/05/JavaScript30-01-Java-Script-Drum-Kit/demo1.png">
-<meta property="og:updated_time" content="2017-07-02T12:53:34.000Z">
+<meta property="og:updated_time" content="2017-10-27T15:31:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「JS30紀錄＆心得」01 - JavaScript Drum Kit">
 <meta name="twitter:description" content="主題透過JS使鍵盤按下後播放出對應按鍵的聲音，並同時產生一個特效，在按下其他鍵後會關閉該特效並於新按鍵中啟用。">
@@ -439,19 +439,19 @@
 <blockquote>
 <p><a href="https://guahsu.io/JavaScript30/01_Java-Script-Drum-Kit/index-GuaHsu.html">[DEMO]</a> ｜ <a href="https://github.com/guahsu/JavaScript30" target="_blank" rel="external">[JavaScript30介紹與記錄格式]</a></p>
 </blockquote>
-<h2 id="步驟"><a href="#步驟" class="headerlink" title="步驟"></a><strong>步驟</strong></h2><h3 id="step1-新增keydown-listener"><a href="#step1-新增keydown-listener" class="headerlink" title="step1.新增keydown listener"></a>step1.新增keydown listener</h3><p>利用<code>window.addEventListener(&#39;keydown&#39;, playSound);</code>來監聽鍵盤動作。</p>
-<h3 id="step2-建立functionplaySound"><a href="#step2-建立functionplaySound" class="headerlink" title="step2.建立functionplaySound"></a>step2.建立function<code>playSound</code></h3><ol>
+<h2 id="步驟"><a href="#步驟" class="headerlink" title="步驟"></a><strong>步驟</strong></h2><h3 id="Step1-新增keydown-listener"><a href="#Step1-新增keydown-listener" class="headerlink" title="Step1. 新增keydown listener"></a>Step1. 新增keydown listener</h3><p>利用<code>window.addEventListener(&#39;keydown&#39;, playSound);</code>來監聽鍵盤動作。</p>
+<h3 id="Step2-建立functionplaySound"><a href="#Step2-建立functionplaySound" class="headerlink" title="Step2. 建立functionplaySound"></a>Step2. 建立function<code>playSound</code></h3><ol>
 <li>利用傳入的e.keyCode來取得對應的<code>audio</code>標籤及該按鍵的<code>div</code>標籤</li>
 <li>判斷傳入的e.keyCode是否有對應的<code>audio</code>標籤，若無則退出</li>
 <li>使對應的<code>div</code>加上<code>playing</code>樣式，產生對應的典及特效</li>
 <li>使對應的<code>audio</code>播放時間為0</li>
 <li>播放對應的音檔</li>
 </ol>
-<h3 id="step3-新增transitionend-listener"><a href="#step3-新增transitionend-listener" class="headerlink" title="step3.新增transitionend listener"></a>step3.新增transitionend listener</h3><ol>
+<h3 id="Step3-新增transitionend-listener"><a href="#Step3-新增transitionend-listener" class="headerlink" title="Step3. 新增transitionend listener"></a>Step3. 新增transitionend listener</h3><ol>
 <li>偵測所有包含<code>className=&#39;key&#39;</code>的元件</li>
 <li>當該元件觸發特效並結束時(<code>transitionend</code>)，呼叫<code>removeTransition</code></li>
 </ol>
-<h3 id="step4-建立functionremoveTransition"><a href="#step4-建立functionremoveTransition" class="headerlink" title="step4. 建立functionremoveTransition"></a>step4. 建立function<code>removeTransition</code></h3><ol>
+<h3 id="Step4-建立functionremoveTransition"><a href="#Step4-建立functionremoveTransition" class="headerlink" title="Step4. 建立functionremoveTransition"></a>Step4. 建立function<code>removeTransition</code></h3><ol>
 <li>判斷傳入的propretyName是否為transform，若否則退出</li>
 <li>若為transform，則移除<code>playing</code>樣式  </li>
 </ol>
@@ -713,7 +713,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主題"><span class="nav-text">主題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步驟"><span class="nav-text">步驟</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#step1-新增keydown-listener"><span class="nav-text">step1.新增keydown listener</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step2-建立functionplaySound"><span class="nav-text">step2.建立functionplaySound</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step3-新增transitionend-listener"><span class="nav-text">step3.新增transitionend listener</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step4-建立functionremoveTransition"><span class="nav-text">step4. 建立functionremoveTransition</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript語法-amp-備註"><span class="nav-text">JavaScript語法&備註</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#element-classList"><span class="nav-text">element.classList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTMLmediaElement-audio"><span class="nav-text">HTMLmediaElement(audio)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#forEach"><span class="nav-text">forEach</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#箭頭函式-Arrow-Function"><span class="nav-text">箭頭函式(Arrow Function)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#addEventListener"><span class="nav-text">addEventListener</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#template-literals"><span class="nav-text">template literals</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-from"><span class="nav-text">Array.from</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS語法-amp-備註"><span class="nav-text">CSS語法&備註</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#display-flex"><span class="nav-text">display:flex</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#探索"><span class="nav-text">探索</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主題"><span class="nav-text">主題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步驟"><span class="nav-text">步驟</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Step1-新增keydown-listener"><span class="nav-text">Step1. 新增keydown listener</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step2-建立functionplaySound"><span class="nav-text">Step2. 建立functionplaySound</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step3-新增transitionend-listener"><span class="nav-text">Step3. 新增transitionend listener</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step4-建立functionremoveTransition"><span class="nav-text">Step4. 建立functionremoveTransition</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript語法-amp-備註"><span class="nav-text">JavaScript語法&備註</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#element-classList"><span class="nav-text">element.classList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTMLmediaElement-audio"><span class="nav-text">HTMLmediaElement(audio)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#forEach"><span class="nav-text">forEach</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#箭頭函式-Arrow-Function"><span class="nav-text">箭頭函式(Arrow Function)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#addEventListener"><span class="nav-text">addEventListener</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#template-literals"><span class="nav-text">template literals</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array-from"><span class="nav-text">Array.from</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS語法-amp-備註"><span class="nav-text">CSS語法&備註</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#display-flex"><span class="nav-text">display:flex</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#探索"><span class="nav-text">探索</span></a></li></ol></div>
             
 
           </div>
