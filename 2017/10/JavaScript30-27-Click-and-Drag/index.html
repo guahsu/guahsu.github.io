@@ -74,7 +74,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=201710280001" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=201710280002" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="JavaScript,CSS," />
@@ -86,7 +86,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=201710280001" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=201710280002" />
 
 
 
@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Gua&#39;s Note">
 <meta property="og:description" content="主題製作一個可拖曳移動的水平捲軸。">
 <meta property="og:image" content="https://guahsu.io/2017/10/JavaScript30-27-Click-and-Drag/demo27.gif">
-<meta property="og:updated_time" content="2017-10-27T16:10:16.000Z">
+<meta property="og:updated_time" content="2017-10-27T16:27:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「JS30紀錄＆心得」27 - Click and Drag">
 <meta name="twitter:description" content="主題製作一個可拖曳移動的水平捲軸。">
@@ -437,7 +437,7 @@
 <h2 id="主題"><a href="#主題" class="headerlink" title="主題"></a><strong>主題</strong></h2><p>製作一個可拖曳移動的水平捲軸。</p>
 <a id="more"></a>
 <blockquote>
-<p><a href="https://guahsu.io/JavaScript30/27_Click-and-Drag/index-GuaHsu.html">[DEMO]</a>   ｜ <a href="https://github.com/guahsu/JavaScript30" target="_blank" rel="external">GitHub-JavaScript30介紹與記錄格式</a> </p>
+<p><a href="https://guahsu.github.io/JavaScript30/27_Click-and-Drag/index-GuaHsu.html" target="_blank" rel="external">[DEMO]</a>   ｜ <a href="https://github.com/guahsu/JavaScript30" target="_blank" rel="external">GitHub-JavaScript30介紹與記錄格式</a> </p>
 </blockquote>
 <h2 id="步驟"><a href="#步驟" class="headerlink" title="步驟"></a><strong>步驟</strong></h2><h3 id="Step1-取得頁面元素與設定初始變數"><a href="#Step1-取得頁面元素與設定初始變數" class="headerlink" title="Step1. 取得頁面元素與設定初始變數"></a>Step1. 取得頁面元素與設定初始變數</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> slider = <span class="built_in">document</span>.querySelector(<span class="string">'.items'</span>);</div><div class="line"><span class="keyword">let</span> isDown = <span class="literal">false</span>;</div><div class="line"><span class="keyword">let</span> startX;</div><div class="line"><span class="keyword">let</span> scrollLeft;</div></pre></td></tr></table></figure>
 <h3 id="Step2-建立基本事件框架"><a href="#Step2-建立基本事件框架" class="headerlink" title="Step2. 建立基本事件框架"></a>Step2. 建立基本事件框架</h3><p>因為這次練習主要是在拖曳的動作，<br>所以對會用到的mouse event事件先建立監聽框框出來：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** 滑鼠按鍵按下 **/</span></div><div class="line">slider.addEventListener(<span class="string">'mousedown'</span>, () =&gt; &#123;</div><div class="line"></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">/** 滑鼠滑出範圍**/</span></div><div class="line">slider.addEventListener(<span class="string">'mouseleave'</span>, () =&gt; &#123;</div><div class="line"></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">/** 滑鼠按鍵放開 **/</span></div><div class="line">slider.addEventListener(<span class="string">'mouseup'</span>, () =&gt; &#123;</div><div class="line"></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">/** 滑鼠移動 **/</span></div><div class="line">slider.addEventListener(<span class="string">'mousemove'</span>, () =&gt; &#123;</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
@@ -766,25 +766,25 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=201710280001"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=201710280002"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=201710280001"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=201710280001"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=201710280001"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=201710280002"></script>
 
 
 
   
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=201710280002"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=201710280002"></script>
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=201710280001"></script>
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=201710280002"></script>
 
 
 

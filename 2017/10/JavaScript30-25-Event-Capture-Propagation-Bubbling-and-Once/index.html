@@ -74,7 +74,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=201710280001" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=201710280002" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="JavaScript,CSS," />
@@ -86,7 +86,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=201710280001" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=201710280002" />
 
 
 
@@ -103,7 +103,7 @@
 <meta property="og:url" content="https://guahsu.io/2017/10/JavaScript30-25-Event-Capture-Propagation-Bubbling-and-Once/">
 <meta property="og:site_name" content="Gua&#39;s Note">
 <meta property="og:description" content="主題解析addEventListener中事件的捕捉、傳遞、氣泡與單次執行方法">
-<meta property="og:updated_time" content="2017-10-27T15:44:36.000Z">
+<meta property="og:updated_time" content="2017-10-27T16:28:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「JS30紀錄＆心得」25 - Event Capture, Propagation, Bubbling and Once">
 <meta name="twitter:description" content="主題解析addEventListener中事件的捕捉、傳遞、氣泡與單次執行方法">
@@ -434,7 +434,7 @@
         <h2 id="主題"><a href="#主題" class="headerlink" title="主題"></a><strong>主題</strong></h2><p>解析<code>addEventListener</code>中事件的捕捉、傳遞、氣泡與單次執行方法</p>
 <a id="more"></a>
 <blockquote>
-<p><a href="https://guahsu.io/JavaScript30/25_Event-Capture-Propagation-Bubbling-and-Once/index-GuaHsu.html">[DEMO]</a>   ｜ <a href="https://github.com/guahsu/JavaScript30" target="_blank" rel="external">GitHub-JavaScript30介紹與記錄格式</a> </p>
+<p><a href="https://guahsu.github.io/JavaScript30/25_Event-Capture-Propagation-Bubbling-and-Once/index-GuaHsu.html" target="_blank" rel="external">[DEMO]</a>   ｜ <a href="https://github.com/guahsu/JavaScript30" target="_blank" rel="external">GitHub-JavaScript30介紹與記錄格式</a> </p>
 </blockquote>
 <h2 id="步驟"><a href="#步驟" class="headerlink" title="步驟"></a><strong>步驟</strong></h2><h3 id="Step1-建立事件模型與基本呼叫"><a href="#Step1-建立事件模型與基本呼叫" class="headerlink" title="Step1. 建立事件模型與基本呼叫"></a>Step1. 建立事件模型與基本呼叫</h3><p>首先建立三層DIV作為稍後測試使用的模型，<br>依序包覆為：紫色&gt;淺橘色&gt;深橘色<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"one"</span>&gt;</span> </div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"two"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"three"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>接著建立<code>click</code>事件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 取得頁面的所有div</span></div><div class="line"><span class="keyword">const</span> divs = <span class="built_in">document</span>.querySelectorAll(<span class="string">'div'</span>);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">logText</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  <span class="comment">// 印出當前div的class name</span></div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.classList.value);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 為每個div加上click事件監聽</span></div><div class="line">divs.forEach(<span class="function"><span class="params">div</span> =&gt;</span> div.addEventListener(<span class="string">'click'</span>, logText));</div></pre></td></tr></table></figure></p>
@@ -769,25 +769,25 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=201710280001"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=201710280002"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=201710280001"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=201710280001"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=201710280001"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=201710280002"></script>
 
 
 
   
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=201710280002"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=201710280002"></script>
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=201710280001"></script>
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=201710280002"></script>
 
 
 

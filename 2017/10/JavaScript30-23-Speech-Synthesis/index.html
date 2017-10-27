@@ -74,7 +74,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=201710280001" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=201710280002" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="JavaScript,SpeechSynthesis," />
@@ -86,7 +86,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=201710280001" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=201710280002" />
 
 
 
@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Gua&#39;s Note">
 <meta property="og:description" content="主題使用SpeechSynthesisUtterance及speechSynthesis來使文字轉語音。">
 <meta property="og:image" content="https://guahsu.io/2017/10/JavaScript30-23-Speech-Synthesis/demo23.png">
-<meta property="og:updated_time" content="2017-10-27T15:31:25.000Z">
+<meta property="og:updated_time" content="2017-10-27T16:28:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「JS30紀錄＆心得」23 - Speech Synthesis">
 <meta name="twitter:description" content="主題使用SpeechSynthesisUtterance及speechSynthesis來使文字轉語音。">
@@ -437,7 +437,7 @@
 <h2 id="主題"><a href="#主題" class="headerlink" title="主題"></a><strong>主題</strong></h2><p>使用<code>SpeechSynthesisUtterance</code>及<code>speechSynthesis</code>來使文字轉語音。</p>
 <a id="more"></a>
 <blockquote>
-<p><a href="https://guahsu.io/JavaScript30/23_Speech-Synthesis/index-GuaHsu.html">[DEMO]</a>   ｜ <a href="https://github.com/guahsu/JavaScript30" target="_blank" rel="external">GitHub-JavaScript30介紹與記錄格式</a>  </p>
+<p><a href="https://guahsu.github.io/JavaScript30/23_Speech-Synthesis/index-GuaHsu.html" target="_blank" rel="external">[DEMO]</a>   ｜ <a href="https://github.com/guahsu/JavaScript30" target="_blank" rel="external">GitHub-JavaScript30介紹與記錄格式</a>  </p>
 </blockquote>
 <p>上次有做過語音轉文字的練習<a href="https://guahsu.io/2017/10/JavaScript30-20-Speech-Detection/">[20 - Speech Detection]</a>，<br>這次則是要使用文字轉語音，透過介面中的輸入欄位來轉語音播放，<br>並可透過設定好的控制條來變更語音速率/音準。</p>
 <h2 id="步驟"><a href="#步驟" class="headerlink" title="步驟"></a><strong>步驟</strong></h2><h3 id="Step1-取得頁面元素並設置SpeechSynthesisUtterance"><a href="#Step1-取得頁面元素並設置SpeechSynthesisUtterance" class="headerlink" title="Step1. 取得頁面元素並設置SpeechSynthesisUtterance"></a>Step1. 取得頁面元素並設置SpeechSynthesisUtterance</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> msg = <span class="keyword">new</span> SpeechSynthesisUtterance();</div><div class="line"><span class="keyword">let</span> voices = [];</div><div class="line"><span class="keyword">const</span> voicesDropdown = <span class="built_in">document</span>.querySelector(<span class="string">'[name="voice"]'</span>);</div><div class="line"><span class="keyword">const</span> options = <span class="built_in">document</span>.querySelectorAll(<span class="string">'[type="range"], [name="text"]'</span>);</div><div class="line"><span class="keyword">const</span> speakButton = <span class="built_in">document</span>.querySelector(<span class="string">'#speak'</span>);</div><div class="line"><span class="keyword">const</span> stopButton = <span class="built_in">document</span>.querySelector(<span class="string">'#stop'</span>);</div><div class="line"><span class="comment">// 使html中的輸入欄位成為SpeechSynthesisUtterance要使用的值</span></div><div class="line">msg.text = <span class="built_in">document</span>.querySelector(<span class="string">'[name="text"]'</span>).value</div></pre></td></tr></table></figure>
@@ -772,25 +772,25 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=201710280001"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=201710280002"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=201710280001"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=201710280001"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=201710280001"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=201710280002"></script>
 
 
 
   
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=201710280002"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=201710280002"></script>
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=201710280001"></script>
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=201710280002"></script>
 
 
 

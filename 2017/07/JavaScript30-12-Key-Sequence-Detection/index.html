@@ -74,7 +74,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=201710280001" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=201710280002" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="JavaScript," />
@@ -86,7 +86,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=201710280001" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=201710280002" />
 
 
 
@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Gua&#39;s Note">
 <meta property="og:description" content="主題記得以前玩遊戲常輸入的祕技嗎？上上下下左右左右BA之類的，現在很多網站也有偷塞一些密碼，當你輸入完後會出現對應特效，這篇就是介紹如何用JS來做這樣的小效果。">
 <meta property="og:image" content="https://guahsu.io/2017/07/JavaScript30-12-Key-Sequence-Detection/demo12.gif">
-<meta property="og:updated_time" content="2017-10-27T15:31:18.000Z">
+<meta property="og:updated_time" content="2017-10-27T16:27:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「JS30紀錄＆心得」12 - Key Sequence Detection">
 <meta name="twitter:description" content="主題記得以前玩遊戲常輸入的祕技嗎？上上下下左右左右BA之類的，現在很多網站也有偷塞一些密碼，當你輸入完後會出現對應特效，這篇就是介紹如何用JS來做這樣的小效果。">
@@ -437,7 +437,7 @@
 <h2 id="主題"><a href="#主題" class="headerlink" title="主題"></a><strong>主題</strong></h2><p>記得以前玩遊戲常輸入的祕技嗎？上上下下左右左右BA之類的，<br>現在很多網站也有偷塞一些密碼，當你輸入完後會出現對應特效，<br>這篇就是介紹如何用JS來做這樣的小效果。</p>
 <a id="more"></a>
 <blockquote>
-<p><a href="https://guahsu.io/JavaScript30/12_Key-Sequence-Detection/index-GuaHsu.html">[DEMO]</a>   ｜ <a href="https://github.com/guahsu/JavaScript30" target="_blank" rel="external">JavaScript30介紹與記錄格式</a></p>
+<p><a href="https://guahsu.github.io/JavaScript30/12_Key-Sequence-Detection/index-GuaHsu.html" target="_blank" rel="external">[DEMO]</a>   ｜ <a href="https://github.com/guahsu/JavaScript30" target="_blank" rel="external">JavaScript30介紹與記錄格式</a></p>
 </blockquote>
 <h2 id="步驟"><a href="#步驟" class="headerlink" title="步驟"></a><strong>步驟</strong></h2><h3 id="Step1-設定目標"><a href="#Step1-設定目標" class="headerlink" title="Step1. 設定目標"></a>Step1. 設定目標</h3><p>在這個效果中，目的是在瀏覽器內容中透過鍵盤觸發對應的“密碼”後執行，<br>所以需要設定一個陣列來保存輸入值，並設定好設定的密碼(我設定為guahsu)，<br>接著針對<code>window</code>對這個瀏覽器視窗來做<code>addEventListener(&#39;keyup&#39;..)</code>監聽鍵盤動作。</p>
 <h3 id="Step2-執行"><a href="#Step2-執行" class="headerlink" title="Step2. 執行"></a>Step2. 執行</h3><p>當觸發<code>keyup</code>時利用陣列的<code>push()</code>來塞入鍵盤動作所觸發的輸入內容<code>e.key</code>，<br>接著用陣列的<code>splice()</code>來控制密碼陣列，使其不超出密碼長度且堆疊替換掉第一個元素，<br>最後透過陣列的<code>join()</code>及字串的<code>includes()</code>來驗證輸入內容是否與設定密碼相同。  </p>
@@ -777,25 +777,25 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=201710280001"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=201710280002"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=201710280001"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=201710280001"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=201710280001"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=201710280002"></script>
 
 
 
   
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=201710280002"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=201710280002"></script>
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=201710280001"></script>
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=201710280002"></script>
 
 
 
