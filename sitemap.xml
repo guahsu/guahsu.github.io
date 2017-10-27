@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://guahsu.io/2017/10/JavaScript30-27-Click-and-Drag/</loc>
+    
+    <lastmod>2017-10-27T16:10:16.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://guahsu.io/2017/10/JavaScript30-25-Event-Capture-Propagation-Bubbling-and-Once/</loc>
     
     <lastmod>2017-10-27T15:44:36.000Z</lastmod>
