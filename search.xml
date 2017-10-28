@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[「CSScomb」好用的CSS屬性排版插件]]></title>
+    <url>%2F2017%2F10%2FCSScomb-css-sort-format%2F</url>
+    <content type="text"><![CDATA[超棒的CSS屬性排版插件，依據屬性類別擺好排好超舒服：D 起因是每次刻畫面都邊想邊寫CSS，這裡補一下那裡補一下的，常常寫好後裡面屬性擺放的亂七八糟，有時會要再手動去排序讓自己找屬性時比較好找.. 所以就在找CSS的排序工具，昨天發問後在群組有人分享了Sort Lines這個插件，他可以依據選取範圍來做a-z正排序或反向排序，但是變成要很勤勞的選取-&gt;排序。 然後今天早上找找看到了CSScomb這個插件，使用起來就像首圖一樣，直接會把屬性分門別類排好，省去很多手動排的功夫，也讓心情變好了(?)。 安裝步驟(VScode)Step1. 安裝在VScode的擴充市集中可以找到，安裝後重新載入。 Step2. 插件設定進入設定介面後在使用者設定中，搜尋CSScomb，接著在csscomb.preset點選在設定中取代。到使用者設定的區塊，在把格式設定填入，有三種格式可選(csscomb, yandex, zen) Step3. 快捷鍵設定進入快捷鍵設定介面 點選搜尋框下面的keybindings.json(紅框處) 在這裡可以設定對應的熱鍵，要啟動的命令就是CSScomb啦～ Step4. 完成然後就開啟CSS檔，愉悅地按下熱鍵吧哈哈哈！]]></content>
+      <categories>
+        <category>CODE</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+        <tag>Tools</tag>
+        <tag>VScode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[「JS30紀錄＆心得」27 - Click and Drag]]></title>
     <url>%2F2017%2F10%2FJavaScript30-27-Click-and-Drag%2F</url>
     <content type="text"><![CDATA[主題製作一個可拖曳移動的水平捲軸。 [DEMO] ｜ GitHub-JavaScript30介紹與記錄格式 步驟Step1. 取得頁面元素與設定初始變數1234const slider = document.querySelector('.items');let isDown = false;let startX;let scrollLeft; Step2. 建立基本事件框架因為這次練習主要是在拖曳的動作，所以對會用到的mouse event事件先建立監聽框框出來：12345678910111213141516171819/** 滑鼠按鍵按下 **/slider.addEventListener('mousedown', () =&gt; &#123;&#125;);/** 滑鼠滑出範圍**/slider.addEventListener('mouseleave', () =&gt; &#123;&#125;);/** 滑鼠按鍵放開 **/slider.addEventListener('mouseup', () =&gt; &#123;&#125;);/** 滑鼠移動 **/slider.addEventListener('mousemove', () =&gt; &#123;&#125;); Step3. 滑鼠按下事件12345678910slider.addEventListener('mousedown', (e) =&gt; &#123; // 給予按下的flag isDown = true; // 加上抓取效果樣式 slider.classList.add('active'); // 設定移動的初始值為目前頁面距離-當前item左邊距 startX = e.pageX - slider.offsetLeft; // 設定目前捲軸的左距 scrollLeft = slider.scrollLeft;&#125;); Step4. 滑鼠移出事件12345slider.addEventListener('mouseleave', () =&gt; &#123; // 將按下的flag與樣式移除 isDown = false; slider.classList.remove('active');&#125;); Step5. 滑鼠按鍵放開事件與Step4一樣，主要是取消樣式12345slider.addEventListener('mouseup', () =&gt; &#123; // 將按下的flag與樣式移除 isDown = false; slider.classList.remove('active');&#125;); Step6. 滑鼠移動事件123456789101112slider.addEventListener('mousemove', (e) =&gt; &#123; // 若移動時的狀態非按下，不作動 if (!isDown) return; // 避免觸發其他預設事件（按下且移動預設是選取範圍） e.preventDefault(); // 設定X（當前定位）為目前頁面距離-當前item左邊距 const x = e.pageX - slider.offsetLeft; // 設定移動距離為 X-初始值 const walk = x - startX; // 設定水平捲軸的偏移量 slider.scrollLeft = scrollLeft - walk;&#125;); 其他如果有仔細看，會發現當拖曳左右移動時，HTML中的卡片會有3D移動的效果感很褲，這是CSS的rotateY效果:123/* 用scaleX與rotateY搭配使移動時有3D效果 */.item:nth-child(even) &#123; transform: scaleX(1.31) rotateY(40deg); &#125;.item:nth-child(odd) &#123; transform: scaleX(1.31) rotateY(-40deg); &#125; 參閱：MDN-rotateY()]]></content>
@@ -8,8 +21,8 @@
         <category>JavaScript30</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -20,8 +33,8 @@
         <category>JavaScript30</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -32,8 +45,8 @@
         <category>JavaScript30</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -44,8 +57,8 @@
         <category>JavaScript30</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -68,8 +81,8 @@
         <category>JavaScript30</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -127,8 +140,8 @@
         <category>Diary</category>
       </categories>
       <tags>
-        <tag>Spotify</tag>
         <tag>Tools</tag>
+        <tag>Spotify</tag>
         <tag>Mac</tag>
       </tags>
   </entry>
@@ -162,8 +175,8 @@
         <category>JavaScript30</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -290,8 +303,8 @@
         <category>JavaScript30</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
         <tag>HTML5</tag>
         <tag>Canvas</tag>
       </tags>
@@ -327,8 +340,8 @@
         <category>Project</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -339,8 +352,8 @@
         <category>JavaScript30</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -351,8 +364,8 @@
         <category>JavaScript30</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -363,8 +376,8 @@
         <category>JavaScript30</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -386,8 +399,8 @@
         <category>JavaScript30</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -398,8 +411,8 @@
         <category>JavaScript30</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -421,8 +434,8 @@
         <category>Project</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
