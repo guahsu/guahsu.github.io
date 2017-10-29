@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[「JS30紀錄＆心得」28 - Video Speed Controller]]></title>
+    <url>%2F2017%2F10%2FJavaScript30-28-Video-Speed-Controller%2F</url>
+    <content type="text"><![CDATA[主題製作一個可控制影片速率的拉把。 [DEMO] ｜ GitHub-JavaScript30介紹與記錄格式 這個練習可以算是延續「JS30紀錄＆心得」11 - Custom Video Player的操作，主要是把原本input range改成div的滑鼠事件監聽。 步驟Step1. 取得頁面元素123const speed = document.querySelector('.speed');const bar = speed.querySelector('.speed-bar');const video = document.querySelector('.flex'); Step2. 建立滑鼠移動監聽與事件12345678910111213141516171819/** 滑鼠移動事件 **/function handleMove (e) &#123; // 取得觸發點位置（滑鼠位於整頁頂端的Y軸定位-speed框到整頁頂端的距離） const y = e.pageY - this.offsetTop; // 設定百分比(y / speed框的高度) const percent = y / this.offsetHeight; const min = 0.4; const max = 4; // 用Math.round來計算取得四捨五入的百分比值 const height = Math.round(percent * 100) + '%'; // 取得播放速率(0.4一跳，最多4倍速) const playbackRate = percent * (max - min) + min; // 調整speed-bar的樣式高度 bar.style.height = height; // 用toFixed(2)來設定最多取得小數點後兩位，顯示於speed-bar上 bar.textContent = playbackRate.toFixed(2) + 'x'; // 控制影片的速率 video.playbackRate = playbackRate;&#125;]]></content>
+      <categories>
+        <category>JavaScript30</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[「CSScomb」好用的CSS屬性排版插件]]></title>
     <url>%2F2017%2F10%2FCSScomb-css-sort-format%2F</url>
     <content type="text"><![CDATA[超棒的CSS屬性排版插件，依據屬性類別擺好排好超舒服：D 起因是每次刻畫面都邊想邊寫CSS，這裡補一下那裡補一下的，常常寫好裡面屬性擺放的亂七八糟，有時會要再手動去排序讓自己找屬性時比較好找.. 所以就在找CSS的排序工具，昨天發問後在群組有人分享了Sort Lines這個插件，他可以依據選取範圍來做a-z正排序或反向排序，但是變成要很勤勞的選取-&gt;排序。 然後今天早上找找看到了CSScomb這個插件，使用起來就像首圖一樣，直接會把屬性分門別類排好，省去很多手動排的功夫，也讓心情變好了(?)。 安裝步驟(VScode)Step1. 安裝在VScode的擴充市集中可以找到，安裝後重新載入。 Step2. 插件設定進入設定介面後在使用者設定中，搜尋CSScomb，接著在csscomb.preset點選在設定中取代。到使用者設定的區塊，在把格式設定填入，有三種格式可選(csscomb, yandex, zen) Step3. 快捷鍵設定進入快捷鍵設定介面 點選搜尋框下面的keybindings.json(紅框處) 在這裡可以設定對應的熱鍵，要啟動的命令就是CSScomb啦～ Step4. 完成然後就開啟CSS檔，愉悅地按下熱鍵吧哈哈哈！]]></content>
@@ -21,8 +33,8 @@
         <category>JavaScript30</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -33,8 +45,8 @@
         <category>JavaScript30</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -45,8 +57,8 @@
         <category>JavaScript30</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -57,8 +69,8 @@
         <category>JavaScript30</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -81,8 +93,8 @@
         <category>JavaScript30</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -175,8 +187,8 @@
         <category>JavaScript30</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -303,8 +315,8 @@
         <category>JavaScript30</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
         <tag>HTML5</tag>
         <tag>Canvas</tag>
       </tags>
@@ -340,8 +352,8 @@
         <category>Project</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -352,8 +364,8 @@
         <category>JavaScript30</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -364,8 +376,8 @@
         <category>JavaScript30</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -376,8 +388,8 @@
         <category>JavaScript30</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -399,8 +411,8 @@
         <category>JavaScript30</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -411,8 +423,8 @@
         <category>JavaScript30</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -434,8 +446,8 @@
         <category>Project</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>CSS</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
