@@ -14,27 +14,44 @@ NexT.utils = NexT.$u = {
         var $imageWrapLink = $image.parent('a');
 
         if ($image.hasClass('gua-gif')) {
-          $image.on('click', function () {
-            var isPlay = $(this).hasClass('gif-play');
-            var type = isPlay ? ['gif', 'png'] : ['png', 'gif'];
-            var image = $(this).attr('src').replace(type[0], type[1]);
-            isPlay ? $(this).removeClass('gif-play') : $(this).addClass('gif-play');
-            $(this).attr('src', image);
-          })
-        }else {          
+          $image.wrap('<div class="gua-gif-box"></div>');
+        } else {
           if ($imageWrapLink.size() < 1) {
             var imageLink = ($image.attr('data-original')) ? this.getAttribute('data-original') : this.getAttribute('src');
             $imageWrapLink = $image.wrap('<a href="' + imageLink + '"></a>').parent('a');
           }
           $imageWrapLink.addClass('fancybox fancybox.image');
-          $imageWrapLink.attr('rel', 'group');  
+          $imageWrapLink.attr('rel', 'group');
           if (imageTitle) {
-            $imageWrapLink.append('<p class="image-caption">' + imageTitle + '</p>');  
+            $imageWrapLink.append('<p class="image-caption">' + imageTitle + '</p>');
             //make sure img title tag will show correctly in fancybox
             $imageWrapLink.attr('title', imageTitle);
           }
         }
       });
+
+    $('.gua-gif-box').each(function () {
+      $(this).prepend('<div class="gua-gif-bgc"></div><div class="gua-gif-btn"></div>');
+      $(this).on('click', function () {
+        var image = $(this).find('.gua-gif');
+        var playBtn = $(this).find('.gua-gif-btn');
+        var bgc = $(this).find('.gua-gif-bgc');
+        var isPlay = image.hasClass('gua-gif-play');
+        console.log(isPlay);
+        var type = isPlay ? ['gif', 'png'] : ['png', 'gif'];
+        var link = image.attr('src').replace(type[0], type[1]);
+        if (isPlay) {
+          bgc.show();
+          playBtn.show();
+          image.removeClass('gua-gif-play')
+        } else {
+          bgc.hide();
+          playBtn.hide();
+          image.addClass('gua-gif-play')
+        }
+        image.attr('src', link);
+      })
+    })
 
     $('.fancybox').fancybox({
       helpers: {
@@ -49,7 +66,7 @@ NexT.utils = NexT.$u = {
     $('#posts').find('img').lazyload({
       //placeholder: '/images/loading.gif',
       effect: 'fadeIn',
-      threshold : 0
+      threshold: 0
     });
   },
 
@@ -77,7 +94,7 @@ NexT.utils = NexT.$u = {
       var winHeight = $(window).height();
       var contentMath = (docHeight > winHeight) ? (docHeight - winHeight) : ($(document).height() - winHeight);
       var scrollPercent = (scrollTop) / (contentMath);
-      var scrollPercentRounded = Math.round(scrollPercent*100);
+      var scrollPercentRounded = Math.round(scrollPercent * 100);
       var scrollPercentMaxed = (scrollPercentRounded > 100) ? 100 : scrollPercentRounded;
       $('#scrollpercent>span').html(scrollPercentMaxed);
     });
@@ -102,7 +119,7 @@ NexT.utils = NexT.$u = {
       'music.163.com',
       'www.tudou.com'
     ];
-    var pattern = new RegExp( SUPPORTED_PLAYERS.join('|') );
+    var pattern = new RegExp(SUPPORTED_PLAYERS.join('|'));
 
     $iframes.each(function () {
       var iframe = this;
@@ -143,7 +160,7 @@ NexT.utils = NexT.$u = {
         if (this.src.search('music.163.com') > 0) {
           newDimension = getDimension($iframe);
           var shouldRecalculateAspect = newDimension.width > oldDimension.width ||
-                                        newDimension.height < oldDimension.height;
+            newDimension.height < oldDimension.height;
 
           // 163 Music Player has a fixed height, so we need to reset the aspect radio
           if (shouldRecalculateAspect) {

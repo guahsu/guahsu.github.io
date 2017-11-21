@@ -1109,7 +1109,46 @@ pre .javascript .function {
     word-break: break-word;
   }
 }
-.post-body .gua-gif {
+.gua-gif-box {
+  position: relative;
+  cursor: pointer;
+  max-width: 800px;
+}
+.gua-gif-box .gua-gif-bgc {
+  background-color: rgba(0,0,0,0.3);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.gua-gif-box .gua-gif-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border: 4px solid #fafafa;
+  border-radius: 100%;
+}
+.gua-gif-box .gua-gif-btn::after {
+  display: inline-block;
+  content: '';
+  -webkit-transform: translate(60%, 35%);
+  -moz-transform: translate(60%, 35%);
+  -ms-transform: translate(60%, 35%);
+  -o-transform: translate(60%, 35%);
+  transform: translate(60%, 35%);
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-left: 50px solid #fafafa;
+}
+.gua-gif-box .gua-gif {
   cursor: pointer;
 }
 .post-body .fancybox img {
@@ -1751,7 +1790,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #875e61;
+  background: #93ff95;
 }
 .links-of-blogroll {
   font-size: 13px;
