@@ -13,19 +13,26 @@ NexT.utils = NexT.$u = {
         var imageTitle = $image.attr('title');
         var $imageWrapLink = $image.parent('a');
 
-        if ($imageWrapLink.size() < 1) {
-	        var imageLink = ($image.attr('data-original')) ? this.getAttribute('data-original') : this.getAttribute('src');
-          $imageWrapLink = $image.wrap('<a href="' + imageLink + '"></a>').parent('a');
-        }
-
-        $imageWrapLink.addClass('fancybox fancybox.image');
-        $imageWrapLink.attr('rel', 'group');
-
-        if (imageTitle) {
-          $imageWrapLink.append('<p class="image-caption">' + imageTitle + '</p>');
-
-          //make sure img title tag will show correctly in fancybox
-          $imageWrapLink.attr('title', imageTitle);
+        if ($image.hasClass('gua-gif')) {
+          $image.on('click', function () {
+            var isPlay = $(this).hasClass('gif-play');
+            var type = isPlay ? ['gif', 'png'] : ['png', 'gif'];
+            var image = $(this).attr('src').replace(type[0], type[1]);
+            isPlay ? $(this).removeClass('gif-play') : $(this).addClass('gif-play');
+            $(this).attr('src', image);
+          })
+        }else {          
+          if ($imageWrapLink.size() < 1) {
+            var imageLink = ($image.attr('data-original')) ? this.getAttribute('data-original') : this.getAttribute('src');
+            $imageWrapLink = $image.wrap('<a href="' + imageLink + '"></a>').parent('a');
+          }
+          $imageWrapLink.addClass('fancybox fancybox.image');
+          $imageWrapLink.attr('rel', 'group');  
+          if (imageTitle) {
+            $imageWrapLink.append('<p class="image-caption">' + imageTitle + '</p>');  
+            //make sure img title tag will show correctly in fancybox
+            $imageWrapLink.attr('title', imageTitle);
+          }
         }
       });
 

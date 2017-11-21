@@ -74,7 +74,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=201710280003" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=201711200001" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="JavaScript,SpeechRecognition," />
@@ -86,7 +86,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=201710280003" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=201711200001" />
 
 
 
@@ -103,12 +103,13 @@
 <meta property="og:url" content="https://guahsu.io/2017/10/JavaScript30-20-Speech-Detection/">
 <meta property="og:site_name" content="Gua&#39;s Note">
 <meta property="og:description" content="主題利用SpeechRecognition來做語音識別，並透過interimResults來輸出識別的結果。">
+<meta property="og:image" content="https://guahsu.io/2017/10/JavaScript30-20-Speech-Detection/demo20.png">
 <meta property="og:image" content="https://guahsu.io/2017/10/JavaScript30-20-Speech-Detection/console.png">
-<meta property="og:updated_time" content="2017-10-27T16:27:58.000Z">
+<meta property="og:updated_time" content="2017-11-20T15:12:08.440Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「JS30紀錄＆心得」20 - Speech Detection">
 <meta name="twitter:description" content="主題利用SpeechRecognition來做語音識別，並透過interimResults來輸出識別的結果。">
-<meta name="twitter:image" content="https://guahsu.io/2017/10/JavaScript30-20-Speech-Detection/console.png">
+<meta name="twitter:image" content="https://guahsu.io/2017/10/JavaScript30-20-Speech-Detection/demo20.png">
 
 
 
@@ -433,7 +434,8 @@
       
 
       
-        <h2 id="主題"><a href="#主題" class="headerlink" title="主題"></a><strong>主題</strong></h2><p>利用<code>SpeechRecognition</code>來做語音識別，<br>並透過<code>interimResults</code>來輸出識別的結果。</p>
+        <img src="/2017/10/JavaScript30-20-Speech-Detection/demo20.png" class="gua-gif">
+<h2 id="主題"><a href="#主題" class="headerlink" title="主題"></a><strong>主題</strong></h2><p>利用<code>SpeechRecognition</code>來做語音識別，<br>並透過<code>interimResults</code>來輸出識別的結果。</p>
 <a id="more"></a>
 <blockquote>
 <p><a href="https://guahsu.github.io/JavaScript30/20_Speech-Detection/index-GuaHsu.html" target="_blank" rel="external">[DEMO]</a>   ｜ <a href="https://github.com/guahsu/JavaScript30" target="_blank" rel="external">GitHub-JavaScript30介紹與記錄格式</a>  </p>
@@ -446,7 +448,7 @@
 <p>參閱：<a href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/interimResults" target="_blank" rel="external">MDN-SpeechRecognition.interimResults</a></p>
 <h3 id="Step3-把輸出區域準備好"><a href="#Step3-把輸出區域準備好" class="headerlink" title="Step3.  把輸出區域準備好"></a>Step3.  把輸出區域準備好</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 建立一個p元素在html設定好的文字區中</span></div><div class="line"><span class="keyword">let</span> p = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>);</div><div class="line"><span class="keyword">const</span> words = <span class="built_in">document</span>.querySelector(<span class="string">'.words'</span>);</div><div class="line">words.appendChild(p);</div></pre></td></tr></table></figure>
 <h3 id="Step4-對識別系統做監聽"><a href="#Step4-對識別系統做監聽" class="headerlink" title="Step4.  對識別系統做監聽"></a>Step4.  對識別系統做監聽</h3><p>識別回傳的資料是<code>NodeList</code>，所以要用<code>map</code>操作得先轉<code>array</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 監聽識別回傳</span></div><div class="line">recognition.addEventListener(<span class="string">'result'</span>, e =&gt; &#123;</div><div class="line">  <span class="comment">// 將回傳資料先轉為array來操作</span></div><div class="line">  <span class="keyword">const</span> transcript = <span class="built_in">Array</span>.from(e.results)</div><div class="line">    <span class="comment">// 透過map取得回傳陣列中的第0筆</span></div><div class="line">    .map(<span class="function"><span class="params">result</span> =&gt;</span> result[<span class="number">0</span>])</div><div class="line">    <span class="comment">// 在取得第0筆中的transcript</span></div><div class="line">    .map(<span class="function"><span class="params">result</span> =&gt;</span> result.transcript)</div><div class="line">    <span class="comment">// 用join把連結符號消掉</span></div><div class="line">    .join(<span class="string">''</span>)</div><div class="line"></div><div class="line">  <span class="comment">// 把回傳內容塞到p元素中</span></div><div class="line">  p.textContent = transcript;</div><div class="line">  <span class="comment">// 如果回傳內容已經結束（一段話的結尾）在建立一個新的p元素來放下一段文字</span></div><div class="line">  <span class="keyword">if</span> (e.results[<span class="number">0</span>].isFinal) &#123;</div><div class="line">    p = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>);</div><div class="line">    words.appendChild(p);</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// 監聽如果語音識別結束，則在開啟一次新的識別</span></div><div class="line">recognition.addEventListener(<span class="string">'end'</span>, recognition.start);</div><div class="line"><span class="comment">// 開始識別</span></div><div class="line">recognition.start();</div></pre></td></tr></table></figure></p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>在測試的過程中，不知道是我發音的問題還是怎麼回事，<br>我在說出<code>localhost</code>的過程中居然被識別成<code>Tokyo Hot</code>XDDDD<br><img src="/2017/10/JavaScript30-20-Speech-Detection/console.png" alt="console.png" title=""></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>在測試的過程中，不知道是我發音的問題還是怎麼回事，<br>我在說出<code>localhost</code>的過程中居然被識別成<code>Tokyo Hot</code>XDDDD<br><img src="/2017/10/JavaScript30-20-Speech-Detection/console.png"></p>
 
       
     </div>
@@ -768,25 +770,25 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=201710280003"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=201711200001"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=201710280003"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=201710280003"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=201710280003"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=201711200001"></script>
 
 
 
   
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=201711200001"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=201711200001"></script>
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=201710280003"></script>
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=201711200001"></script>
 
 
 

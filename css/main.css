@@ -1109,6 +1109,9 @@ pre .javascript .function {
     word-break: break-word;
   }
 }
+.post-body .gua-gif {
+  cursor: pointer;
+}
 .post-body .fancybox img {
   display: block !important;
   margin: 0 auto;
@@ -1748,7 +1751,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff1cfa;
+  background: #875e61;
 }
 .links-of-blogroll {
   font-size: 13px;

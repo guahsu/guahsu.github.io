@@ -74,7 +74,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=201710280003" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=201711200001" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="AWS,JAVA,API,SpringBoot," />
@@ -86,7 +86,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=201710280003" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=201711200001" />
 
 
 
@@ -458,7 +458,7 @@
 <li>寫CODE(java)</li>
 <li>放到EC2中啟動web server</li>
 </ol>
-<h3 id="後來根本就卡在4啊"><a href="#後來根本就卡在4啊" class="headerlink" title="後來根本就卡在4啊!!!!!!!"></a>後來根本就卡在4啊!!!!!!!</h3><img src="/2017/01/build-api-on-aws-use-spring-boot/ohno.jpg" alt="ohno.jpg" title=""> 
+<h3 id="後來根本就卡在4啊"><a href="#後來根本就卡在4啊" class="headerlink" title="後來根本就卡在4啊!!!!!!!"></a>後來根本就卡在4啊!!!!!!!</h3><img src="/2017/01/build-api-on-aws-use-spring-boot/ohno.jpg"> 
 <p>因為不熟命令列&amp;linux的環境，導致建置期各種問號<br>我在EC2開好之後，使用putty連線，並爬文找了相關指令來下載java環境..等<br>以及一直開鳥哥看怎麼操作vi瀏覽器，最後甚至還找了<a href="http://xionghuilin.com/?p=562" target="_blank" rel="external">XRDP</a>來連線看到桌面環境XD</p>
 <p>後來我覺得應該要找更簡單輕鬆的方法來先實作出東西..<br>不然依我的腦容量又不常用的東西很快就忘了，<br>又繼續找更輕鬆的方法…就找到了<strong>Elastic Beanstalk!</strong> (#小叮噹圖)</p>
 <p>這個只需我程式寫好，打包壓縮好上傳就會自己幫你長一台EC2出來，<br>剛剛上述各種痛苦(之於菜鳥我而言)就不見了，變成一條簡單的路。</p>
@@ -474,7 +474,7 @@
 <p>開發環境:windows7<br>使用工具:sts</p>
 </blockquote>
 <h3 id="1-開一台RDS"><a href="#1-開一台RDS" class="headerlink" title="1. 開一台RDS"></a>1. 開一台RDS</h3><ul>
-<li>進到RDS介面建立資料庫(我選用postgreSql)<img src="/2017/01/build-api-on-aws-use-spring-boot/1.png" alt="記得把這個勾起來以選取預設的免費規格" title="記得把這個勾起來以選取預設的免費規格"> </li>
+<li>進到RDS介面建立資料庫(我選用postgreSql)<img src="/2017/01/build-api-on-aws-use-spring-boot/1.png" title="記得把這個勾起來以選取預設的免費規格"> </li>
 <li>設定資料庫名稱、帳號密碼</li>
 <li>安全群組的部分是選擇default</li>
 <li>會花數分鐘時間建立RDS</li>
@@ -483,12 +483,12 @@
 <li>下載PGadmin<a href="https://www.pgadmin.org/download" target="_blank" rel="external">PostgreSQLe管理工具</a></li>
 <li>設定PGadmin，建立連線<blockquote>
 <p>在RDS查詢連線資訊</p>
-<img src="/2017/01/build-api-on-aws-use-spring-boot/2-1.png" alt="2-1.png" title=""> 
+<img src="/2017/01/build-api-on-aws-use-spring-boot/2-1.png"> 
 <p>範例如下</p>
-<img src="/2017/01/build-api-on-aws-use-spring-boot/2-2.png" alt="2-2.png" title=""> </blockquote>
+<img src="/2017/01/build-api-on-aws-use-spring-boot/2-2.png"> </blockquote>
 </li>
 <li>接著透過介面操作資料庫來建立一個USERS table<blockquote>
-<img src="/2017/01/build-api-on-aws-use-spring-boot/2-3.png" alt="2-3.png" title=""> 
+<img src="/2017/01/build-api-on-aws-use-spring-boot/2-3.png"> 
 </blockquote>
 </li>
 </ul>
@@ -501,8 +501,8 @@
 <li>下載<a href="https://spring.io/tools/sts/all" target="_blank" rel="external">Spring Tool Suite(STS)</a></li>
 <li>建立專案(New-&gt;Other-&gt;Spring Starter Project)</li>
 <li>我的設定如圖，選擇war檔是為了最終上傳至Elastic Beanstalk的格式<blockquote>
-<img src="/2017/01/build-api-on-aws-use-spring-boot/3-1.png" alt="3-1.png" title=""> 
-<img src="/2017/01/build-api-on-aws-use-spring-boot/3-2.png" alt="3-2.png" title=""> </blockquote>
+<img src="/2017/01/build-api-on-aws-use-spring-boot/3-1.png"> 
+<img src="/2017/01/build-api-on-aws-use-spring-boot/3-2.png"> </blockquote>
 </li>
 <li>版本及使用項目如圖(JPA、PostgreSQL、Rest Repositories)</li>
 <li>建立好之後，於src/main/java建立一個packge:com.example.models</li>
@@ -518,11 +518,11 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#設定這個可指定連入api的路徑</div><div class="line">spring.data.rest.base-path=/api</div><div class="line">spring.jpa.database=POSTGRESQL</div><div class="line">spring.datasource.platform=postgres</div><div class="line">spring.jpa.show-sql=true</div><div class="line">spring.jpa.hibernate.ddl-auto=update</div><div class="line">spring.database.driverClassName=org.postgresql.Driver</div><div class="line">#要加port號及所建立的資料庫名稱</div><div class="line">spring.datasource.url=jdbc:postgresql://domain:5432/database</div><div class="line">spring.datasource.username=username</div><div class="line">spring.datasource.password=password</div><div class="line">#這裡改5000因為EB會用nginx來轉，port必須改為5000</div><div class="line">server.port = 5000</div></pre></td></tr></table></figure>
 <ul>
 <li>完成後的結構圖如下<blockquote>
-<img src="/2017/01/build-api-on-aws-use-spring-boot/3-3.png" alt="3-3.png" title=""> </blockquote>
+<img src="/2017/01/build-api-on-aws-use-spring-boot/3-3.png"> </blockquote>
 </li>
 <li><p>進行Local端測試<a href="http://localhost:5000/api" target="_blank" rel="external">http://localhost:5000/api</a>會獲得這個畫面↓</p>
 <blockquote>
-<img src="/2017/01/build-api-on-aws-use-spring-boot/3-4.png" alt="3-4.png" title=""> 
+<img src="/2017/01/build-api-on-aws-use-spring-boot/3-4.png"> 
 <p>自動生成了關於這個API的操作</p>
 </blockquote>
 </li>
@@ -533,16 +533,16 @@
 <ul>
 <li>專案右鍵選擇Meven Build<blockquote>
 <p>Goals輸入package後run</p>
-<img src="/2017/01/build-api-on-aws-use-spring-boot/4-1.png" alt="4-1.png" title=""> </blockquote>
+<img src="/2017/01/build-api-on-aws-use-spring-boot/4-1.png"> </blockquote>
 </li>
 <li>找到產生的war檔(路徑會在consle顯示)<blockquote>
-<img src="/2017/01/build-api-on-aws-use-spring-boot/4-2.png" alt="4-2.png" title=""> </blockquote>
+<img src="/2017/01/build-api-on-aws-use-spring-boot/4-2.png"> </blockquote>
 </li>
 <li>利用EB來上傳程式(平台選擇Tomcat)<blockquote>
-<img src="/2017/01/build-api-on-aws-use-spring-boot/4-3.png" alt="4-3.png" title=""> </blockquote>
+<img src="/2017/01/build-api-on-aws-use-spring-boot/4-3.png"> </blockquote>
 </li>
 <li>系統會開始建置，完成後可見此程式外部連結<blockquote>
-<img src="/2017/01/build-api-on-aws-use-spring-boot/4-4.png" alt="4-4.png" title=""> </blockquote>
+<img src="/2017/01/build-api-on-aws-use-spring-boot/4-4.png"> </blockquote>
 </li>
 <li>便可同在Local測試時一樣，只是把連結改成eb的<br><a href="http://yourAwsDomain/api/" target="_blank" rel="external">http://yourAwsDomain/api/</a><br><a href="http://yourAwsDomain/api/User" target="_blank" rel="external">http://yourAwsDomain/api/User</a><br><a href="http://yourAwsDomain/User/search" target="_blank" rel="external">http://yourAwsDomain/User/search</a></li>
 </ul>
@@ -872,25 +872,25 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=201710280003"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=201711200001"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=201710280003"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=201710280003"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=201710280003"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=201711200001"></script>
 
 
 
   
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=201711200001"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=201711200001"></script>
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=201710280003"></script>
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=201711200001"></script>
 
 
 
