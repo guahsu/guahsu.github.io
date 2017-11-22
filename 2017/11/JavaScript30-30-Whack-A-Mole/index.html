@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=201711210001" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript,CSS," />
+  <meta name="keywords" content="CSS,JavaScript," />
 
 
 
@@ -97,14 +97,14 @@
 
 
 <meta name="description" content="主題JS30的最終篇啦！這次要來做一個打地鼠的小遊戲:D">
-<meta name="keywords" content="JavaScript,CSS">
+<meta name="keywords" content="CSS,JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「JS30紀錄＆心得」30 - Whack A Mole">
 <meta property="og:url" content="https://guahsu.io/2017/11/JavaScript30-30-Whack-A-Mole/">
 <meta property="og:site_name" content="Gua&#39;s Note">
 <meta property="og:description" content="主題JS30的最終篇啦！這次要來做一個打地鼠的小遊戲:D">
 <meta property="og:image" content="https://guahsu.io/2017/11/JavaScript30-30-Whack-A-Mole/demo30.png">
-<meta property="og:updated_time" content="2017-11-20T14:57:32.629Z">
+<meta property="og:updated_time" content="2017-11-22T14:50:27.085Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「JS30紀錄＆心得」30 - Whack A Mole">
 <meta name="twitter:description" content="主題JS30的最終篇啦！這次要來做一個打地鼠的小遊戲:D">
@@ -437,7 +437,7 @@
 <h2 id="主題"><a href="#主題" class="headerlink" title="主題"></a><strong>主題</strong></h2><p>JS30的最終篇啦！這次要來做一個打地鼠的小遊戲:D</p>
 <a id="more"></a>
 <blockquote>
-<p><a href="https://guahsu.github.io/JavaScript30/30_Whack-A-Mole/index-GuaHsu.html" target="_blank" rel="external">[DEMO]</a>   ｜ <a href="https://github.com/guahsu/JavaScript30" target="_blank" rel="external">GitHub-JavaScript30介紹與記錄格式</a> </p>
+<p><a href="https://guahsu.github.io/JavaScript30/30_Whack-A-Mole/index-GuaHsu.html" target="_blank" rel="external">[DEMO]</a>｜ <a href="https://github.com/guahsu/JavaScript30/tree/master/30_Whack-A-Mole/" target="_blank" rel="external">[GitHub]</a> ｜<a href="https://guahsu.io/JavaScript30/">[JavaScript30全列表]</a></p>
 </blockquote>
 <h2 id="步驟"><a href="#步驟" class="headerlink" title="步驟"></a><strong>步驟</strong></h2><h3 id="Step1-取得頁面元素並設定預設變數"><a href="#Step1-取得頁面元素並設定預設變數" class="headerlink" title="Step1. 取得頁面元素並設定預設變數"></a>Step1. 取得頁面元素並設定預設變數</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**  取得頁面元素 */</span></div><div class="line"><span class="keyword">const</span> holes = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.hole'</span>);</div><div class="line"><span class="keyword">const</span> scoreBoard = <span class="built_in">document</span>.querySelector(<span class="string">'.score'</span>);</div><div class="line"><span class="keyword">const</span> moles = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.mole'</span>);</div><div class="line"></div><div class="line"><span class="comment">/** 預設變數設定 */</span></div><div class="line"><span class="keyword">let</span> lastHole; <span class="comment">// 最後一次出現的地鼠洞</span></div><div class="line"><span class="keyword">let</span> timeUP = <span class="literal">false</span>; <span class="comment">// 遊戲時間是否結束戳記</span></div><div class="line"><span class="keyword">let</span> score = <span class="number">0</span>; <span class="comment">// 分數</span></div></pre></td></tr></table></figure>
 <h3 id="Step2-亂數決定地鼠出現後存在的時間-amp-地鼠出現的洞"><a href="#Step2-亂數決定地鼠出現後存在的時間-amp-地鼠出現的洞" class="headerlink" title="Step2. 亂數決定地鼠出現後存在的時間&amp;地鼠出現的洞"></a>Step2. 亂數決定地鼠出現後存在的時間&amp;地鼠出現的洞</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** 地鼠出現後存在時間，傳入最小&amp;最大值，回傳一個區間亂數 */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">randomTime</span>(<span class="params">min, max</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.round(<span class="built_in">Math</span>.random() * (max - min) + min);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/** 地鼠出現的洞 */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">randomHole</span>(<span class="params">holes</span>) </span>&#123;</div><div class="line">  <span class="comment">// 取得地鼠洞數量區間內隨機一個洞</span></div><div class="line">  <span class="keyword">const</span> idx = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * holes.length);</div><div class="line">  <span class="keyword">const</span> hole = holes[idx];</div><div class="line">  <span class="comment">// 避免骰到相同的</span></div><div class="line">  <span class="keyword">if</span> (hole === lastHole) &#123;</div><div class="line">    <span class="keyword">return</span> randomHole(holes);</div><div class="line">  &#125;</div><div class="line">  <span class="comment">// 紀錄最後一個出現的地鼠洞</span></div><div class="line">  lastHole = hole;</div><div class="line">  <span class="keyword">return</span> hole;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -479,9 +479,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
-          
             <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
         </div>
       

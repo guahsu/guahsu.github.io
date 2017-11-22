@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Gua&#39;s Note">
 <meta property="og:description" content="主題介紹如何使用Shift + 左鍵來完成連續區間選取，在這篇的探索中，我增加了連續區間取消選取及部分問題的改善。">
 <meta property="og:image" content="https://guahsu.io/2017/07/JavaScript30-10-Hold-Shift-and-Check-Checkboxes/demo10.png">
-<meta property="og:updated_time" content="2017-11-20T15:11:49.105Z">
+<meta property="og:updated_time" content="2017-11-22T14:47:57.445Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「JS30紀錄＆心得」10 - Hold Shift and Check Checkboxes">
 <meta name="twitter:description" content="主題介紹如何使用Shift + 左鍵來完成連續區間選取，在這篇的探索中，我增加了連續區間取消選取及部分問題的改善。">
@@ -437,7 +437,7 @@
 <h2 id="主題"><a href="#主題" class="headerlink" title="主題"></a><strong>主題</strong></h2><p>介紹如何使用Shift + 左鍵來完成連續區間選取，<br>在這篇的探索中，我增加了連續區間取消選取及部分問題的改善。</p>
 <a id="more"></a>
 <blockquote>
-<p><a href="https://guahsu.github.io/JavaScript30/10_Hold-Shift-and-Check-Checkboxes/index-GuaHsu.html" target="_blank" rel="external">[DEMO]</a> ｜ <a href="https://github.com/guahsu/JavaScript30" target="_blank" rel="external">[JavaScript30介紹與記錄格式]</a></p>
+<p><a href="https://guahsu.github.io/JavaScript30/10_Hold-Shift-and-Check-Checkboxes/index-GuaHsu.html" target="_blank" rel="external">[DEMO]</a>｜ <a href="https://github.com/guahsu/JavaScript30/tree/master/10_Hold-Shift-and-Check-Checkboxes/" target="_blank" rel="external">[GitHub]</a> ｜<a href="https://guahsu.io/JavaScript30/">[JavaScript30全列表]</a></p>
 </blockquote>
 <h2 id="步驟"><a href="#步驟" class="headerlink" title="步驟"></a><strong>步驟</strong></h2><h3 id="Step1-基本設定"><a href="#Step1-基本設定" class="headerlink" title="Step1. 基本設定"></a>Step1. 基本設定</h3><p>用<code>querySelectorAll(&#39;.inbox input[type=&quot;checkbox&quot;]</code>來把HTML中的checkbox選起來，<br>並設置一個變數<code>let lastChecked;</code>作為稍後勾選位置的紀錄使用。</p>
 <h3 id="Step2-觸發設定"><a href="#Step2-觸發設定" class="headerlink" title="Step2. 觸發設定"></a>Step2. 觸發設定</h3><p>把所有選取的checkboxes使用<code>forEach</code>來加入<code>addEventListener(&#39;click&#39;, handelCheck)</code>。</p>

@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=201711210001" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript,CSS,HTML5,Canvas," />
+  <meta name="keywords" content="CSS,JavaScript,HTML5,Canvas," />
 
 
 
@@ -97,14 +97,14 @@
 
 
 <meta name="description" content="主題使用HTML5的Canvas來製作一個畫布，透過滑鼠來繪製彩色粗細不一的線條～">
-<meta name="keywords" content="JavaScript,CSS,HTML5,Canvas">
+<meta name="keywords" content="CSS,JavaScript,HTML5,Canvas">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「JS30紀錄＆心得」08 - Fun with HTML5 Canvas">
 <meta property="og:url" content="https://guahsu.io/2017/06/JavaScript30-08-Fun-with-HTML5-Canvas/">
 <meta property="og:site_name" content="Gua&#39;s Note">
 <meta property="og:description" content="主題使用HTML5的Canvas來製作一個畫布，透過滑鼠來繪製彩色粗細不一的線條～">
 <meta property="og:image" content="https://guahsu.io/2017/06/JavaScript30-08-Fun-with-HTML5-Canvas/demo8.png">
-<meta property="og:updated_time" content="2017-11-20T15:11:46.143Z">
+<meta property="og:updated_time" content="2017-11-22T14:47:43.497Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「JS30紀錄＆心得」08 - Fun with HTML5 Canvas">
 <meta name="twitter:description" content="主題使用HTML5的Canvas來製作一個畫布，透過滑鼠來繪製彩色粗細不一的線條～">
@@ -437,7 +437,7 @@
 <h2 id="主題"><a href="#主題" class="headerlink" title="主題"></a><strong>主題</strong></h2><p>使用HTML5的Canvas來製作一個畫布，<br>透過滑鼠來繪製彩色粗細不一的線條～</p>
 <a id="more"></a>
 <blockquote>
-<p><a href="https://guahsu.github.io/JavaScript30/08_Fun-with-HTML5-Canvas/index-GuaHsu.html" target="_blank" rel="external">[DEMO]</a> ｜ <a href="https://github.com/guahsu/JavaScript30" target="_blank" rel="external">[JavaScript30介紹與記錄格式]</a></p>
+<p><a href="https://guahsu.github.io/JavaScript30/08_Fun-with-HTML5-Canvas/index-GuaHsu.html" target="_blank" rel="external">[DEMO]</a>｜ <a href="https://github.com/guahsu/JavaScript30/tree/master/08_Fun-with-HTML5-Canvas/" target="_blank" rel="external">[GitHub]</a> ｜<a href="https://guahsu.io/JavaScript30/">[JavaScript30全列表]</a></p>
 </blockquote>
 <h2 id="步驟"><a href="#步驟" class="headerlink" title="步驟"></a><strong>步驟</strong></h2><h3 id="Step1"><a href="#Step1" class="headerlink" title="Step1"></a>Step1</h3><p>先在HTML的地方建立一個<code>&lt;canvas&gt;</code>的區塊，<br>並設置一個變數ctx作為canvas的操作元素，<br>設定顏色<code>strokeStyle</code>、樣式<code>lineJoin</code>、<code>lineCap</code>、<code>lineWidth</code>…</p>
 <h3 id="Step2"><a href="#Step2" class="headerlink" title="Step2"></a>Step2</h3><p>接著設定變數各種待會會應用到的變數<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> canvas = <span class="built_in">document</span>.querySelector(<span class="string">'#draw'</span>);</div><div class="line"><span class="keyword">const</span> ctx = canvas.getContext(<span class="string">'2d'</span>);</div><div class="line">canvas.width = <span class="built_in">window</span>.innerWidth;</div><div class="line">canvas.height = <span class="built_in">window</span>.innerHeight;</div><div class="line">ctx.strokeStyle = <span class="string">'#BADA55'</span>; <span class="comment">// 線條顏色</span></div><div class="line">ctx.lineJoin = <span class="string">'round'</span>; <span class="comment">// 線條連接樣式（轉角）</span></div><div class="line">ctx.lineCap = <span class="string">'round'</span>; <span class="comment">// 線條結束樣式</span></div><div class="line">ctx.lineWidth = <span class="number">100</span>; <span class="comment">// 線條寬度</span></div><div class="line"><span class="keyword">let</span> isDrawing = <span class="literal">false</span>; <span class="comment">// 判斷是否執行畫圖中</span></div><div class="line"><span class="keyword">let</span> lastX = <span class="number">0</span>; </div><div class="line"><span class="keyword">let</span> lastY = <span class="number">0</span>;</div><div class="line"><span class="keyword">let</span> hue = <span class="number">0</span>; <span class="comment">// 色相值，在hsl中使用</span></div><div class="line"><span class="keyword">let</span> direction = <span class="literal">true</span>; <span class="comment">// 判斷粗細增減用</span></div></pre></td></tr></table></figure></p>
@@ -483,9 +483,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
-          
             <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
             <a href="/tags/HTML5/" rel="tag"># HTML5</a>
           
