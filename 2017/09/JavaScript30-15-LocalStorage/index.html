@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Gua&#39;s Note">
 <meta property="og:description" content="主題這篇介紹LocalStorage的用法，透過一個小菜單來透過localstorage做資料增刪功能。">
 <meta property="og:image" content="https://guahsu.io/2017/09/JavaScript30-15-LocalStorage/demo15.png">
-<meta property="og:updated_time" content="2017-11-22T14:48:25.594Z">
+<meta property="og:updated_time" content="2017-11-23T02:04:00.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「JS30紀錄＆心得」15 - LocalStorage">
 <meta name="twitter:description" content="主題這篇介紹LocalStorage的用法，透過一個小菜單來透過localstorage做資料增刪功能。">
@@ -437,7 +437,7 @@
 <h2 id="主題"><a href="#主題" class="headerlink" title="主題"></a><strong>主題</strong></h2><p>這篇介紹LocalStorage的用法，<br>透過一個小菜單來透過localstorage做資料增刪功能。</p>
 <a id="more"></a>
 <blockquote>
-<p><a href="https://guahsu.github.io/JavaScript30/15_LocalStorage/index-GuaHsu.html" target="_blank" rel="external">[DEMO]</a>｜ <a href="https://github.com/guahsu/JavaScript30/tree/master/15_LocalStorage/" target="_blank" rel="external">[GitHub]</a> ｜<a href="https://guahsu.io/JavaScript30/">[JavaScript30全列表]</a></p>
+<p><a href="https://guahsu.github.io/JavaScript30/15_LocalStorage/index-GuaHsu.html" target="_blank" rel="external">[DEMO]</a>｜ <a href="https://github.com/guahsu/JavaScript30/tree/master/15_LocalStorage/" target="_blank" rel="external">[GitHub]</a> ｜<a href="https://guahsu.io/JavaScript30/">[JavaScript30全列表]</a></p>
 </blockquote>
 <h2 id="步驟"><a href="#步驟" class="headerlink" title="步驟"></a><strong>步驟</strong></h2><h3 id="Step1-基礎設定"><a href="#Step1-基礎設定" class="headerlink" title="Step1. 基礎設定"></a>Step1. 基礎設定</h3><p>作者已經設定好這篇練習用的html與css，<br>主要的架構由一個<code>div</code>包著<code>ul</code>與<code>from</code>，<br>類似Todo-List的清單(ul)與輸入欄位(form)。</p>
 <h3 id="Step2-撰寫輸入欄位新增功能"><a href="#Step2-撰寫輸入欄位新增功能" class="headerlink" title="Step2. 撰寫輸入欄位新增功能"></a>Step2. 撰寫輸入欄位新增功能</h3><p>首先取得<code>form</code>元素及<code>ul</code>，並宣告一個空陣列來存放新增資料。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> addItems = <span class="built_in">document</span>.querySelector(<span class="string">'.add-items'</span>);</div><div class="line"><span class="keyword">const</span> itemsList = <span class="built_in">document</span>.querySelector(<span class="string">'.plates'</span>);</div><div class="line"><span class="keyword">const</span> items = [];</div></pre></td></tr></table></figure></p>
