@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=201711210001" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Mac,Laravel," />
+  <meta name="keywords" content="CSS,JavaScript," />
 
 
 
@@ -96,17 +96,19 @@
 
 
 
-<meta name="description" content="拿到mac後最期待的事情就是命令列了，之前爬文看到各種指令安裝環境神之快，初次體並記錄安裝Laravel環境的過程(使用osx專屬的valet)">
-<meta name="keywords" content="Mac,Laravel">
+<meta name="description" content="JavaScript30系列終於完成！！寫了一個清單頁擺放每一篇的練習概要與截圖，這個列表網站也是沒使用任何外部函式庫與框架，最後一篇紀錄這個小站中做的靜/動態圖切換、loading效果。">
+<meta name="keywords" content="CSS,JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="紀錄Mac OS安裝laravel開發環境(composer + valet + mysql)">
-<meta property="og:url" content="https://guahsu.io/2017/01/mac-install-laravel-composer-valet-mysql/">
+<meta property="og:title" content="「JS30紀錄＆心得」完結 ＆ Gif切換與loading效果">
+<meta property="og:url" content="https://guahsu.io/2017/11/JavaScript30-Final-Gif-Loader/">
 <meta property="og:site_name" content="Gua&#39;s Note">
-<meta property="og:description" content="拿到mac後最期待的事情就是命令列了，之前爬文看到各種指令安裝環境神之快，初次體並記錄安裝Laravel環境的過程(使用osx專屬的valet)">
-<meta property="og:updated_time" content="2017-06-04T11:18:08.000Z">
+<meta property="og:description" content="JavaScript30系列終於完成！！寫了一個清單頁擺放每一篇的練習概要與截圖，這個列表網站也是沒使用任何外部函式庫與框架，最後一篇紀錄這個小站中做的靜/動態圖切換、loading效果。">
+<meta property="og:image" content="https://guahsu.io/2017/11/JavaScript30-Final-Gif-Loader/demo31.png">
+<meta property="og:updated_time" content="2017-11-25T06:41:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="紀錄Mac OS安裝laravel開發環境(composer + valet + mysql)">
-<meta name="twitter:description" content="拿到mac後最期待的事情就是命令列了，之前爬文看到各種指令安裝環境神之快，初次體並記錄安裝Laravel環境的過程(使用osx專屬的valet)">
+<meta name="twitter:title" content="「JS30紀錄＆心得」完結 ＆ Gif切換與loading效果">
+<meta name="twitter:description" content="JavaScript30系列終於完成！！寫了一個清單頁擺放每一篇的練習概要與截圖，這個列表網站也是沒使用任何外部函式庫與框架，最後一篇紀錄這個小站中做的靜/動態圖切換、loading效果。">
+<meta name="twitter:image" content="https://guahsu.io/2017/11/JavaScript30-Final-Gif-Loader/demo31.png">
 
 
 
@@ -134,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="https://guahsu.io/2017/01/mac-install-laravel-composer-valet-mysql/"/>
+  <link rel="canonical" href="https://guahsu.io/2017/11/JavaScript30-Final-Gif-Loader/"/>
 
 
 
 
 
-  <title>紀錄Mac OS安裝laravel開發環境(composer + valet + mysql) | Gua's Note</title>
+  <title>「JS30紀錄＆心得」完結 ＆ Gif切換與loading效果 | Gua's Note</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -335,7 +337,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://guahsu.io/2017/01/mac-install-laravel-composer-valet-mysql/">
+    <link itemprop="mainEntityOfPage" href="https://guahsu.io/2017/11/JavaScript30-Final-Gif-Loader/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GuaHsu">
@@ -352,7 +354,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">紀錄Mac OS安裝laravel開發環境(composer + valet + mysql)</h1>
+          <h1 class="post-title" itemprop="name headline">「JS30紀錄＆心得」完結 ＆ Gif切換與loading效果</h1>
         
 
         <div class="post-meta">
@@ -364,8 +366,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-01-21T23:16:35+08:00">
-                2017-01-21
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-11-25T13:42:17+08:00">
+                2017-11-25
               </time>
             
 
@@ -387,8 +389,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CODE/" itemprop="url" rel="index">
-                    <span itemprop="name">CODE</span>
+                  <a href="/categories/JavaScript30/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript30</span>
                   </a>
                 </span>
 
@@ -405,8 +407,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/01/mac-install-laravel-composer-valet-mysql/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="https://guahsu.io/2017/01/mac-install-laravel-composer-valet-mysql/" itemprop="commentCount">0</span> comments
+                <a href="/2017/11/JavaScript30-Final-Gif-Loader/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://guahsu.io/2017/11/JavaScript30-Final-Gif-Loader/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -431,48 +433,24 @@
       
 
       
-        <blockquote>
-<p>拿到mac後最期待的事情就是命令列了，之前爬文看到各種指令安裝環境神之快，初次體並記錄安裝Laravel環境的過程(使用osx專屬的valet)</p>
-</blockquote>
+        <img src="/2017/11/JavaScript30-Final-Gif-Loader/demo31.png" class="gua-gif">
+<p>JavaScript30系列終於完成！！<br>寫了一個清單頁擺放每一篇的練習概要與截圖，<br>這個列表網站也是沒使用任何外部函式庫與框架，<br>最後一篇紀錄這個小站中做的靜/動態圖切換、loading效果。</p>
 <a id="more"></a>
-<h2 id="依序安裝如下"><a href="#依序安裝如下" class="headerlink" title="依序安裝如下:"></a>依序安裝如下:</h2><ol>
-<li>HomeBrew</li>
-<li>Composer</li>
-<li>PHP &amp; php-version(版本控制)</li>
-<li>MySQL</li>
-<li>Valet</li>
-<li>phpMyAdmin</li>
+<blockquote>
+<p><a href="https://guahsu.github.io/JavaScript30/JavaScript30-Final-Gif-Loader/index-GuaHsu.html" target="_blank" rel="external">[DEMO]</a>｜ <a href="https://github.com/guahsu/JavaScript30/tree/master/31_Gif-Loader/" target="_blank" rel="external">[GitHub]</a> ｜<a href="https://guahsu.io/JavaScript30/">[JavaScript30全列表]</a></p>
+</blockquote>
+<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>想法很單純，就只是因為gif的檔案較大若網站一次全讀會造成一些延遲，<br>但若使用lazyload的方式則是預設情況下gif會一直自己動造成畫面的混亂，<br>所以想設計成當要他動時在動，就像是影片網站的動態預覽一樣，<br>所以再我能力不足以去切割gif影格的狀態下，最快就是放png/gif來切換了，<br>而在切換gif後的載入難免會有延遲需要等待，就想做個轉圈圈讓人知道他有在做事XD</p>
+<p>開始吧！</p>
+<h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><p>HTML的結構：</p>
+<ol>
+<li>photo: 這次要做的整個圖片事件外框</li>
+<li>photo–hasGif: 標記這裡面有gif可作切換用，若不用切換則不用給這個class</li>
+<li>photo__load: 載入動畫用</li>
+<li>photo__img: 圖片本體</li>
 </ol>
-<h3 id="安裝HomeBrew"><a href="#安裝HomeBrew" class="headerlink" title="安裝HomeBrew"></a>安裝<a href="http://brew.sh/index_zh-tw.html" target="_blank" rel="external">HomeBrew</a></h3><p>輸入<br><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</code></p>
-<blockquote>
-<p>若已安裝HomeBrew則可先進行更新，輸入<code>brew update</code>  </p>
-</blockquote>
-<h3 id="使用brew安裝composer"><a href="#使用brew安裝composer" class="headerlink" title="使用brew安裝composer"></a>使用brew安裝composer</h3><p>輸入<code>brew install composer</code>安裝完後輸入<code>composer –version</code>測試</p>
-<h3 id="使用brew安裝php"><a href="#使用brew安裝php" class="headerlink" title="使用brew安裝php"></a>使用brew安裝php</h3><p>安裝php7輸入<code>brew install php70</code>，可輸入<code>php –v</code>驗證版本<br>可安裝php-version來切換<br>輸入<code>brew install php-versionz</code><br>輸入<code>source $(brew --prefix php-version)/php-version.sh &amp;&amp; php-version 5</code><br>就可透過<code>php-version</code>來查詢所安裝的php版本，再透過<code>php-version [版本號]</code>來切換</p>
-<blockquote>
-<p>我的系統為macOS Sierra 10.12.2，預設已有php5.6.27</p>
-</blockquote>
-<h3 id="使用brew安裝mysql"><a href="#使用brew安裝mysql" class="headerlink" title="使用brew安裝mysql"></a>使用brew安裝mysql</h3><p>輸入<code>brew install mysql</code>，安裝完畢後輸入<code>mysql.server start</code>來執行</p>
-<blockquote>
-<p>預設是沒有密碼的，可透過<code>mysql_secure_installation</code>來設置密碼  </p>
-</blockquote>
-<h3 id="透過composer來安裝valet"><a href="#透過composer來安裝valet" class="headerlink" title="透過composer來安裝valet"></a>透過composer來安裝valet</h3><p>輸入<code>composer globalrequire laravel/valet</code><br>接著輸入<code>valet install</code>來安裝valet跟dnsmasq</p>
-<blockquote>
-<p>若有發生valet install失敗，檢視/.composerf看看<br>輸入<code>export PATH=&quot;$PATH:~/.composer/vendor/bin&quot;</code><br>執行<code>source ~/.bash_profile</code><br>再透過<code>echo $PATH</code>確認已加入到path中  </p>
-</blockquote>
-<h3 id="透過valet設置專案連結"><a href="#透過valet設置專案連結" class="headerlink" title="透過valet設置專案連結"></a>透過valet設置專案連結</h3><p>找個地方放置你的專案文件，<br>例如我是建立在Dcoument/php-workspace<br>Valet可以透過park及link來設定站點，並透過share指令分享站點</p>
-<ul>
-<li><p>park用法<br>切換到你的專案目錄後輸入<code>valet park</code><br>接著你底下的所有laravel目錄都會成為一個web的站點，<br>例如php-workspace中有blog及shop這兩個目錄，在瀏覽器輸入blog.dev及shop.dev即可連結！</p>
-</li>
-<li><p>link用法<br>Park是針對整個專案目錄底下做設置，link則是對單一目錄做命名及連結<br>切換至想設定的專案資料夾中輸入<code>valet link [app-name]</code>便完成設置<br>例如輸入的是<code>valet link blog</code>，則瀏覽器輸入blog.dev就會連到剛才設置的目錄中<br>檢視所有的link透過<code>valet links</code>，而<code>valet unlink app-name</code>則可用來移除link</p>
-</li>
-<li><p>share用法<br>切換目錄至你要分享出去的專案資料夾中，輸入<code>valet share</code><br>會產生一段網址並自動複製起來，便可透過瀏覽器直接連結到這個專案中！<br>結束則在teminal介面按下<code>CTAL+C</code>即可，超簡易的分享站點方式！！  </p>
-</li>
-</ul>
-<h3 id="安裝phpMyAdmin"><a href="#安裝phpMyAdmin" class="headerlink" title="安裝phpMyAdmin"></a>安裝<a href="https://www.phpmyadmin.net/" target="_blank" rel="external">phpMyAdmin</a></h3><p>到官網中下載後解壓縮，放到你的專案目錄並使用<code>park</code>或<code>link</code>來設置</p>
-<blockquote>
-<p>例如我放在Documents/php-workspace/phpMyAdmin中<br>前面已經在php-workspace設定過<code>valet park</code>了<br>所以只要放進這個目錄的資料夾都是一個web根目錄<br>放進來後只需要在瀏覽器輸入phpMyAdmin.dev就可以了</p>
-</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"photo photo--hasGif"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"photo__load"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"photo__img"</span> <span class="attr">src</span>=<span class="string">"https://guahsu.io/2017/05/JavaScript30-01-Java-Script-Drum-Kit/demo1.png"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><p>圖片框hover時的浮起效果與讀取轉圈圈特效。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.photo</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;  </div><div class="line">  <span class="attribute">display</span>: inline-block; </div><div class="line">  <span class="attribute">margin</span>: <span class="number">0px</span> <span class="number">15px</span>;</div><div class="line">  <span class="attribute">width</span>: <span class="number">400px</span>;</div><div class="line">  <span class="attribute">background-color</span>: <span class="number">#fafafa</span>;</div><div class="line">  <span class="comment">/* 加上陰影與transition時間，讓hover時有浮起來的感覺 */</span></div><div class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">1px</span> <span class="number">3px</span> <span class="built_in">rgba</span>(0, 0, 0, 0.12), <span class="number">0</span> <span class="number">1px</span> <span class="number">2px</span> <span class="built_in">rgba</span>(0, 0, 0, 0.24);</div><div class="line">  <span class="attribute">transition</span>: <span class="number">0.5s</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.photo</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line">  <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">14px</span> <span class="number">28px</span> <span class="built_in">rgba</span>(0, 0, 0, 0.25), <span class="number">0</span> <span class="number">10px</span> <span class="number">10px</span> <span class="built_in">rgba</span>(0, 0, 0, 0.22);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.photo__img</span> &#123;</div><div class="line">  <span class="attribute">max-width</span>: <span class="number">100%</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.photo__load</span> &#123;</div><div class="line">  <span class="attribute">display</span>: none;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">  <span class="comment">/* </span></div><div class="line">    為了讓載入圖示像是載入圖示再轉的樣子，</div><div class="line">    把四個邊的其中一邊(這裡是bottom)設為透明，</div><div class="line">    再透過border-radius設成圓型，</div><div class="line">  */</div><div class="line">  <span class="attribute">border</span>: <span class="number">5px</span> solid <span class="number">#fafafa</span>;</div><div class="line">  <span class="attribute">border-bottom</span>: <span class="number">5px</span> solid transparent;</div><div class="line">  <span class="attribute">border-radius</span>: <span class="number">100%</span>;</div><div class="line">  <span class="attribute">background-color</span>: transparent;</div><div class="line">  <span class="comment">/* 使用animation動畫，線性且無限循環 呼叫動畫rotate */</span></div><div class="line">  <span class="attribute">animation</span>: <span class="number">1.5s</span> linear infinite rotate;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/* </span></div><div class="line">  旋轉動畫，就是從0度轉到360無限循環</div><div class="line">  而裡面的translate是為了讓加載圖示對齊圖片中心，</div><div class="line">  也就是常見的left: 50% + translateX(-50%)這種做法，</div><div class="line">  但因為有用到animation必須把translate設在keyframes裡面。</div><div class="line">*/</div><div class="line">@<span class="keyword">keyframes</span> rotate &#123;</div><div class="line">  <span class="selector-tag">from</span> &#123;</div><div class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(-50%, -50%) <span class="built_in">rotate</span>(0deg);</div><div class="line">  &#125;</div><div class="line">  <span class="selector-tag">to</span> &#123;</div><div class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(-50%, -50%) <span class="built_in">rotate</span>(360deg);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><p>作圖片副檔名的切換與圖片讀取檢查(轉圈圈判斷)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** 圖片讀取檢查 */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkLoad</span>(<span class="params">image</span>) </span>&#123;</div><div class="line">  <span class="comment">// 取得觸發事件photo中的加載圖示</span></div><div class="line">  <span class="keyword">var</span> loadIcon = image.parentElement.querySelector(<span class="string">'.photo__load'</span>);</div><div class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 用complete檢查圖片是否已加載完成</span></div><div class="line">    <span class="keyword">if</span> (image.complete) &#123;</div><div class="line">      <span class="comment">// 已加載完成就把加載圖示隱藏</span></div><div class="line">      loadIcon.style.display = <span class="string">'none'</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="comment">// 未完成就顯示加載圖示並在呼叫自己一次</span></div><div class="line">      loadIcon.style.display = <span class="string">'block'</span>;</div><div class="line">      checkLoad(image);</div><div class="line">    &#125;</div><div class="line">  &#125;, <span class="number">100</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/** 變更圖片類別(滑鼠移入載GIF移出換回PNG) */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeImgaeType</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// 判斷傳入的photo是否有gif，若沒有就跳出這個function</span></div><div class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.classList.contains(<span class="string">'photo--hasGif'</span>)) &#123;</div><div class="line">    <span class="keyword">var</span> type = [];</div><div class="line">    <span class="comment">// 取得觸發事件的photo裡面圖片本體</span></div><div class="line">    <span class="keyword">var</span> image = <span class="keyword">this</span>.querySelector(<span class="string">'.photo__img'</span>);</div><div class="line">    <span class="comment">// 檢查是否已經轉為gif播放中</span></div><div class="line">    <span class="keyword">var</span> isPlay = image.classList.contains(<span class="string">'photo__img--play'</span>);</div><div class="line">    <span class="comment">// 播放判斷</span></div><div class="line">    <span class="keyword">if</span>(isPlay) &#123;</div><div class="line">      <span class="comment">// 如果播放中，就移除播放標記(mouseleave時會觸發)並寫好轉換用的type值</span></div><div class="line">      image.classList.remove(<span class="string">'photo__img--play'</span>);</div><div class="line">      type = [<span class="string">'gif'</span>, <span class="string">'png'</span>];</div><div class="line">    &#125;<span class="keyword">else</span> &#123;</div><div class="line">      <span class="comment">// 如果未播放，就新增播放標記(mouseenter時會觸發)並寫好轉換用的type值</span></div><div class="line">      image.classList.add(<span class="string">'photo__img--play'</span>);</div><div class="line">      type = [<span class="string">'png'</span>, <span class="string">'gif'</span>];</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 取得圖片連結(原本的src圖片連結，替換掉副檔名)</span></div><div class="line">    <span class="keyword">var</span> imageLink = image.getAttribute(<span class="string">'src'</span>).replace(type[<span class="number">0</span>], type[<span class="number">1</span>]);</div><div class="line">    <span class="comment">// 設定新的圖片連結到原本的圖片本體中</span></div><div class="line">    image.setAttribute(<span class="string">'src'</span>, imageLink);</div><div class="line">    <span class="comment">// 檢查讀取</span></div><div class="line">    checkLoad(image);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line">  因為querySelectorAll取回的不是Array是NodeList並不存在forEach方法，</div><div class="line">  所以透過Array.from()把取回的NodeList轉Array，接著再用forEach為每個photo加上滑鼠事件的監聽 </div><div class="line">*/</div><div class="line"><span class="keyword">var</span> photos = <span class="built_in">Array</span>.from(<span class="built_in">document</span>.querySelectorAll(<span class="string">'.photo'</span>));</div><div class="line">photos.forEach(<span class="function"><span class="params">photo</span> =&gt;</span> &#123;</div><div class="line">  photo.addEventListener(<span class="string">'mouseenter'</span>, changeImgaeType);</div><div class="line">  photo.addEventListener(<span class="string">'mouseleave'</span>, changeImgaeType);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -502,9 +480,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Mac/" rel="tag"># Mac</a>
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
           
-            <a href="/tags/Laravel/" rel="tag"># Laravel</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
         </div>
       
@@ -533,8 +511,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/first-use-mac/" rel="next" title="Mac初體驗">
-                <i class="fa fa-chevron-left"></i> Mac初體驗
+              <a href="/2017/11/JavaScript30-30-Whack-A-Mole/" rel="next" title="「JS30紀錄＆心得」30 - Whack A Mole">
+                <i class="fa fa-chevron-left"></i> 「JS30紀錄＆心得」30 - Whack A Mole
               </a>
             
           </div>
@@ -542,10 +520,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/build-api-on-aws-use-spring-boot/" rel="prev" title="在AWS上用SpringBoot建立API">
-                在AWS上用SpringBoot建立API <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -572,7 +546,7 @@
   <div class="comments" id="comments">
     
       <div class="fb-comments"
-           data-href="https://guahsu.io/2017/01/mac-install-laravel-composer-valet-mysql/"
+           data-href="https://guahsu.io/2017/11/JavaScript30-Final-Gif-Loader/"
            data-numposts="10"
            data-width="100%"
            data-colorscheme="light">
@@ -692,7 +666,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#依序安裝如下"><span class="nav-text">依序安裝如下:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安裝HomeBrew"><span class="nav-text">安裝HomeBrew</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用brew安裝composer"><span class="nav-text">使用brew安裝composer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用brew安裝php"><span class="nav-text">使用brew安裝php</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用brew安裝mysql"><span class="nav-text">使用brew安裝mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#透過composer來安裝valet"><span class="nav-text">透過composer來安裝valet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#透過valet設置專案連結"><span class="nav-text">透過valet設置專案連結</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安裝phpMyAdmin"><span class="nav-text">安裝phpMyAdmin</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目的"><span class="nav-text">目的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML"><span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS"><span class="nav-text">CSS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript"><span class="nav-text">JavaScript</span></a></li></ol></div>
             
 
           </div>
