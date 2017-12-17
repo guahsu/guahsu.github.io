@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://guahsu.io/2017/12/vue-cli-webpack-pug-scss-bootstrap4/</loc>
+    
+    <lastmod>2017-12-17T09:08:46.408Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://guahsu.io/2017/12/Hexo-Next-LocalSearch-cant-work/</loc>
     
     <lastmod>2017-12-03T14:51:45.496Z</lastmod>
