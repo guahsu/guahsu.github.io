@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=201711210001" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CSS,JavaScript," />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -96,19 +96,17 @@
 
 
 
-<meta name="description" content="這兩個禮拜再重新看過javascript，並做了一個台北市旅遊景點導覽的網頁，使用了政府資料開放平臺的DATA，紀錄這次使用到的功能及心得。">
-<meta name="keywords" content="CSS,JavaScript">
+<meta name="description" content="昨天在 FB 社團看到有人提問：123456let arr = [  &amp;#123; name: &quot;alex&quot;, value: 10 &amp;#125;,  &amp;#123; name: &quot;alex&quot;, value: 20 &amp;#125;,  &amp;#123; name: &quot;tom&quot;, value: 30 &amp;#125;,  &amp;#123; name: &quot;tom&quot;, value: 40 &amp;#125;]; 想變成1234">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript練習-臺北市旅遊景點">
-<meta property="og:url" content="https://guahsu.io/2017/05/JavaScript-TravelMap/">
+<meta property="og:title" content="JavaScript取出”陣列-物件“重複&#x2F;不重複值的方法">
+<meta property="og:url" content="https://guahsu.io/2018/04/JavaScript-Duplicates-Array-Object/">
 <meta property="og:site_name" content="Gua&#39;s Note">
-<meta property="og:description" content="這兩個禮拜再重新看過javascript，並做了一個台北市旅遊景點導覽的網頁，使用了政府資料開放平臺的DATA，紀錄這次使用到的功能及心得。">
-<meta property="og:image" content="https://guahsu.io/2017/05/JavaScript-TravelMap/travelMap.png">
-<meta property="og:updated_time" content="2017-06-04T15:02:35.000Z">
+<meta property="og:description" content="昨天在 FB 社團看到有人提問：123456let arr = [  &amp;#123; name: &quot;alex&quot;, value: 10 &amp;#125;,  &amp;#123; name: &quot;alex&quot;, value: 20 &amp;#125;,  &amp;#123; name: &quot;tom&quot;, value: 30 &amp;#125;,  &amp;#123; name: &quot;tom&quot;, value: 40 &amp;#125;]; 想變成1234">
+<meta property="og:updated_time" content="2018-04-12T16:07:43.599Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript練習-臺北市旅遊景點">
-<meta name="twitter:description" content="這兩個禮拜再重新看過javascript，並做了一個台北市旅遊景點導覽的網頁，使用了政府資料開放平臺的DATA，紀錄這次使用到的功能及心得。">
-<meta name="twitter:image" content="https://guahsu.io/2017/05/JavaScript-TravelMap/travelMap.png">
+<meta name="twitter:title" content="JavaScript取出”陣列-物件“重複&#x2F;不重複值的方法">
+<meta name="twitter:description" content="昨天在 FB 社團看到有人提問：123456let arr = [  &amp;#123; name: &quot;alex&quot;, value: 10 &amp;#125;,  &amp;#123; name: &quot;alex&quot;, value: 20 &amp;#125;,  &amp;#123; name: &quot;tom&quot;, value: 30 &amp;#125;,  &amp;#123; name: &quot;tom&quot;, value: 40 &amp;#125;]; 想變成1234">
 
 
 
@@ -136,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://guahsu.io/2017/05/JavaScript-TravelMap/"/>
+  <link rel="canonical" href="https://guahsu.io/2018/04/JavaScript-Duplicates-Array-Object/"/>
 
 
 
 
 
-  <title>JavaScript練習-臺北市旅遊景點 | Gua's Note</title>
+  <title>JavaScript取出”陣列-物件“重複/不重複值的方法 | Gua's Note</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -337,7 +335,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://guahsu.io/2017/05/JavaScript-TravelMap/">
+    <link itemprop="mainEntityOfPage" href="https://guahsu.io/2018/04/JavaScript-Duplicates-Array-Object/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GuaHsu">
@@ -354,7 +352,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JavaScript練習-臺北市旅遊景點</h1>
+          <h1 class="post-title" itemprop="name headline">JavaScript取出”陣列-物件“重複/不重複值的方法</h1>
         
 
         <div class="post-meta">
@@ -366,8 +364,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-05-07T03:19:58+08:00">
-                2017-05-07
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-04-12T22:58:09+08:00">
+                2018-04-12
               </time>
             
 
@@ -389,8 +387,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Project/" itemprop="url" rel="index">
-                    <span itemprop="name">Project</span>
+                  <a href="/categories/CODE/" itemprop="url" rel="index">
+                    <span itemprop="name">CODE</span>
                   </a>
                 </span>
 
@@ -407,8 +405,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/05/JavaScript-TravelMap/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count fb-comments-count" data-href="https://guahsu.io/2017/05/JavaScript-TravelMap/" itemprop="commentCount">0</span> comments
+                <a href="/2018/04/JavaScript-Duplicates-Array-Object/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="https://guahsu.io/2018/04/JavaScript-Duplicates-Array-Object/" itemprop="commentCount">0</span> comments
                 </a>
               </span>
             
@@ -433,53 +431,25 @@
       
 
       
-        <img src="/2017/05/JavaScript-TravelMap/travelMap.png">
-<blockquote>
-<p>這兩個禮拜再重新看過javascript，並做了一個台北市旅遊景點導覽的網頁，使用了政府資料開放平臺的DATA，紀錄這次使用到的功能及心得。</p>
-</blockquote>
+        <p>昨天在 FB 社團看到有人提問：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [</div><div class="line">  &#123; <span class="attr">name</span>: <span class="string">"alex"</span>, <span class="attr">value</span>: <span class="number">10</span> &#125;,</div><div class="line">  &#123; <span class="attr">name</span>: <span class="string">"alex"</span>, <span class="attr">value</span>: <span class="number">20</span> &#125;,</div><div class="line">  &#123; <span class="attr">name</span>: <span class="string">"tom"</span>, <span class="attr">value</span>: <span class="number">30</span> &#125;,</div><div class="line">  &#123; <span class="attr">name</span>: <span class="string">"tom"</span>, <span class="attr">value</span>: <span class="number">40</span> &#125;</div><div class="line">];</div></pre></td></tr></table></figure></p>
+<p>想變成<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [</div><div class="line">  &#123; <span class="attr">name</span>: <span class="string">"alex"</span>, <span class="attr">value</span>: <span class="number">10</span> &#125;, </div><div class="line">  &#123; <span class="attr">name</span>: <span class="string">"tom"</span>, <span class="attr">value</span>: <span class="number">30</span> &#125;</div><div class="line">  ];</div></pre></td></tr></table></figure></p>
+<p>想了一陣子想到用<code>Set</code>&amp;<code>Filter</code>來處理..</p>
 <a id="more"></a>
-<p><a href="http://demo.guastudio.com/jsTravelMap/" target="_blank" rel="external">DEMO</a><br><a href="https://github.com/guahsu/JavaScript-TravelMap" target="_blank" rel="external">GITHUB</a></p>
-<h2 id="實作內容"><a href="#實作內容" class="headerlink" title="實作內容"></a>實作內容</h2><p>這次用了HTML、CSS、JavaScript這些前端基本語言，<br>來實作一個台北市的旅遊景點資料站，資料來源是政府資料開放平臺，<br>樣式的部分還是簡單的HTML跟CSS刻，主軸放在Javascript上，<br>紀錄這次在JavaScript上遇到跟重新學習理解到的東西。</p>
-<hr>
-<h2 id="querySelector-amp-querySelectorAll"><a href="#querySelector-amp-querySelectorAll" class="headerlink" title="querySelector &amp; querySelectorAll"></a>querySelector &amp; querySelectorAll</h2><p>元素選擇器！<br>還記得以前最常使用的就是要找ID時用document.getElementById()，<br>當要找Class的時候要用getElementsByClassName()。</p>
-<p>而這次學習了使用<code>querySelector()</code>以及<code>querySelectorAll()</code>這兩個函式：<br>共通點是都可以用css的規則來作為選擇，例如ID用<code>#</code>，ClassName用<code>.</code>來操作，<br>例如：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"divID"</span>&gt;</span>AAA<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"divClass"</span>&gt;</span>BBB<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"divClass"</span>&gt;</span>CCC<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">data-no</span>=<span class="string">"1"</span>&gt;</span>DDD<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>要取得AAA的資料可以透過<code>querySelector(&#39;#divID&#39;)</code><br>要取得BBB的資料可以透過<code>querySelector(&#39;.divClass&#39;)</code><br>要取得DDD的資料可以透過<code>querySelector(&#39;div[data-no=&quot;1&quot;]&#39;)</code></p>
-<p>但是若有重複的className透過<code>querySelector(&#39;.divClass&#39;)</code>只會取到第一筆<code>BBB</code>的值，<br>所以就要用<code>querySelectorAll(&#39;.divClass&#39;)</code>來取得所有className是<code>.divClass</code>元素，<br>但特別要注意的的是，透過<code>querySelectorAll()</code>取得的值會被放入陣列中，<br>所以例如寫了：<br><code>var data = document.querySelectorAll(&#39;.divClass&#39;).textContent;</code><br>會得到<code>[&#39;BBB&#39;,&#39;CCC&#39;]</code>這樣的內容，要取出<code>BBB</code>就是<code>data[0]</code>！</p>
-<p>學到這裡時，真心覺得jQuery的<code>$(&#39;&#39;)</code>真的很方便啊XD！</p>
-<hr>
-<h2 id="addEventListener"><a href="#addEventListener" class="headerlink" title="addEventListener"></a>addEventListener</h2><p>綁定事件，使用方法是<code>element.addEventListner(事件, 執行內容, useCapture)</code></p>
-<p><strong>事件</strong><br>指的是要偵測的事件，例如點擊<code>click</code>，內容變換<code>change</code>、鍵盤動作<code>keyCode</code></p>
-<p><strong>執行內容</strong><br>指的是要執行的項目，可以直接指定function或直接寫在裡面<br>例如：<br><code>document.body.addEventListner(&#39;click&#39;, SomeFunction, true);</code><br><code>document.body.addEventListner(&#39;click&#39;, function(e) { console.log(e) }, false);</code><br>要注意的是當使用第一種方法直接呼叫別的function時，不能傳參數，<br>若要傳參數只能在包一層function，例如：<br><code>document.body.addEventListner(&#39;click&#39;, function(e) { SomeFunction(param) }, false);</code></p>
-<p><strong>useCapture</strong><br>目前沒有使用情境，老實說並不是很了解的參數，<br>但他是一個<code>true/false</code>的設定值，預設是<code>false</code>。<br>當設定為<code>true</code>時，會從指定元素的最外層元素開始往內層執行，<br>反之設定為<code>false</code>則從指定元素開始往外層執行，舉例：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"father"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"child"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>當設定<br><code>document.querySelector(&#39;.child&#39;).addEventListener(&#39;click&#39;,function() { console.log(&#39;C&#39;) }), ture)</code><br><code>document.querySelector(&#39;.father&#39;).addEventListener(&#39;click&#39;,function() { console.log(&#39;F&#39;) }), ture)</code><br>會先印出F（外層），若設定為false時會先印出C（內層）<br>若father設定<code>false</code>，child設定成<code>ture</code>，則會先印<code>C</code>，反之則先印<code>F</code></p>
-<hr>
-<h2 id="function-e"><a href="#function-e" class="headerlink" title="function(e){}"></a>function(e){}</h2><p>這次使用了很多fuction的狀態偵測，<br>例如前兩個<code>querySelectorAll</code>跟<code>addEventListner</code>組合時就會用到：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 景點資料按鈕功能綁定</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setReadMoreButton</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> readMoreButton = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.button--readMore'</span>);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; readMoreButton.length; i++) &#123;</div><div class="line">        readMoreButton[i].addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">            showViewData(e.srcElement.getAttribute(<span class="string">'data-viewNo'</span>));</div><div class="line">        &#125;, <span class="literal">false</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>透過<code>e.srcElement</code>來取得觸發事件的元素，進一步取得要操作的值。</p>
-<hr>
-<h2 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h2><p>為了要獲取JSON內容來使前端動態組成景點內容，<br>使用XHR(XMLHttpRequest)來做：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 取得台北市行政區資料</div><div class="line"> * 透過AJAX取得JSON資料</div><div class="line"> */</div><div class="line"><span class="keyword">var</span> areaData = <span class="string">''</span>; <span class="comment">//全部的行政區資料(全域變數)</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAreaData</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//建立一個新的XMLHttpRequest</span></div><div class="line">    <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">    <span class="comment">//設定這個xhr來get放在data資料夾底下的json檔案</span></div><div class="line">    xhr.open(<span class="string">'get'</span>, <span class="string">'data/viewZip.json'</span>, <span class="literal">true</span>);</div><div class="line">    <span class="comment">//傳送這個xhr的請求</span></div><div class="line">    xhr.send(<span class="literal">null</span>);</div><div class="line">    <span class="comment">//當取得xhr回應後,執行這個function</span></div><div class="line">    xhr.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="comment">//檢查狀態碼，若非200連線OK則顯示錯誤訊息</span></div><div class="line">        <span class="keyword">if</span> (xhr.status == <span class="number">200</span>) &#123;</div><div class="line">            areaData = <span class="built_in">JSON</span>.parse(xhr.responseText);</div><div class="line">            createAreaSelect(); <span class="comment">//建立行政區下拉選單</span></div><div class="line">            getViewData(); <span class="comment">//取得景點資料</span></div><div class="line">        &#125;<span class="keyword">else</span> &#123;</div><div class="line">            <span class="built_in">document</span>.querySelector(<span class="string">'.box-area'</span>).innerHTML = <span class="string">'&lt;h2&gt;取得資料時發生錯誤，請檢查網路狀態並重新整理：）&lt;/h2&gt;'</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="window-history"><a href="#window-history" class="headerlink" title="window.history"></a>window.history</h2><p>AJAX動態組成的資料在使用者眼裡看起來像是換了一頁，<br>但實際上網頁本身並沒有切換頁面，只是”替換“了內容，<br>所以自然瀏覽器也不會去紀錄上一頁、下一頁的資料，<br>導致切了很多內容後，想回到上一頁卻離開了這個網站。</p>
-<p>為了解決這個問題，就要自己產生紀錄！<br>從<code>window.history</code>中可以得知每次對頁面的切換都會有紀錄，<br>可以透過<code>history.pushState(object, title, url)</code>來增加紀錄。<br>參數分別是（要寫進紀錄的值、標題、網址），其中第二個參數目前是沒作用的。</p>
-<p>並可用<code>window.onpopstate</code>來偵測瀏覽器的上、下頁行為<br>以這個實作的範例來說，我的想法跟流程是這樣：</p>
-<p>進入網頁時，先寫入當時的行政區與頁碼到history.state中，<br>並同時在localStorage寫入相同值，當使用者點擊上、下頁時，<br>將寫入的值取出並透過這組值來重組頁面資料，達到切頁的效果。</p>
-<p>localStorage寫入值的用途為當重新整理時，要撈到重整前的值來重組畫面，<br>故當程式呼叫到寫入瀏覽紀錄時也要寫、動作切上下頁時也要寫入。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 寫入瀏覽紀錄</div><div class="line"> * @param &#123;*&#125; areaName 行政區</div><div class="line"> * @param &#123;*&#125; pageNo 頁碼</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setHistory</span>(<span class="params">areaName, pageNo</span>) </span>&#123;</div><div class="line">    <span class="comment">//紀錄當前行政區及頁數,並儲存在localstorage中</span></div><div class="line">    <span class="comment">//建立紀錄資料變數historyData，並將行政區與頁碼用字串方式存入變數中</span></div><div class="line">    <span class="keyword">var</span> historyData = <span class="string">'&#123;"areaName":"'</span> + areaName + <span class="string">'","pageNo":'</span> + pageNo + <span class="string">'&#125;'</span>;</div><div class="line">    <span class="comment">//將當前紀錄資料存入瀏覽歷史中</span></div><div class="line">    history.pushState(historyData, <span class="string">''</span>, <span class="string">''</span>);</div><div class="line">    <span class="comment">//將當前紀錄資料存入localStorage中，儲存最後一次瀏覽的頁面資訊</span></div><div class="line">    localStorage.setItem(<span class="string">'lastPage'</span>, historyData);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 處理瀏覽器上下頁行為</div><div class="line"> */</div><div class="line"><span class="built_in">window</span>.onpopstate = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (e.state) &#123;</div><div class="line">        <span class="comment">//將當前的頁面存入localStorage中，儲存最後一次瀏覽的頁面資訊</span></div><div class="line">        localStorage.setItem(<span class="string">'lastPage'</span>, e.state);</div><div class="line">        <span class="comment">//解析動作取得的瀏覽紀錄</span></div><div class="line">        <span class="keyword">var</span> historyData = <span class="built_in">JSON</span>.parse(e.state);</div><div class="line">        <span class="comment">//組出對應的景點資料</span></div><div class="line">        setViewData(historyData.areaName, historyData.pageNo);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">//若已經沒有自己寫入的值，就直接進行預設的上一頁動作</span></div><div class="line">        history.back();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<hr>
-<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><p>小小紀錄一下這次CSS遇到的狀況：</p>
-<p><strong>使用BEM命名規則</strong></p>
-<p>各種變數跟樣式命名真的是我很弱的一部份，<br>除了英文很破沒幾個單字可以拿來命名之外，<br>就是沒有一個規範可以去遵循，後來從前端電子報中看到這個BEM這個關鍵字，<br>這種命名方式是遵循Black__Element–Modifier<br>這樣的方式去命名的，<br>雖然看起來很長很亂，但其實對健忘的我來說很好找到對應元素，不過block in block的處理及modifier的定義我沒有很充分理解，第一次使用，會再找機會參考別人的做法。</p>
-<p><strong>select變更樣式</strong></p>
-<p>HTML的原生select修改樣式成背景透明後，在手機上的小箭頭居然會不見!<br><code>background-color: rgba(255, 255, 255, 0)</code></p>
-<p>原本想說使用圖片來替代，後來因為解析度的關係(箭頭會看起來糊糊的)，<br>在select旁邊寫了一個svg的小箭頭來換頂替。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">class</span>=<span class="string">"content__select--arrow"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">polygon</span> <span class="attr">fill</span>=<span class="string">"#42ab9e"</span> <span class="attr">points</span>=<span class="string">"5,10 0,0 10,0"</span>&gt;</span><span class="tag">&lt;/<span class="name">polygon</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>且為了安全起見，也還是把select的圖標隱藏了<br><code>-webkit-appearance: none;</code><br>然後這個我根本沒有在管瀏覽器兼容性啦XD!</p>
-<hr>
-<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>寫程式這條路一直到現在都還是自學的狀態，<br>前端的HTML/CSS/JavaScript，後端JAVA/PHP，<br>就是自己一直查一直找，很多東西能做出來，但總覺得底氣不足…</p>
-<p>這就造成了很多時候基本功不足，也不能了解問題發生的原因，<br>常常遇到了問題就去google找答案，而解法百百款，總有些看不懂的好解答。</p>
-<p>這次找了幾門線上課，打算按部就班的來重打基礎，<br>從JavaScript開始（<a href="https://www.udemy.com/javascript-learning/" target="_blank" rel="external">六角學院</a>）、（<a href="https://www.udemy.com/javascriptjs" target="_blank" rel="external">克服JS的奇怪部分</a>），<br>開始看了之後有很多”啊哈，原來如此“的感覺，<br>六角學院的老師的講解很清楚，觀念都有清楚帶到，<br>克服JS的奇怪部分還沒看完，不過他說話的速度滿不錯的也可當練習英文聽力..XD</p>
-<p>目前想把javascript搞清楚，<br>然後嘗試學習後端node.js的部分..再來看前端的各種框架囧</p>
-<p>雖然所學所會的於目前工作上沒用到幾個，<br>但還是要持續加強自己的能力，我想總有一天會用上的…</p>
+<h2 id="去除某物件屬性重複值"><a href="#去除某物件屬性重複值" class="headerlink" title="去除某物件屬性重複值"></a>去除某物件屬性重複值</h2><p>針對題目的需求是只要重複<code>name</code>的第一筆資料，<br>透過<code>Set</code>來達到去重複的功能並透過<code>filter</code>來獲取結果陣列：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> arr = [</div><div class="line">  &#123;<span class="attr">name</span>:<span class="string">'alex'</span>,<span class="attr">value</span>:<span class="number">10</span>&#125;,</div><div class="line">  &#123;<span class="attr">name</span>:<span class="string">'alex'</span>,<span class="attr">value</span>:<span class="number">20</span>&#125;,</div><div class="line">  &#123;<span class="attr">name</span>:<span class="string">'tom'</span>,<span class="attr">value</span>:<span class="number">30</span>&#125;,</div><div class="line">  &#123;<span class="attr">name</span>:<span class="string">'tom'</span>,<span class="attr">value</span>:<span class="number">40</span>&#125;</div><div class="line">];</div><div class="line"><span class="keyword">const</span> set = <span class="keyword">new</span> <span class="built_in">Set</span>();</div><div class="line"><span class="keyword">const</span> result = arr.filter(<span class="function"><span class="params">item</span> =&gt;</span> !set.has(item.name) ? set.add(item.name) : <span class="literal">false</span>);</div><div class="line"><span class="built_in">console</span>.log(result);</div></pre></td></tr></table></figure></p>
+<p>第一步先建立一個<code>set</code>來當篩選的容器，<br>在<code>filter</code>裡頭判斷，如果<code>set</code>裡面沒有循環到的<code>name</code>,<br>就新增進去，再新增的同時因為filter的特性是會把<code>retun true</code>的內容回傳為新的陣列，<br>箭頭函示不加大括號的情況下會等同於<code>return</code>，在這個情境下等於回傳了一個動作(此動作是成立的，是true)。</p>
+<h2 id="去除重複的物件"><a href="#去除重複的物件" class="headerlink" title="去除重複的物件"></a>去除重複的物件</h2><p>如果要針對整個陣列物件中去除重複物件的話可以透過<code>JSON.stringify</code>來做：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> arr = [</div><div class="line">  &#123;<span class="attr">name</span>:<span class="string">'a'</span>, <span class="attr">value</span>:<span class="number">10</span>&#125;,</div><div class="line">  &#123;<span class="attr">name</span>:<span class="string">'a'</span>, <span class="attr">value</span>:<span class="number">20</span>&#125;,</div><div class="line">  &#123;<span class="attr">name</span>:<span class="string">'a'</span>, <span class="attr">value</span>:<span class="number">20</span>&#125;,</div><div class="line">  &#123;<span class="attr">name</span>:<span class="string">'b'</span>, <span class="attr">value</span>:<span class="number">30</span>&#125;,</div><div class="line">  &#123;<span class="attr">name</span>:<span class="string">'b'</span>, <span class="attr">value</span>:<span class="number">40</span>&#125;,</div><div class="line">  &#123;<span class="attr">name</span>:<span class="string">'b'</span>, <span class="attr">value</span>:<span class="number">40</span>&#125;</div><div class="line">];</div><div class="line"><span class="keyword">const</span> result = [...new <span class="built_in">Set</span>(arr.map(<span class="function"><span class="params">item</span> =&gt;</span> <span class="built_in">JSON</span>.stringify(item)))].map(<span class="function"><span class="params">item</span> =&gt;</span> <span class="built_in">JSON</span>.parse(item));</div><div class="line"><span class="built_in">console</span>.log(result);</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>弄成一行看起來好像比較厲害(?)XD  </p>
+</blockquote>
+<p>因為物件跟物件之間無法比較，所以想法是透過轉字串來比較，<br>第一步先使用<code>new Set</code>並透過<code>map</code>＆<code>JSON.stringify</code>把每一個陣列內的物件轉為字串，<br>再透過展開運算符<code>[...]</code>來把剛才<code>Set</code>的結果轉為陣列，<br>最後再用一次<code>map</code>把裡面的物件字串透過<code>JSON.parse</code>再轉回物件。</p>
+<h2 id="取得重複的物件"><a href="#取得重複的物件" class="headerlink" title="取得重複的物件"></a>取得重複的物件</h2><p>剛才都是去除重複，那如果是要抓出重複的物件有哪些呢？<br>把邏輯反轉過來：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> arr = [</div><div class="line">  &#123;<span class="attr">name</span>:<span class="string">'a'</span>, <span class="attr">value</span>:<span class="number">10</span>&#125;,</div><div class="line">  &#123;<span class="attr">name</span>:<span class="string">'a'</span>, <span class="attr">value</span>:<span class="number">20</span>&#125;,</div><div class="line">  &#123;<span class="attr">name</span>:<span class="string">'a'</span>, <span class="attr">value</span>:<span class="number">20</span>&#125;,</div><div class="line">  &#123;<span class="attr">name</span>:<span class="string">'b'</span>, <span class="attr">value</span>:<span class="number">30</span>&#125;,</div><div class="line">  &#123;<span class="attr">name</span>:<span class="string">'b'</span>, <span class="attr">value</span>:<span class="number">40</span>&#125;,</div><div class="line">  &#123;<span class="attr">name</span>:<span class="string">'b'</span>, <span class="attr">value</span>:<span class="number">40</span>&#125;</div><div class="line">];</div><div class="line"></div><div class="line"><span class="keyword">const</span> set = <span class="keyword">new</span> <span class="built_in">Set</span>();</div><div class="line"><span class="keyword">const</span> result = arr.filter(<span class="function"><span class="params">item</span> =&gt;</span> set.has(<span class="built_in">JSON</span>.stringify(item)) ? <span class="literal">true</span> : (set.add(<span class="built_in">JSON</span>.stringify(item)), <span class="literal">false</span>));</div><div class="line"><span class="built_in">console</span>.log(result);</div></pre></td></tr></table></figure></p>
+<p>這裡跟前面的差不多道理，比較特別在三元運算子的部分，<br>同前面提到的，filter的特性是會將<code>return true</code>的內容加入，<br>所以如果單純寫<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">set.has(<span class="built_in">JSON</span>.stringify(item)) ? <span class="literal">true</span> : set.add(<span class="built_in">JSON</span>.stringify(item))</div></pre></td></tr></table></figure></p>
+<p>這樣的話也會被新增進去，因為<code>set.add(JSON.stringify(item))</code>也是個<code>true</code>的動作，<br>所以使用<code>(set.add(JSON.stringify(item)), false)</code>來讓新增動作執行後，<br>再回傳<code>false</code>阻止<code>filter</code>的新增。</p>
+<blockquote>
+<p>其實寫清楚一點就是下面這樣，不過就是會想試試一行寫完的方法ＸＤ<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> result = arr.filter(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</div><div class="line">	<span class="keyword">if</span>(set.has(<span class="built_in">JSON</span>.stringify(item))) &#123;</div><div class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">  &#125;<span class="keyword">else</span> &#123;</div><div class="line">		set.add(<span class="built_in">JSON</span>.stringify(item));</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>以上都是自己邊試邊理解的，如果有錯誤或更好的寫法也請再告知：Ｄ！</p>
+<h3 id="陣列的做法紀錄"><a href="#陣列的做法紀錄" class="headerlink" title="陣列的做法紀錄"></a>陣列的做法紀錄</h3><p><a href="https://guahsu.io/2017/06/JavaScript-Duplicates-Array/">JavaScript取出陣列重複/不重複值的方法</a>  </p>
 
       
     </div>
@@ -508,8 +478,6 @@
     <footer class="post-footer">
       
         <div class="post-tags">
-          
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
           
             <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
@@ -540,8 +508,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/log-201703/" rel="next" title="三月紀錄">
-                <i class="fa fa-chevron-left"></i> 三月紀錄
+              <a href="/2018/03/devtool-copy-console-data/" rel="next" title="實用小技巧-複製開發者工具取得的資訊">
+                <i class="fa fa-chevron-left"></i> 實用小技巧-複製開發者工具取得的資訊
               </a>
             
           </div>
@@ -549,10 +517,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/JavaScript30-01-Java-Script-Drum-Kit/" rel="prev" title="「JS30紀錄＆心得」01 - JavaScript Drum Kit">
-                「JS30紀錄＆心得」01 - JavaScript Drum Kit <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -579,7 +543,7 @@
   <div class="comments" id="comments">
     
       <div class="fb-comments"
-           data-href="https://guahsu.io/2017/05/JavaScript-TravelMap/"
+           data-href="https://guahsu.io/2018/04/JavaScript-Duplicates-Array-Object/"
            data-numposts="10"
            data-width="100%"
            data-colorscheme="light">
@@ -699,7 +663,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#實作內容"><span class="nav-text">實作內容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#querySelector-amp-querySelectorAll"><span class="nav-text">querySelector & querySelectorAll</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#addEventListener"><span class="nav-text">addEventListener</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#function-e"><span class="nav-text">function(e){}</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XMLHttpRequest"><span class="nav-text">XMLHttpRequest</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#window-history"><span class="nav-text">window.history</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS"><span class="nav-text">CSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#總結"><span class="nav-text">總結</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#去除某物件屬性重複值"><span class="nav-text">去除某物件屬性重複值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#去除重複的物件"><span class="nav-text">去除重複的物件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#取得重複的物件"><span class="nav-text">取得重複的物件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-text">其他</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#陣列的做法紀錄"><span class="nav-text">陣列的做法紀錄</span></a></li></ol></li></ol></div>
             
 
           </div>
