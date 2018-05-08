@@ -100,9 +100,10 @@
 <meta name="keywords" content="Mac,Laravel">
 <meta property="og:type" content="article">
 <meta property="og:title" content="紀錄Mac OS安裝laravel開發環境(composer + valet + mysql)">
-<meta property="og:url" content="https://guahsu.io/2017/01/mac-install-laravel-composer-valet-mysql/">
+<meta property="og:url" content="https://guahsu.io/2017/01/mac-install-laravel-composer-valet-mysql/index.html">
 <meta property="og:site_name" content="Gua&#39;s Note">
 <meta property="og:description" content="拿到mac後最期待的事情就是命令列了，之前爬文看到各種指令安裝環境神之快，初次體並記錄安裝Laravel環境的過程(使用osx專屬的valet)">
+<meta property="og:locale" content="zh-tw">
 <meta property="og:updated_time" content="2017-06-04T11:18:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="紀錄Mac OS安裝laravel開發環境(composer + valet + mysql)">
@@ -443,7 +444,7 @@
 <li>Valet</li>
 <li>phpMyAdmin</li>
 </ol>
-<h3 id="安裝HomeBrew"><a href="#安裝HomeBrew" class="headerlink" title="安裝HomeBrew"></a>安裝<a href="http://brew.sh/index_zh-tw.html" target="_blank" rel="external">HomeBrew</a></h3><p>輸入<br><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</code></p>
+<h3 id="安裝HomeBrew"><a href="#安裝HomeBrew" class="headerlink" title="安裝HomeBrew"></a>安裝<a href="http://brew.sh/index_zh-tw.html" target="_blank" rel="noopener">HomeBrew</a></h3><p>輸入<br><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</code></p>
 <blockquote>
 <p>若已安裝HomeBrew則可先進行更新，輸入<code>brew update</code>  </p>
 </blockquote>
@@ -469,7 +470,7 @@
 <li><p>share用法<br>切換目錄至你要分享出去的專案資料夾中，輸入<code>valet share</code><br>會產生一段網址並自動複製起來，便可透過瀏覽器直接連結到這個專案中！<br>結束則在teminal介面按下<code>CTAL+C</code>即可，超簡易的分享站點方式！！  </p>
 </li>
 </ul>
-<h3 id="安裝phpMyAdmin"><a href="#安裝phpMyAdmin" class="headerlink" title="安裝phpMyAdmin"></a>安裝<a href="https://www.phpmyadmin.net/" target="_blank" rel="external">phpMyAdmin</a></h3><p>到官網中下載後解壓縮，放到你的專案目錄並使用<code>park</code>或<code>link</code>來設置</p>
+<h3 id="安裝phpMyAdmin"><a href="#安裝phpMyAdmin" class="headerlink" title="安裝phpMyAdmin"></a>安裝<a href="https://www.phpmyadmin.net/" target="_blank" rel="noopener">phpMyAdmin</a></h3><p>到官網中下載後解壓縮，放到你的專案目錄並使用<code>park</code>或<code>link</code>來設置</p>
 <blockquote>
 <p>例如我放在Documents/php-workspace/phpMyAdmin中<br>前面已經在php-workspace設定過<code>valet park</code>了<br>所以只要放進這個目錄的資料夾都是一個web根目錄<br>放進來後只需要在瀏覽器輸入phpMyAdmin.dev就可以了</p>
 </blockquote>

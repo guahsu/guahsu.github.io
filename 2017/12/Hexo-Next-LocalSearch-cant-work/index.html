@@ -100,14 +100,15 @@
 <meta name="keywords" content="HEXO,NEXT,XML">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HEXO-NexT的Local Search轉圈圈問題">
-<meta property="og:url" content="https://guahsu.io/2017/12/Hexo-Next-LocalSearch-cant-work/">
+<meta property="og:url" content="https://guahsu.io/2017/12/Hexo-Next-LocalSearch-cant-work/index.html">
 <meta property="og:site_name" content="Gua&#39;s Note">
 <meta property="og:description" content="有時候更新完文章，會莫名導致NexT的LocalSearsh有問題，像是上圖一樣的卡住轉圈圈狀態也沒辦法解掉，這篇紀錄如何解決。">
+<meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://guahsu.io/2017/12/Hexo-Next-LocalSearch-cant-work/LocalSearch_ERROR.png">
 <meta property="og:image" content="https://guahsu.io/2017/12/Hexo-Next-LocalSearch-cant-work/XML_ERROR.png">
 <meta property="og:image" content="https://guahsu.io/2017/12/Hexo-Next-LocalSearch-cant-work/VS1.png">
 <meta property="og:image" content="https://guahsu.io/2017/12/Hexo-Next-LocalSearch-cant-work/VS2.png">
-<meta property="og:updated_time" content="2017-12-03T14:51:45.496Z">
+<meta property="og:updated_time" content="2017-12-03T14:51:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HEXO-NexT的Local Search轉圈圈問題">
 <meta name="twitter:description" content="有時候更新完文章，會莫名導致NexT的LocalSearsh有問題，像是上圖一樣的卡住轉圈圈狀態也沒辦法解掉，這篇紀錄如何解決。">
@@ -443,9 +444,9 @@
 <p>直到上次因為JavaScript30系列把所有文章內容都加上了列表站的連結，<br>導致搜尋一直有問題，才開始去翻找原因</p>
 <h3 id="Step1-檢查搜尋機制"><a href="#Step1-檢查搜尋機制" class="headerlink" title="Step1. 檢查搜尋機制"></a>Step1. 檢查搜尋機制</h3><p>由於使用的是localSearch，<br>會透過編譯完後public裡面的<code>search.xml</code>作為搜尋主體，<br>有了搜尋主體後就要先去驗證格式的正確性，但我跟XML格式並不熟，<br>內容量太大也沒辦法肉眼去驗證，就找了線上驗證的網站，<br>把<code>search.xml</code>的內容全部丟下去驗證後跳出了這個錯誤。<br><img src="/2017/12/Hexo-Next-LocalSearch-cant-work/XML_ERROR.png"></p>
 <blockquote>
-<p>線上找會有很多，我是用google找到的第一個<a href="https://www.xmlvalidation.com/" target="_blank" rel="external">https://www.xmlvalidation.com/</a></p>
+<p>線上找會有很多，我是用google找到的第一個<a href="https://www.xmlvalidation.com/" target="_blank" rel="noopener">https://www.xmlvalidation.com/</a></p>
 </blockquote>
-<h3 id="Step2-Unicode-0x8"><a href="#Step2-Unicode-0x8" class="headerlink" title="Step2. Unicode: 0x8"></a>Step2. Unicode: 0x8</h3><p>得到了這樣子的錯誤訊息後，就馬上拿去問google啦~<br>也發現從標題中有滿多人是在跟md檔案有關係的互動時產生的問題，<br>點了其中一篇GitHub中關於<a href="https://github.com/oulvhai/MWeb-issues/issues/514" target="_blank" rel="external">EverNote</a>的發問，<br>裡面有人回應這個錯誤是因為產生了一個backspace的字符，順著查下去！</p>
+<h3 id="Step2-Unicode-0x8"><a href="#Step2-Unicode-0x8" class="headerlink" title="Step2. Unicode: 0x8"></a>Step2. Unicode: 0x8</h3><p>得到了這樣子的錯誤訊息後，就馬上拿去問google啦~<br>也發現從標題中有滿多人是在跟md檔案有關係的互動時產生的問題，<br>點了其中一篇GitHub中關於<a href="https://github.com/oulvhai/MWeb-issues/issues/514" target="_blank" rel="noopener">EverNote</a>的發問，<br>裡面有人回應這個錯誤是因為產生了一個backspace的字符，順著查下去！</p>
 <h3 id="Step3-顯示看不到的backspace字符"><a href="#Step3-顯示看不到的backspace字符" class="headerlink" title="Step3. 顯示看不到的backspace字符"></a>Step3. 顯示看不到的backspace字符</h3><p>我是使用VSCODE，開啟方式是到設定中打開<code>renderControlCharacters</code><br><img src="/2017/12/Hexo-Next-LocalSearch-cant-work/VS1.png"><br>打開之後就可以看到兇手了！<br><img src="/2017/12/Hexo-Next-LocalSearch-cant-work/VS2.png"></p>
 <h3 id="Step4-搜尋並替換"><a href="#Step4-搜尋並替換" class="headerlink" title="Step4. 搜尋並替換"></a>Step4. 搜尋並替換</h3><p>經過查詢，backspace的unicode是<code>\u0008</code>，<br>而VSCODE的檔案搜尋正則表達式使用的是Rust要輸入<code>\x{0008}</code>，<br>但是我查了很久總是搜不出我要的檔案，我也不知道哪裡出錯，<br>就這樣查了很久很久才發現，直接把那個超小的<code>bs</code>框起來複製丟上搜尋框就好！！！<br>雖然搜尋框內的bs肉眼看不到，但是實際上他會去進行搜尋，<br>接著就一個一個替換吧（一個一個替換是因為我只替換我自己產出的檔案，避免影響其他東西）。</p>
 <h3 id="Step5-重編譯一次測試看看吧"><a href="#Step5-重編譯一次測試看看吧" class="headerlink" title="Step5. 重編譯一次測試看看吧"></a>Step5. 重編譯一次測試看看吧</h3><p>當完成修改後，重新測試理論上搜尋框就修好了～～<br>找原因的途中也是學了不少啊：D</p>

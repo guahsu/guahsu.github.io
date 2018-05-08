@@ -99,14 +99,13 @@
 <meta name="description" content="背不起來的就寫下來吧。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Gua&#39;s Note">
-<meta property="og:url" content="https://guahsu.io/">
+<meta property="og:url" content="https://guahsu.io/index.html">
 <meta property="og:site_name" content="Gua&#39;s Note">
 <meta property="og:description" content="背不起來的就寫下來吧。">
-<meta property="og:image" content="https://guahsu.io/images/avatar.jpg">
+<meta property="og:locale" content="zh-tw">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gua&#39;s Note">
 <meta name="twitter:description" content="背不起來的就寫下來吧。">
-<meta name="twitter:image" content="https://guahsu.io/images/avatar.jpg">
 
 
 
@@ -436,8 +435,8 @@
 
       
         
-          <p>昨天在 FB 社團看到有人提問：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [</div><div class="line">  &#123; <span class="attr">name</span>: <span class="string">"alex"</span>, <span class="attr">value</span>: <span class="number">10</span> &#125;,</div><div class="line">  &#123; <span class="attr">name</span>: <span class="string">"alex"</span>, <span class="attr">value</span>: <span class="number">20</span> &#125;,</div><div class="line">  &#123; <span class="attr">name</span>: <span class="string">"tom"</span>, <span class="attr">value</span>: <span class="number">30</span> &#125;,</div><div class="line">  &#123; <span class="attr">name</span>: <span class="string">"tom"</span>, <span class="attr">value</span>: <span class="number">40</span> &#125;</div><div class="line">];</div></pre></td></tr></table></figure></p>
-<p>想變成<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [</div><div class="line">  &#123; <span class="attr">name</span>: <span class="string">"alex"</span>, <span class="attr">value</span>: <span class="number">10</span> &#125;, </div><div class="line">  &#123; <span class="attr">name</span>: <span class="string">"tom"</span>, <span class="attr">value</span>: <span class="number">30</span> &#125;</div><div class="line">  ];</div></pre></td></tr></table></figure></p>
+          <p>昨天在 FB 社團看到有人提問：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">"alex"</span>, <span class="attr">value</span>: <span class="number">10</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">"alex"</span>, <span class="attr">value</span>: <span class="number">20</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">"tom"</span>, <span class="attr">value</span>: <span class="number">30</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">"tom"</span>, <span class="attr">value</span>: <span class="number">40</span> &#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure></p>
+<p>想變成<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">"alex"</span>, <span class="attr">value</span>: <span class="number">10</span> &#125;, </span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">"tom"</span>, <span class="attr">value</span>: <span class="number">30</span> &#125;</span><br><span class="line">  ];</span><br></pre></td></tr></table></figure></p>
 <p>想了一陣子想到用<code>Set</code>&amp;<code>Filter</code>來處理..</p>
           <!--noindex-->
           <div class="post-button text-center">
@@ -589,7 +588,7 @@
           
             <p>有時候從API或console印出的陣列或物件資料想存在local使用，<br>在chrome的開發者工具對想要儲存的對象按右鍵<code>store as global variable</code>，<br>在用<code>copy()</code>指令傳入剛才被儲存的變數，想存的物件就被完整複製到剪貼簿啦！</p>
 <p>之前一直沒發現到，查了才知道有這個技巧，有時還要蠢蠢的手動複製一份XD。</p>
-<p>參閱：<a href="https://stackoverflow.com/questions/10305365/javascript-chrome-how-to-copy-an-object-from-the-webkit-inspector-as-code" target="_blank" rel="external">Stackoverflow</a></p>
+<p>參閱：<a href="https://stackoverflow.com/questions/10305365/javascript-chrome-how-to-copy-an-object-from-the-webkit-inspector-as-code" target="_blank" rel="noopener">Stackoverflow</a></p>
 
           
         

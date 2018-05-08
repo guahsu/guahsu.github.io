@@ -2,268 +2,275 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://guahsu.io/about/index.html</loc>
+    
+    <lastmod>2018-05-08T18:28:27.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://guahsu.io/2018/04/JavaScript-Duplicates-Array-Object/</loc>
     
-    <lastmod>2018-04-12T16:17:13.751Z</lastmod>
+    <lastmod>2018-04-12T16:17:13.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/06/JavaScript-Duplicates-Array/</loc>
     
-    <lastmod>2018-04-12T16:03:55.591Z</lastmod>
+    <lastmod>2018-04-12T16:03:55.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2018/03/devtool-copy-console-data/</loc>
     
-    <lastmod>2018-03-31T15:52:24.122Z</lastmod>
+    <lastmod>2018-03-31T15:52:24.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2018/02/2017-review-and-2018-target/</loc>
     
-    <lastmod>2018-02-18T14:10:45.199Z</lastmod>
+    <lastmod>2018-02-18T14:10:45.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2018/01/vue-turntable/</loc>
     
-    <lastmod>2018-01-18T17:28:26.309Z</lastmod>
+    <lastmod>2018-01-18T17:28:26.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/12/vue-cli-webpack-pug-scss-bootstrap4/</loc>
     
-    <lastmod>2017-12-17T09:08:46.408Z</lastmod>
+    <lastmod>2017-12-17T09:08:46.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/12/Hexo-Next-LocalSearch-cant-work/</loc>
     
-    <lastmod>2017-12-03T14:51:45.496Z</lastmod>
+    <lastmod>2017-12-03T14:51:45.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/11/JavaScript30-Final-Gif-Loader/</loc>
     
-    <lastmod>2017-11-25T15:02:57.434Z</lastmod>
+    <lastmod>2017-11-25T15:02:57.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/11/JavaScript30-29-Countdown-Timer/</loc>
     
-    <lastmod>2017-11-23T02:04:20.475Z</lastmod>
+    <lastmod>2017-11-23T02:04:20.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/10/JavaScript30-28-Video-Speed-Controller/</loc>
     
-    <lastmod>2017-11-23T02:04:19.446Z</lastmod>
+    <lastmod>2017-11-23T02:04:19.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/10/JavaScript30-27-Click-and-Drag/</loc>
     
-    <lastmod>2017-11-23T02:04:18.429Z</lastmod>
+    <lastmod>2017-11-23T02:04:18.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/10/JavaScript30-26-Stripe-Follow-Along-Nav/</loc>
     
-    <lastmod>2017-11-23T02:04:17.418Z</lastmod>
+    <lastmod>2017-11-23T02:04:17.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/10/JavaScript30-25-Event-Capture-Propagation-Bubbling-and-Once/</loc>
     
-    <lastmod>2017-11-23T02:04:16.445Z</lastmod>
+    <lastmod>2017-11-23T02:04:16.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/10/JavaScript30-24-Sticky-Nav/</loc>
     
-    <lastmod>2017-11-23T02:04:15.448Z</lastmod>
+    <lastmod>2017-11-23T02:04:15.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/10/JavaScript30-23-Speech-Synthesis/</loc>
     
-    <lastmod>2017-11-23T02:04:14.467Z</lastmod>
+    <lastmod>2017-11-23T02:04:14.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/10/JavaScript30-22-Follow-Along-Link-Highlighter/</loc>
     
-    <lastmod>2017-11-23T02:04:13.390Z</lastmod>
+    <lastmod>2017-11-23T02:04:13.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/10/JavaScript30-21-Geolocation/</loc>
     
-    <lastmod>2017-11-23T02:04:12.427Z</lastmod>
+    <lastmod>2017-11-23T02:04:12.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/10/JavaScript30-20-Speech-Detection/</loc>
     
-    <lastmod>2017-11-23T02:04:11.342Z</lastmod>
+    <lastmod>2017-11-23T02:04:11.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/10/JavaScript30-19-Webcam-Fun/</loc>
     
-    <lastmod>2017-11-23T02:04:10.390Z</lastmod>
+    <lastmod>2017-11-23T02:04:10.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/10/JavaScript30-18-Adding-Up-Times-with-Reduce/</loc>
     
-    <lastmod>2017-11-23T02:04:09.285Z</lastmod>
+    <lastmod>2017-11-23T02:04:09.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/10/JavaScript30-17-Sort-Without-Articles/</loc>
     
-    <lastmod>2017-11-23T02:04:08.229Z</lastmod>
+    <lastmod>2017-11-23T02:04:08.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/10/JavaScript30-16-Mouse-Move-Shadow/</loc>
     
-    <lastmod>2017-11-23T02:04:07.257Z</lastmod>
+    <lastmod>2017-11-23T02:04:07.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/09/JavaScript30-15-LocalStorage/</loc>
     
-    <lastmod>2017-11-23T02:04:00.828Z</lastmod>
+    <lastmod>2017-11-23T02:04:00.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/08/JavaScript30-14-JavaScript-References-VS-Copying/</loc>
     
-    <lastmod>2017-11-23T02:03:59.855Z</lastmod>
+    <lastmod>2017-11-23T02:03:59.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/08/JavaScript30-13-Slide-in-on-Scroll/</loc>
     
-    <lastmod>2017-11-23T02:03:58.927Z</lastmod>
+    <lastmod>2017-11-23T02:03:58.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/07/JavaScript30-12-Key-Sequence-Detection/</loc>
     
-    <lastmod>2017-11-23T02:03:57.940Z</lastmod>
+    <lastmod>2017-11-23T02:03:57.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/07/JavaScript30-11-Custom-Video-Player/</loc>
     
-    <lastmod>2017-11-23T02:03:57.065Z</lastmod>
+    <lastmod>2017-11-23T02:03:57.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/07/JavaScript30-10-Hold-Shift-and-Check-Checkboxes/</loc>
     
-    <lastmod>2017-11-23T02:03:56.115Z</lastmod>
+    <lastmod>2017-11-23T02:03:56.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/06/JavaScript30-09-Dev-Tools-Domination/</loc>
     
-    <lastmod>2017-11-23T02:03:55.128Z</lastmod>
+    <lastmod>2017-11-23T02:03:55.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/06/JavaScript30-08-Fun-with-HTML5-Canvas/</loc>
     
-    <lastmod>2017-11-23T02:03:54.160Z</lastmod>
+    <lastmod>2017-11-23T02:03:54.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/05/JavaScript30-07-Array-Cardio-Day-2/</loc>
     
-    <lastmod>2017-11-23T02:03:53.196Z</lastmod>
+    <lastmod>2017-11-23T02:03:53.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/05/JavaScript30-06-Type-Ahead/</loc>
     
-    <lastmod>2017-11-23T02:03:52.291Z</lastmod>
+    <lastmod>2017-11-23T02:03:52.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/05/JavaScript30-05-Flex-Panel-Gallery/</loc>
     
-    <lastmod>2017-11-23T02:03:51.365Z</lastmod>
+    <lastmod>2017-11-23T02:03:51.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/05/JavaScript30-04-Array-Cardio-Day-1/</loc>
     
-    <lastmod>2017-11-23T02:03:50.285Z</lastmod>
+    <lastmod>2017-11-23T02:03:50.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/05/JavaScript30-03-CSS-Variables/</loc>
     
-    <lastmod>2017-11-23T02:03:49.359Z</lastmod>
+    <lastmod>2017-11-23T02:03:49.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/05/JavaScript30-02-JS-and-CSS-Clock/</loc>
     
-    <lastmod>2017-11-23T02:03:48.324Z</lastmod>
+    <lastmod>2017-11-23T02:03:48.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/05/JavaScript30-01-Java-Script-Drum-Kit/</loc>
     
-    <lastmod>2017-11-23T01:57:49.173Z</lastmod>
+    <lastmod>2017-11-23T01:57:49.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2017/11/JavaScript30-30-Whack-A-Mole/</loc>
     
-    <lastmod>2017-11-23T01:57:14.402Z</lastmod>
+    <lastmod>2017-11-23T01:57:14.000Z</lastmod>
     
   </url>
   
@@ -306,13 +313,6 @@
     <loc>https://guahsu.io/2017/10/LyricsX-spotify-lyrics-for-mac/</loc>
     
     <lastmod>2017-10-09T17:08:30.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://guahsu.io/about/index.html</loc>
-    
-    <lastmod>2017-09-06T14:13:11.000Z</lastmod>
     
   </url>
   

@@ -100,9 +100,10 @@
 <meta name="keywords" content="Mac,CommandLine">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「Mac」更新CommandLine後無法使用git指令問題">
-<meta property="og:url" content="https://guahsu.io/2017/11/mac-update-cant-use-git/">
+<meta property="og:url" content="https://guahsu.io/2017/11/mac-update-cant-use-git/index.html">
 <meta property="og:site_name" content="Gua&#39;s Note">
 <meta property="og:description" content="昨天更新Ｍac的Command Line Tools後發現使用git指令無法使用：123xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun 解決方式是">
+<meta property="og:locale" content="zh-tw">
 <meta property="og:updated_time" content="2017-11-12T14:26:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「Mac」更新CommandLine後無法使用git指令問題">
@@ -431,7 +432,7 @@
       
 
       
-        <p>昨天更新Ｍac的Command Line Tools後發現使用git指令無法使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">xcrun: error: </div><div class="line">invalid active developer path (/Library/Developer/CommandLineTools), </div><div class="line">missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun</div></pre></td></tr></table></figure></p>
+        <p>昨天更新Ｍac的Command Line Tools後發現使用git指令無法使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xcrun: error: </span><br><span class="line">invalid active developer path (/Library/Developer/CommandLineTools), </span><br><span class="line">missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun</span><br></pre></td></tr></table></figure></p>
 <p>解決方式是在命令列下<code>xcode-select --install</code>後下載完就可以使用了。</p>
 
       
