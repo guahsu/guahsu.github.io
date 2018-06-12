@@ -107,7 +107,7 @@
 <meta property="og:image" content="https://guahsu.io/2018/06/expose-local-servers-to-the-internet-by-serveo/p1.png">
 <meta property="og:image" content="https://guahsu.io/2018/06/expose-local-servers-to-the-internet-by-serveo/p2.png">
 <meta property="og:image" content="https://guahsu.io/2018/06/expose-local-servers-to-the-internet-by-serveo/p3.png">
-<meta property="og:updated_time" content="2018-06-12T14:18:08.000Z">
+<meta property="og:updated_time" content="2018-06-12T14:22:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用serveo把local開發環境發佈到internet中">
 <meta name="twitter:description" content="在local開發程式時，如果要把程式放到手機或給其他同事測試時，除了deploy到測試server外，可以透過serveo來簡易達成！記錄如何使用serveo自訂subdomain並分享local vue專案。">
@@ -442,18 +442,22 @@
 <p>一看才想到這跟之前<code>Laravel</code>時用的<code>valet</code>感覺好相似啊！<br>測試了一下後發現<code>ngrok</code>如果要自訂subdomain是要付費帳號才能用，<br>這樣每次重新發佈都會要再給需要使用的同事新網址很麻煩。</p>
 <p>然後找了一陣子設定方法後意外發現<code>Serveo</code>這個東西，<br>可以自訂subdomain外，連安裝都不用，直接下指令就可以發佈local環境了(還有https)！  </p>
 <h3 id="官網：https-serveo-net"><a href="#官網：https-serveo-net" class="headerlink" title="官網：https://serveo.net/"></a>官網：<a href="https://serveo.net/" target="_blank" rel="noopener">https://serveo.net/</a></h3><h4 id="普通用法"><a href="#普通用法" class="headerlink" title="普通用法"></a>普通用法</h4><ol>
-<li>打開你的<code>terminal</code></li>
-<li>輸入<code>ssh -R 80:localhost:(你的port) serveo.net</code></li>
-<li>然後就會產生一組依據你的IP跟SSH username產出的亂數domain供你連入<br>(我想會依IP跟username這點的用意也是希望不要每次重啟都是亂數domain吧)<img src="/2018/06/expose-local-servers-to-the-internet-by-serveo/p1.png">
+<li><p>打開你的<code>terminal</code>然後輸入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -R 80:localhost:(你的port) serveo.net</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然後就會產生一組依據你的IP跟SSH username產出的亂數domain供你連入<br>(我想會依IP跟username這點的用意也是希望不要每次重啟都是亂數domain吧)  </p>
+<img src="/2018/06/expose-local-servers-to-the-internet-by-serveo/p1.png">
 </li>
 </ol>
 <h4 id="自訂subdomain"><a href="#自訂subdomain" class="headerlink" title="自訂subdomain"></a>自訂subdomain</h4><ol>
-<li>一樣打開你的<code>terminal</code></li>
-<li>輸入<code>ssh -R (自訂subdomian).serveo.net:80:localhost:(你的port) serveo.net</code></li>
-<li>如果出現<code>Warning: remote port forwarding failed for listen port 80</code>那代表已經被用了</li>
-<li>否則也會出現跟普通用法一樣的訊息(用nike當範例XD)  <img src="/2018/06/expose-local-servers-to-the-internet-by-serveo/p2.png">
+<li><p>一樣打開你的<code>terminal</code>然後輸入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -R (自訂subdomian).serveo.net:80:localhost:(你的port) serveo.net</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>如果出現<code>Warning: remote port forwarding failed for listen port 80</code>那代表已經被用了</p>
+</li>
+<li>否則也會出現跟普通用法一樣的訊息(用nike當範例XD)  </li>
 </ol>
+<img src="/2018/06/expose-local-servers-to-the-internet-by-serveo/p2.png">
 <h4 id="Vue的使用-webpack設定"><a href="#Vue的使用-webpack設定" class="headerlink" title="Vue的使用(webpack設定)"></a>Vue的使用(webpack設定)</h4><p>如果你目前正開著<code>npm run dev</code>的local開發環境並且下了指令要分享站點，<br>很有可能你會遇到這個錯誤訊息在網頁上<code>Invalid Host header</code>，<br>這時到<code>專案目錄/build/webpack.dev.conf.js</code>的<code>devServer</code>裡面加上這行就可以了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">disableHostCheck: <span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
 <img src="/2018/06/expose-local-servers-to-the-internet-by-serveo/p3.png">
 <h4 id="其他指令"><a href="#其他指令" class="headerlink" title="其他指令"></a>其他指令</h4><p>像是持續保持連線狀態等..，其實官網有寫的滿多，有興趣的可以再去看看:D</p>
