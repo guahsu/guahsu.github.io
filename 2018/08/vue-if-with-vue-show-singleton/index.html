@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=201711210001" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="review," />
+  <meta name="keywords" content="GuaHsu, Gua's Note" />
 
 
 
@@ -96,18 +96,17 @@
 
 
 
-<meta name="description" content="想到什麼寫什麼，有點亂七八糟的紀錄。">
-<meta name="keywords" content="review">
+<meta name="description" content="在Vue裡面撰寫時，條件渲染的v-if &amp;amp; v-show在渲染上比較大的區別是：v-if條件為true時會把內容的DOM渲染出來，條件為false時會把DOM移掉，v-show則是一開始就先把DOM渲染出來，當條件切換時只做display: none的切換。 而有時候我們需要透過v-if來避免預先渲染了不必要的資料，但又希望v-if條件達成後就繼續保留在頁面中不被移除，這時候就可以混在一起">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2017的回顧跟2018的目標">
-<meta property="og:url" content="https://guahsu.io/2018/02/2017-review-and-2018-target/index.html">
+<meta property="og:title" content="透過v-if + v-show來節省資源">
+<meta property="og:url" content="https://guahsu.io/2018/08/vue-if-with-vue-show-singleton/index.html">
 <meta property="og:site_name" content="Gua&#39;s Note">
-<meta property="og:description" content="想到什麼寫什麼，有點亂七八糟的紀錄。">
+<meta property="og:description" content="在Vue裡面撰寫時，條件渲染的v-if &amp;amp; v-show在渲染上比較大的區別是：v-if條件為true時會把內容的DOM渲染出來，條件為false時會把DOM移掉，v-show則是一開始就先把DOM渲染出來，當條件切換時只做display: none的切換。 而有時候我們需要透過v-if來避免預先渲染了不必要的資料，但又希望v-if條件達成後就繼續保留在頁面中不被移除，這時候就可以混在一起">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2018-02-18T14:10:45.000Z">
+<meta property="og:updated_time" content="2018-08-04T05:33:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2017的回顧跟2018的目標">
-<meta name="twitter:description" content="想到什麼寫什麼，有點亂七八糟的紀錄。">
+<meta name="twitter:title" content="透過v-if + v-show來節省資源">
+<meta name="twitter:description" content="在Vue裡面撰寫時，條件渲染的v-if &amp;amp; v-show在渲染上比較大的區別是：v-if條件為true時會把內容的DOM渲染出來，條件為false時會把DOM移掉，v-show則是一開始就先把DOM渲染出來，當條件切換時只做display: none的切換。 而有時候我們需要透過v-if來避免預先渲染了不必要的資料，但又希望v-if條件達成後就繼續保留在頁面中不被移除，這時候就可以混在一起">
 
 
 
@@ -135,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://guahsu.io/2018/02/2017-review-and-2018-target/"/>
+  <link rel="canonical" href="https://guahsu.io/2018/08/vue-if-with-vue-show-singleton/"/>
 
 
 
 
 
-  <title>2017的回顧跟2018的目標 | Gua's Note</title>
+  <title>透過v-if + v-show來節省資源 | Gua's Note</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -336,7 +335,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://guahsu.io/2018/02/2017-review-and-2018-target/">
+    <link itemprop="mainEntityOfPage" href="https://guahsu.io/2018/08/vue-if-with-vue-show-singleton/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="GuaHsu">
@@ -353,7 +352,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">2017的回顧跟2018的目標</h1>
+          <h1 class="post-title" itemprop="name headline">透過v-if + v-show來節省資源</h1>
         
 
         <div class="post-meta">
@@ -365,8 +364,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-02-18T22:08:19+08:00">
-                2018-02-18
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-08-04T13:30:47+08:00">
+                2018-08-04
               </time>
             
 
@@ -376,28 +375,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Diary/" itemprop="url" rel="index">
-                    <span itemprop="name">Diary</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -406,9 +383,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/02/2017-review-and-2018-target/#comments" itemprop="discussionUrl">
+                <a href="/2018/08/vue-if-with-vue-show-singleton/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/02/2017-review-and-2018-target/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/08/vue-if-with-vue-show-singleton/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -433,17 +410,19 @@
       
 
       
-        <p>想到什麼寫什麼，有點亂七八糟的紀錄。    </p>
+        <p>在Vue裡面撰寫時，條件渲染的<code>v-if</code> &amp; <code>v-show</code>在渲染上比較大的區別是：<br><code>v-if</code>條件為<code>true</code>時會把內容的DOM渲染出來，條件為<code>false</code>時會把DOM移掉，<br><code>v-show</code>則是一開始就先把DOM渲染出來，當條件切換時只做<code>display: none</code>的切換。</p>
+<p>而有時候我們需要透過<code>v-if</code>來避免預先渲染了不必要的資料，<br>但又希望<code>v-if</code>條件達成後就繼續保留在頁面中不被移除，這時候就可以混在一起用了:)</p>
 <a id="more"></a>
-<p>去年一整年是個很充實很緊繃的一年<br>2017的年度目標：  </p>
-<ol>
-<li>每兩個月一定要寫篇程式相關的心得   </li>
-<li>每半年要看完一本書並記錄心得<br>第一點大完成，去年整年寫了49篇紀錄，<br>第二點則是失敗，看跟買的書不少，<br>但大部分都開卷即睡..只有掃過目錄跟前面幾章，<br>線上課程完成的比較多，可以倍數跟直接看操作對我來說吸收比較快。  </li>
-</ol>
-<p>因為自己很想寫前端，但工作上沒什麼機會碰到前端，<br>去年一整年就很緊實的利用下班跟假日的時間一直在讀書，<br>大概在四月底的時候幸運的加入了JS的Line群，<br>在唸書的過程中感覺比較不孤單，也從群內討論中吸收了不少知識，<br>累積了一些作品跟實作的經驗，還接觸了虛擬貨幣！  </p>
-<p>每天下班回家接小孩買晚餐吃，小孩弄睡就九點多了，<br>抓緊時間看個線上課程，邊實作寫下紀錄的日子也過了一年，<br>也很幸運的在年前也找到了前端開發的工作，<br>達成自己這段時間努力的目標，正式的成為前端工程師了！  </p>
-<p>2019的目標是最少一個月要寫一篇程式相關的紀錄，<br>新的一年一樣希望自己持續成長，持續累積實務經驗，<br>希望一切都很順利，家人身體健康：）！  </p>
-<p>-#終於可以放鬆些了<br>-#買了NS都沒時間玩，不知道今年有沒有時間把薩爾達破關XD  </p>
+<p>舉個使用情境的例子：<br>當你有一個資料Table每一列有一個展開按鈕，<br>展開內容有個component會吃上層的data去call api取值，<br>如果使用<code>v-if</code>則每次關閉後再次打開會造成多打一次API浪費資源，<br>而若使用<code>v-show</code>的話則會導致一開始就使全部內容都先呼叫了API也是一種浪費。</p>
+<blockquote>
+<p>此情境的data非即時變動，故可用這種方式來保留，若有隨時要檢視更新資料的情境不適用。</p>
+</blockquote>
+<p>針對上述情境可以透過<code>v-if</code>或<code>v-show</code>來判斷渲染時可以新增一個<code>data</code>來做<code>singleton</code>，<br>這裡有個簡單的範例可以參考，可以打開後透過<code>console</code>來觀察<code>#app</code>內的元素：</p>
+<p></p><p data-height="265" data-theme-id="0" data-slug-hash="zLaJzJ" data-default-tab="html,result" data-user="Gua" data-pen-title="vue - v-if & v-show" class="codepen">See the Pen <a href="https://codepen.io/Gua/pen/zLaJzJ/" target="_blank" rel="noopener">vue - v-if &amp; v-show</a> by GuaHsu (<a href="https://codepen.io/Gua" target="_blank" rel="noopener">@Gua</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<p>初始時是沒有內容物件的，因為<code>step</code>為<code>null</code>，當點擊按鈕後<code>step</code>變所選的<code>index</code>，<br>同時<code>push</code>這個<code>index</code>使判斷式中的<code>active.includes(index)</code>成立，<br>這樣就會判斷<code>v-show</code>啦～</p>
+<p>終於把TheF2E挑戰完結了，下週再來寫挑戰完成的心得，<br>也可以準備把最近備註起來的東西在做些整理記錄起來了:)  </p>
 
       
     </div>
@@ -471,12 +450,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/review/" rel="tag"># review</a>
-          
-        </div>
-      
 
       
       
@@ -502,8 +475,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/vue-turntable/" rel="next" title="用 Vue.js 製作幸運大轉盤～">
-                <i class="fa fa-chevron-left"></i> 用 Vue.js 製作幸運大轉盤～
+              <a href="/2018/06/thef2e-challenge/" rel="next" title="TheF2E 前端挑戰">
+                <i class="fa fa-chevron-left"></i> TheF2E 前端挑戰
               </a>
             
           </div>
@@ -511,10 +484,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/devtool-copy-console-data/" rel="prev" title="實用小技巧-複製開發者工具取得的資訊">
-                實用小技巧-複製開發者工具取得的資訊 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -772,9 +741,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://guahsu.io/2018/02/2017-review-and-2018-target/';
-          this.page.identifier = '2018/02/2017-review-and-2018-target/';
-          this.page.title = '2017的回顧跟2018的目標';
+          this.page.url = 'https://guahsu.io/2018/08/vue-if-with-vue-show-singleton/';
+          this.page.identifier = '2018/08/vue-if-with-vue-show-singleton/';
+          this.page.title = '透過v-if + v-show來節省資源';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://guahsu-io.disqus.com/embed.js';
