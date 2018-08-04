@@ -355,7 +355,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/08/vue-if-with-vue-show-singleton/" itemprop="url">透過v-if + v-show來節省資源</a></h1>
+                <a class="post-title-link" href="/2018/08/vue-if-with-vue-show-singleton/" itemprop="url">透過`v-if`&`v-show`共用來節省渲染資源</a></h1>
         
 
         <div class="post-meta">
@@ -415,7 +415,7 @@
       
         
           <p>在Vue裡面撰寫時，條件渲染的<code>v-if</code> &amp; <code>v-show</code>在渲染上比較大的區別是：<br><code>v-if</code>條件為<code>true</code>時會把內容的DOM渲染出來，條件為<code>false</code>時會把DOM移掉，<br><code>v-show</code>則是一開始就先把DOM渲染出來，當條件切換時只做<code>display: none</code>的切換。</p>
-<p>而有時候我們需要透過<code>v-if</code>來避免預先渲染了不必要的資料，<br>但又希望<code>v-if</code>條件達成後就繼續保留在頁面中不被移除，這時候就可以混在一起用了:)</p>
+<p>而有時候我們需要透過<code>v-if</code>來避免<code>v-show</code>預先渲染了不必要的資料，<br>但又希望<code>v-if</code>條件達成後就繼續保留在頁面中不被移除，這時候就可以混在一起用了:)</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/08/vue-if-with-vue-show-singleton/#more" rel="contents">
