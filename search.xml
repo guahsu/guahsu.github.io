@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[透過`v-if`&`v-show`共用來節省渲染資源]]></title>
+    <title><![CDATA[透過v-if與v-show共用來節省渲染資源]]></title>
     <url>%2F2018%2F08%2Fvue-if-with-vue-show-singleton%2F</url>
     <content type="text"><![CDATA[在Vue裡面撰寫時，條件渲染的v-if &amp; v-show在渲染上比較大的區別是：v-if條件為true時會把內容的DOM渲染出來，條件為false時會把DOM移掉，v-show則是一開始就先把DOM渲染出來，當條件切換時只做display: none的切換。 而有時候我們需要透過v-if來避免v-show預先渲染了不必要的資料，但又希望v-if條件達成後就繼續保留在頁面中不被移除，這時候就可以混在一起用了:) 舉個使用情境的例子：當你有一個資料Table每一列有一個展開按鈕，展開內容有個component會吃上層的data去call api取值，如果使用v-if則每次關閉後再次打開會造成多打一次API浪費資源，而若使用v-show的話則會導致一開始就使全部內容都先呼叫了API也是一種浪費。 此情境的data非即時變動，故可用這種方式來保留，若有隨時要檢視更新資料的情境不適用。 針對上述情境可以透過v-if或v-show來判斷渲染時可以新增一個data來做singleton，這裡有個簡單的範例可以參考，可以打開後透過console來觀察#app內的元素： See the Pen vue - v-if &amp; v-show by GuaHsu (@Gua) on CodePen. 初始時是沒有內容物件的，因為step為null，當點擊按鈕後step變所選的index，同時push這個index使判斷式中的active.includes(index)成立，這樣就會判斷v-show啦～ 終於把TheF2E挑戰完結了，下週再來寫挑戰完成的心得，也可以準備把最近備註起來的東西在做些整理記錄起來了:)]]></content>
   </entry>
