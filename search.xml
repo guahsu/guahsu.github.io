@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[TheF2E 前端挑戰 - 結束]]></title>
+    <url>%2F2018%2F08%2Fthef2e-challenge-finish%2F</url>
+    <content type="text"><![CDATA[為期九週的挑戰終於結束，總算是可以好好休息了(?)這九週的挑戰真的是各種練習都出現了，也因為可利用時間不多的關係，感覺也是挑戰了寫草稿跟整理code的速度。 我的TheF2E挑戰GitHub總結一下自己覺得的完成度跟簡短心得：第一週 - TodoList：完成度：80%照稿切版，套功能，除了上傳檔案外幾乎都實現了。 第二週 - Filter：完成度：50% / 100%設計稿跟實際可操作的API不同，實作的過程中花滿多時間在找API的，後來就索性只切了設計稿要的版，簡單套了資料後重新做一個與設計稿不同的，我做了一個活動的查詢頁面，加上了各種所需的filter，比較特別的Tag、時間、網址搜尋都是把資料抓回來後自己filter非API提供的，也透過這個學到一些正則表達式的操作。 第三週 - Admin Order：完成度：50%原本週一看到題目時還想說可以套用firebase來玩，但實際上根本沒時間做XD，用elementUI來刻畫面，功能無實現。 第四週 - Product Gallery：完成度：100%非常有趣的設計排版練習，初次使用Grid來切版，也因為重複性質的code很多，全部改用@mixin來處理。 第五週 - Comic Viewer：完成度：30%這週可以擠出來的時間只有半天不到，只把部分畫面切出來而已。 第六週 - Validation：完成度：80%使用elementUI的form來做，加上一些驗證滿方便的，小改樣式，並且發現連級選單滿好用(還可以搜尋)，也是因為時間的關係，地區資料沒有花時間處理格式。 第七週 - Canvas Game：完成度：20%這週工作排程很滿，週一看到題目的時候都快哭了第一次用pixi.js，然後只寫了一個入口頁，整個很廢XD 第八週 - Parallax Scrolling完成度：90%又接觸到了一個新的東西 - TweenLineMax，週六一整天都在做這個，我做的完全跟設計稿不同XD也因為懶著畫形狀，嘗試使用utf-8符號搭配text-stroke來做，做成了一個隨機產生樸克牌花色的滾動視差動畫。 第九週 - Skill Tree完成度：70%最終週有兩款設計稿，我選擇了第一種，第一次遇到skill這樣要考慮前後配點問題的條件，往後點要計算前置條件，往前取消要在把後方所有關聯都取消，所以在設定檔寫得比較複雜，後來發問才驚覺沒有什麼分支，設計稿上就是單純點滿往下一階是我想得太複雜了囧最終週技能除了技能邏輯，而箭頭符號則是沿用了第八週的文字符作法。 總結：其實自己評估下來滿多截至活動交稿日期前都只有切版的，週一看到題目都會很多有想法，但最後卻會因為時間無法製作完成XD但也因為是這樣才會在擠出的時間內盡快思考要如何實作，覺得自己在看到題目思考做法的時間也加速很多，這九週幾乎都是把火力集中在週六用半天左右完成。 很感謝這次的活動讓我接觸到了滿多原本略知卻沒實作的東西，也很感謝老婆大人幫忙照顧女兒，讓我能在僅有的時間內專心思考XD 總之，很緊繃的九週終於結束了！可以放鬆的來面對接下來的各種學習啦～未完成的很多，之後再找時間慢慢補完每一週的挑戰(？)]]></content>
+      <categories>
+        <category>CODE</category>
+      </categories>
+      <tags>
+        <tag>Challenge</tag>
+        <tag>Fun</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[透過v-if與v-show共用來節省渲染資源]]></title>
     <url>%2F2018%2F08%2Fvue-if-with-vue-show-singleton%2F</url>
     <content type="text"><![CDATA[在Vue裡面撰寫時，條件渲染的v-if &amp; v-show在渲染上比較大的區別是：v-if條件為true時會把內容的DOM渲染出來，條件為false時會把DOM移掉，v-show則是一開始就先把DOM渲染出來，當條件切換時只做display: none的切換。 而有時候我們需要透過v-if來避免v-show預先渲染了不必要的資料，但又希望v-if條件達成後就繼續保留在頁面中不被移除，這時候就可以混在一起用了:) 舉個使用情境的例子：當你有一個資料Table每一列有一個展開按鈕，展開內容有個component會吃上層的data去call api取值，如果使用v-if則每次關閉後再次打開會造成多打一次API浪費資源，而若使用v-show的話則會導致一開始就使全部內容都先呼叫了API也是一種浪費。 此情境的data非即時變動，故可用這種方式來保留，若有隨時要檢視更新資料的情境不適用。 針對上述情境可以透過v-if或v-show來判斷渲染時可以新增一個data來做singleton，這裡有個簡單的範例可以參考，可以打開後透過console來觀察#app內的元素： See the Pen vue - v-if &amp; v-show by GuaHsu (@Gua) on CodePen. 初始時是沒有內容物件的，因為step為null，當點擊按鈕後step變所選的index，同時push這個index使判斷式中的active.includes(index)成立，這樣就會判斷v-show啦～ 終於把TheF2E挑戰完結了，下週再來寫挑戰完成的心得，也可以準備把最近備註起來的東西在做些整理記錄起來了:)]]></content>
+      <categories>
+        <category>CODE</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[TheF2E 前端挑戰]]></title>
@@ -13,8 +31,8 @@
         <category>CODE</category>
       </categories>
       <tags>
-        <tag>challenge</tag>
-        <tag>fun</tag>
+        <tag>Challenge</tag>
+        <tag>Fun</tag>
       </tags>
   </entry>
   <entry>
@@ -61,7 +79,7 @@
         <category>Diary</category>
       </categories>
       <tags>
-        <tag>review</tag>
+        <tag>Review</tag>
       </tags>
   </entry>
   <entry>
@@ -72,8 +90,8 @@
         <category>Project</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
         <tag>Fun</tag>
+        <tag>Vue</tag>
       </tags>
   </entry>
   <entry>
@@ -86,9 +104,9 @@
       <tags>
         <tag>Vue</tag>
         <tag>BootStrap</tag>
-        <tag>webpack</tag>
-        <tag>scss</tag>
-        <tag>pug</tag>
+        <tag>Webpack</tag>
+        <tag>Scss</tag>
+        <tag>Pug</tag>
       </tags>
   </entry>
   <entry>
@@ -351,8 +369,8 @@
       </categories>
       <tags>
         <tag>Vue</tag>
-        <tag>Firebase</tag>
         <tag>Webpack</tag>
+        <tag>Firebase</tag>
       </tags>
   </entry>
   <entry>
@@ -364,8 +382,8 @@
       </categories>
       <tags>
         <tag>Vue</tag>
-        <tag>Firebase</tag>
         <tag>Webpack</tag>
+        <tag>Firebase</tag>
       </tags>
   </entry>
   <entry>

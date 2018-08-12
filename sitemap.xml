@@ -2,16 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://guahsu.io/2018/08/vue-if-with-vue-show-singleton/</loc>
+    <loc>https://guahsu.io/2018/08/thef2e-challenge-finish/</loc>
     
-    <lastmod>2018-08-04T06:16:11.000Z</lastmod>
+    <lastmod>2018-08-12T12:45:51.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://guahsu.io/2018/06/thef2e-challenge/</loc>
     
-    <lastmod>2018-06-30T15:03:57.000Z</lastmod>
+    <lastmod>2018-08-12T12:33:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://guahsu.io/2018/02/2017-review-and-2018-target/</loc>
+    
+    <lastmod>2018-08-12T12:32:33.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://guahsu.io/2017/12/vue-cli-webpack-pug-scss-bootstrap4/</loc>
+    
+    <lastmod>2018-08-12T12:32:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://guahsu.io/2018/08/vue-if-with-vue-show-singleton/</loc>
+    
+    <lastmod>2018-08-12T12:29:25.000Z</lastmod>
     
   </url>
   
@@ -51,23 +72,9 @@
   </url>
   
   <url>
-    <loc>https://guahsu.io/2018/02/2017-review-and-2018-target/</loc>
-    
-    <lastmod>2018-02-18T14:10:45.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://guahsu.io/2018/01/vue-turntable/</loc>
     
     <lastmod>2018-01-18T17:28:26.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://guahsu.io/2017/12/vue-cli-webpack-pug-scss-bootstrap4/</loc>
-    
-    <lastmod>2017-12-17T09:08:46.000Z</lastmod>
     
   </url>
   
@@ -205,14 +212,14 @@
   </url>
   
   <url>
-    <loc>https://guahsu.io/2017/07/JavaScript30-12-Key-Sequence-Detection/</loc>
+    <loc>https://guahsu.io/2017/07/JavaScript30-11-Custom-Video-Player/</loc>
     
     <lastmod>2017-11-23T02:03:57.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://guahsu.io/2017/07/JavaScript30-11-Custom-Video-Player/</loc>
+    <loc>https://guahsu.io/2017/07/JavaScript30-12-Key-Sequence-Detection/</loc>
     
     <lastmod>2017-11-23T02:03:57.000Z</lastmod>
     
