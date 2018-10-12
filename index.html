@@ -336,6 +336,209 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://guahsu.io/2018/10/vue-sessionstorage-sharing-and-sync-vuex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GuaHsu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gua's Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/vue-sessionstorage-sharing-and-sync-vuex/" itemprop="url">多頁籤共享sessionStorage並同步至vuex</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-10-12T21:54:19+08:00">
+                2018-10-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Project/" itemprop="url" rel="index">
+                    <span itemprop="name">Project</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/vue-sessionstorage-sharing-and-sync-vuex/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/10/vue-sessionstorage-sharing-and-sync-vuex/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="範例連結"><a href="#範例連結" class="headerlink" title="範例連結"></a>範例連結</h1><p><a href="https://guahsu.io/Vue-sessionStorage/dist/">https://guahsu.io/Vue-sessionStorage/dist/</a>  </p>
+<p>再vue專案中，如果有使用到vuex來做狀態管理，<br>那很常會遇到一件事情就是重新整理後就遺失了原本的狀態，<br>這裡紀錄我的解決方案：使多頁籤共享SessionStorage並透過同步達到Vuex資料的持久化。  </p>
+<h2 id="常見的登入判斷"><a href="#常見的登入判斷" class="headerlink" title="常見的登入判斷"></a>常見的登入判斷</h2><p>我們常在頁面判斷(vue-route: beforeEach)中寫下了像這樣的程式，<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> token = <span class="comment">// 各種存放token的地方</span></span><br><span class="line">  <span class="comment">// 頁面跳轉前如果沒token就把帶到登入頁</span></span><br><span class="line">	<span class="keyword">if</span> (!token) &#123;</span><br><span class="line">    next(&#123; <span class="attr">path</span>: <span class="string">'/login'</span> &#125;)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    next()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="Token存哪？"><a href="#Token存哪？" class="headerlink" title="Token存哪？"></a>Token存哪？</h2><p>登入時取回的token我們有幾個地方可以選擇存放：  </p>
+<ol>
+<li><p>Vuex<br>優點：可以跟系統內其他vuex互相統一使用vuex的api來操作token，頁面關閉隨之銷毀<br>缺點：當重新整理或開新分頁時就會被登出了(vuex被清除)  </p>
+</li>
+<li><p>Cookie<br>優點：可由server端寫入，省掉前端寫入的工(?)<br>缺點：可被user關閉、最高寫入4k，如果每次請求帶的話100張圖要get就會要多400k流量。  </p>
+</li>
+<li><p>LocalStorage<br>優點：存放不會消失，不需要擔心頁面關閉或重整/新開分頁等問題<br>缺點：因為永久存放(除非user手動清除)，必須加上時效性自行判斷，或特殊操作時要將其手動清除  </p>
+</li>
+<li><p>SessionStorage<br>優點：頁籤開著的時候會一直存在著，即使是重新整理，頁籤關閉時會自動銷毀被儲存的資訊<br>缺點：只在當前頁籤存在，開新分頁並不會被傳遞  </p>
+</li>
+</ol>
+<p>看起來不論選用哪個都會有優點或缺點，基於Vue專案Vuex是避不太了的基礎上，剩下只能擇一了。  </p>
+<h3 id="Vuex-SessionStorage"><a href="#Vuex-SessionStorage" class="headerlink" title="Vuex + SessionStorage"></a>Vuex + SessionStorage</h3><p>這裡我選用Vuex + sessionStorage做搭配，<br>把重要的資訊(User資訊、Token..等)在sessionStorage中做一份備份，<br>當頁面重整時再透過sessionStorage重新賦值給Vuex，<br>來達到程式碼管理的統一性(各組件邏輯一樣都統一使用Vuex做操作)，<br>也可以避免當頁面被關閉或重新開啟瀏覽器時要對LocalStorage資訊再做一次判斷與驗證的工。  </p>
+<p>但缺點如上面所說，當User開新分頁時，新長出來的頁籤並不會有sessionStorage所儲存的資料，<br>也就不會被同步到Vuex，為了解決這個問題我們得想辦法讓sessionStorage的資訊可以被分享傳遞到新的頁籤中。  </p>
+<h2 id="sessionStorage多頁籤共享"><a href="#sessionStorage多頁籤共享" class="headerlink" title="sessionStorage多頁籤共享"></a>sessionStorage多頁籤共享</h2><p>我在查找方案時看到這篇文章<a href="https://blog.guya.net/2015/06/12/sharing-sessionstorage-between-tabs-for-secure-multi-tab-authentication/" target="_blank" rel="noopener">Sharing sessionStorage between tabs for secure multi-tab authentication</a><br>網路上也有一些譯文，對我幫助非常多，我最終的解決方案也是基於這篇文章來做的。  </p>
+<h3 id="主要的作法簡述"><a href="#主要的作法簡述" class="headerlink" title="主要的作法簡述"></a>主要的作法簡述</h3><blockquote>
+<p>我有寫一個簡單的的登入範例，可以參考上方的連結  </p>
+</blockquote>
+<ol>
+<li>登入的邏輯取回token時，將token存於sessionStorage中  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">userLogin () &#123;</span><br><span class="line">  <span class="comment">// ...登入邏輯</span></span><br><span class="line">  xxxApi.userLogin().then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">window</span>.sessionStorage.setItem(<span class="string">'token'</span>, res.token)</span><br><span class="line">    <span class="comment">// ...跳轉至首頁</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li>再Vue專案裡的index.html中加上這段，我替程式碼加上了註解  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 註：此範例為複製全部sessionStorage內資料 */</span></span><br><span class="line">(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 判斷當前頁面是否存在sessionStorage</span></span><br><span class="line">  <span class="keyword">if</span> (!<span class="built_in">window</span>.sessionStorage.length) &#123;</span><br><span class="line">    <span class="comment">// 若不存在則加上一個localStorage Item, Key = getSessionStorageData</span></span><br><span class="line">    <span class="built_in">window</span>.localStorage.setItem(<span class="string">'getSessionStorageData'</span>, <span class="built_in">Date</span>.now())</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 增加window監聽事件'storage'</span></span><br><span class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">'storage'</span>, (event) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 如果偵聽到的事件是key是getSessionStorageData</span></span><br><span class="line">    <span class="keyword">if</span> (event.key === <span class="string">'getSessionStorageData'</span>) &#123;</span><br><span class="line">      <span class="comment">// 再新增一個localstorage Item, key = sessionStorageData，value就是當前的sessionStorage</span></span><br><span class="line">      <span class="built_in">window</span>.localStorage.setItem(<span class="string">'sessionStorageData'</span>, <span class="built_in">JSON</span>.stringify(<span class="built_in">window</span>.sessionStorage))</span><br><span class="line">      <span class="comment">// 刪除localstorage中key = sessionStorageData的item</span></span><br><span class="line">      <span class="built_in">window</span>.localStorage.removeItem(<span class="string">'sessionStorageData'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 如果偵聽到的事件是key是sessionStorageData, 且當前的sessionStorage是空的</span></span><br><span class="line">    <span class="keyword">if</span> (event.key === <span class="string">'sessionStorageData'</span> &amp;&amp; !<span class="built_in">window</span>.sessionStorage.length) &#123;</span><br><span class="line">      <span class="comment">// 把sessionStorageData的資料parse出來</span></span><br><span class="line">      <span class="keyword">const</span> data = <span class="built_in">JSON</span>.parse(event.newValue)</span><br><span class="line">      <span class="comment">// 賦值到當前頁面的sessionStorage中</span></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> data) &#123;</span><br><span class="line">        <span class="built_in">window</span>.sessionStorage.setItem(key, data[key])</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="整體流程簡述"><a href="#整體流程簡述" class="headerlink" title="整體流程簡述"></a>整體流程簡述</h3><ol>
+<li>判斷頁面是否存在sessionStorage，並加上store事件的偵聽  </li>
+<li>若不存在，就把原本的sessionStorage內的資料設定到localStorage中並取名為sessionStorageData  </li>
+<li>若storage事件偵聽到Key為sessionStorageData的事件，就把其內容透過for賦值到頁面sessionStorage中  </li>
+</ol>
+<p>比較難懂的是這段<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (event.key === <span class="string">'getSessionStorageData'</span>) &#123;</span><br><span class="line">  <span class="comment">// 再新增一個localstorage Item, key = sessionStorageData，value就是當前的sessionStorage</span></span><br><span class="line">  <span class="built_in">window</span>.localStorage.setItem(<span class="string">'sessionStorageData'</span>, <span class="built_in">JSON</span>.stringify(<span class="built_in">window</span>.sessionStorage))</span><br><span class="line">  <span class="comment">// 刪除localstorage中key = sessionStorageData的item</span></span><br><span class="line">  <span class="built_in">window</span>.localStorage.removeItem(<span class="string">'sessionStorageData'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>為什麼設定完後又直接刪除？  </p>
+</blockquote>
+<p>注意，我們有為window添加偵聽事件<code>window.addEventListener(&#39;storage&#39;, ..)</code><br>這意味著每次storage事件被戳到的時候都會執行，所以當<code>setItem(&#39;sessionStorage&#39;)</code>的當下，也會接收到事件，<br>代表著<code>window.localStorage.removeItem(&#39;sessionStorage&#39;)</code>其實是發生在sessionStorage被寫入之後的事情了，<br>也因此才能達到同一個步驟做寫入與刪除，不留下過程中的localStorage資訊。  </p>
+<blockquote>
+<p>或許你可能會跟我一樣好奇，新開的頁面為啥會有sessionStorage可以提供複製？  </p>
+</blockquote>
+<p>查詢API(<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API" target="_blank" rel="noopener">Using the Web Storage API | MDN</a>)後才知道，各頁籤只要是同域名，<br>有對storage動作時全部都會被連動，沒有詳閱過API真的還不知道storage事件可以做到同域名的狀態監測。  </p>
+<h3 id="storage事件的測試"><a href="#storage事件的測試" class="headerlink" title="storage事件的測試"></a>storage事件的測試</h3><p>關於這點可以簡單地做一個測試，隨便開兩個同網域的頁籤後，分別都開啟開發者工具：  </p>
+<ol>
+<li>在A頁籤中寫下<br><code>window.addEventListener(&#39;storage&#39;, (event) =&gt; console.log(event))</code>  </li>
+<li>在B頁籤寫下<br><code>window.localStorage.setItem(’storageTest’, ‘test’)</code>  </li>
+<li>再回頭看A頁籤，就會發現已經被偵聽到storage事件了！  </li>
+</ol>
+<p>透過這樣的事件偵聽，就可以達到藉由localStorage來傳遞sessionStorage的目的。  </p>
+<h3 id="sessionStorage與vuex的同步，修改登入判斷邏輯"><a href="#sessionStorage與vuex的同步，修改登入判斷邏輯" class="headerlink" title="sessionStorage與vuex的同步，修改登入判斷邏輯"></a>sessionStorage與vuex的同步，修改登入判斷邏輯</h3><p>所以現在，修改router.beforeEach中的邏輯讓前往頁面的同時使sessionStorage的資料與vuex做同步。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 一開始登入時寫進去的token</span></span><br><span class="line">  <span class="keyword">const</span> token = <span class="built_in">window</span>.sessionStorage.getItem(<span class="string">'token'</span>)</span><br><span class="line">  <span class="keyword">if</span> (to.matched.some(<span class="function"><span class="params">res</span> =&gt;</span> res.meta.requiresAuth)) &#123;</span><br><span class="line">    <span class="keyword">if</span> (token) &#123;</span><br><span class="line">      <span class="comment">// 同步到vuex中</span></span><br><span class="line">      store.dispatch(<span class="string">'root/setToken'</span>, token)</span><br><span class="line">      next()</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      next(&#123; <span class="attr">name</span>: <span class="string">'Login'</span> &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    next()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="關於登出"><a href="#關於登出" class="headerlink" title="關於登出"></a>關於登出</h2><p>我們也可以同樣利用storage的特性，<br>當登出時同步清除所有頁籤的sessionStorage並reload頁面：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (!<span class="built_in">window</span>.sessionStorage.length) &#123;</span><br><span class="line">    <span class="built_in">window</span>.localStorage.setItem(<span class="string">'getSessionStorageData'</span>, <span class="built_in">Date</span>.now())</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">'storage'</span>, (event) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (event.key === <span class="string">'getSessionStorageData'</span>) &#123;</span><br><span class="line">      <span class="built_in">window</span>.localStorage.setItem(<span class="string">'sessionStorageData'</span>, <span class="built_in">JSON</span>.stringify(<span class="built_in">window</span>.sessionStorage))</span><br><span class="line">      <span class="built_in">window</span>.localStorage.removeItem(<span class="string">'sessionStorageData'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (event.key === <span class="string">'sessionStorageData'</span> &amp;&amp; !<span class="built_in">window</span>.sessionStorage.length) &#123;</span><br><span class="line">      <span class="keyword">const</span> data = <span class="built_in">JSON</span>.parse(event.newValue)</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> data) &#123;</span><br><span class="line">        <span class="built_in">window</span>.sessionStorage.setItem(key, data[key])</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// ========== 加下面這段 ==========</span></span><br><span class="line">    <span class="keyword">if</span> (event.key === <span class="string">'logout'</span>) &#123;</span><br><span class="line">      <span class="comment">// 接收到logout事件時，進行sessionStorage的清除與頁面reload</span></span><br><span class="line">      <span class="built_in">window</span>.sessionStorage.clear()</span><br><span class="line">      <span class="built_in">window</span>.location.reload()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>即便這樣看起來很OK了，但還是有些缺陷，如同原文作者有提到的：<br>於Chrome, FireFox的恢復分頁功能會將sessionStorage的資料一併恢復，<br>這可能會導致一些安全性的問題(不過相較於localStorage, 這應該不算問題?)  </p>
+<p>另外要注意的就是，這個資料是在分頁被開啟的同時獲取的，<br>意味著如果你的sessionStorage儲存著經常被異動的資料，必須得再多寫一些事件去做攔截與複製，<br>因為storage事件不會偵聽到其他頁面的sessionStorage異動。  </p>
+<p>以上為個人測試與實作的紀錄分享，如果有錯誤或更好的做法再請各位大大指教了:) !</p>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><ol>
+<li><a href="https://blog.guya.net/2015/06/12/sharing-sessionstorage-between-tabs-for-secure-multi-tab-authentication/" target="_blank" rel="noopener">Sharing sessionStorage between tabs for secure multi-tab authentication</a>  </li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API" target="_blank" rel="noopener">Using the Web Storage API | MDN</a>  </li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://guahsu.io/2018/08/thef2e-challenge-finish/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1074,153 +1277,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://guahsu.io/2018/03/devtool-copy-console-data/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="GuaHsu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gua's Note">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/devtool-copy-console-data/" itemprop="url">實用小技巧-複製開發者工具取得的資訊</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">發表於</span>
-              
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-03-31T23:37:28+08:00">
-                2018-03-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分類於</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CODE/" itemprop="url" rel="index">
-                    <span itemprop="name">CODE</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/devtool-copy-console-data/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/03/devtool-copy-console-data/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>有時候從API或console印出的陣列或物件資料想存在local使用，<br>在chrome的開發者工具對想要儲存的對象按右鍵<code>store as global variable</code>，<br>在用<code>copy()</code>指令傳入剛才被儲存的變數，想存的物件就被完整複製到剪貼簿啦！</p>
-<p>之前一直沒發現到，查了才知道有這個技巧，有時還要蠢蠢的手動複製一份XD。</p>
-<p>參閱：<a href="https://stackoverflow.com/questions/10305365/javascript-chrome-how-to-copy-an-object-from-the-webkit-inspector-as-code" target="_blank" rel="noopener">Stackoverflow</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1270,7 +1326,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">58</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -1292,7 +1348,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>

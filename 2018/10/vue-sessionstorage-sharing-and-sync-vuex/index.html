@@ -1,0 +1,1223 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=201711210001" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JavaScript,Vue,Vuex,Storage," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=201711210001" />
+
+
+
+
+  <meta property="fb:admins" content="GuaHsu" />
+  <meta property="fb:app_id" content="327431334344582" />
+
+
+
+<meta name="description" content="範例連結https://guahsu.io/Vue-sessionStorage/dist/   再vue專案中，如果有使用到vuex來做狀態管理，那很常會遇到一件事情就是重新整理後就遺失了原本的狀態，這裡紀錄我的解決方案：使多頁籤共享SessionStorage並透過同步達到Vuex資料的持久化。   常見的登入判斷我們常在頁面判斷(vue-route: beforeEach)中寫下了像這樣的程">
+<meta name="keywords" content="JavaScript,Vue,Vuex,Storage">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多頁籤共享sessionStorage並同步至vuex">
+<meta property="og:url" content="https://guahsu.io/2018/10/vue-sessionstorage-sharing-and-sync-vuex/index.html">
+<meta property="og:site_name" content="Gua&#39;s Note">
+<meta property="og:description" content="範例連結https://guahsu.io/Vue-sessionStorage/dist/   再vue專案中，如果有使用到vuex來做狀態管理，那很常會遇到一件事情就是重新整理後就遺失了原本的狀態，這裡紀錄我的解決方案：使多頁籤共享SessionStorage並透過同步達到Vuex資料的持久化。   常見的登入判斷我們常在頁面判斷(vue-route: beforeEach)中寫下了像這樣的程">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2018-10-12T14:10:31.489Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="多頁籤共享sessionStorage並同步至vuex">
+<meta name="twitter:description" content="範例連結https://guahsu.io/Vue-sessionStorage/dist/   再vue專案中，如果有使用到vuex來做狀態管理，那很常會遇到一件事情就是重新整理後就遺失了原本的狀態，這裡紀錄我的解決方案：使多頁籤共享SessionStorage並透過同步達到Vuex資料的持久化。   常見的登入判斷我們常在頁面判斷(vue-route: beforeEach)中寫下了像這樣的程">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '作者'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://guahsu.io/2018/10/vue-sessionstorage-sharing-and-sync-vuex/"/>
+
+
+
+
+
+  <title>多頁籤共享sessionStorage並同步至vuex | Gua's Note</title>
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '327431334344582',
+      xfbml      : true,
+      version    : 'v2.9'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_TW/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-84594235-4', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    var host = "guahsu.io";
+    if ((host == window.location.host) && (window.location.protocol != "https:"))
+        window.location.protocol = "https";
+  </script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gua's Note</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">背不起來的就寫下來吧</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            檢索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://guahsu.io/2018/10/vue-sessionstorage-sharing-and-sync-vuex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GuaHsu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gua's Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">多頁籤共享sessionStorage並同步至vuex</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-10-12T21:54:19+08:00">
+                2018-10-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Project/" itemprop="url" rel="index">
+                    <span itemprop="name">Project</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/vue-sessionstorage-sharing-and-sync-vuex/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/10/vue-sessionstorage-sharing-and-sync-vuex/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="範例連結"><a href="#範例連結" class="headerlink" title="範例連結"></a>範例連結</h1><p><a href="https://guahsu.io/Vue-sessionStorage/dist/">https://guahsu.io/Vue-sessionStorage/dist/</a>  </p>
+<p>再vue專案中，如果有使用到vuex來做狀態管理，<br>那很常會遇到一件事情就是重新整理後就遺失了原本的狀態，<br>這裡紀錄我的解決方案：使多頁籤共享SessionStorage並透過同步達到Vuex資料的持久化。  </p>
+<h2 id="常見的登入判斷"><a href="#常見的登入判斷" class="headerlink" title="常見的登入判斷"></a>常見的登入判斷</h2><p>我們常在頁面判斷(vue-route: beforeEach)中寫下了像這樣的程式，<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> token = <span class="comment">// 各種存放token的地方</span></span><br><span class="line">  <span class="comment">// 頁面跳轉前如果沒token就把帶到登入頁</span></span><br><span class="line">	<span class="keyword">if</span> (!token) &#123;</span><br><span class="line">    next(&#123; <span class="attr">path</span>: <span class="string">'/login'</span> &#125;)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    next()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="Token存哪？"><a href="#Token存哪？" class="headerlink" title="Token存哪？"></a>Token存哪？</h2><p>登入時取回的token我們有幾個地方可以選擇存放：  </p>
+<ol>
+<li><p>Vuex<br>優點：可以跟系統內其他vuex互相統一使用vuex的api來操作token，頁面關閉隨之銷毀<br>缺點：當重新整理或開新分頁時就會被登出了(vuex被清除)  </p>
+</li>
+<li><p>Cookie<br>優點：可由server端寫入，省掉前端寫入的工(?)<br>缺點：可被user關閉、最高寫入4k，如果每次請求帶的話100張圖要get就會要多400k流量。  </p>
+</li>
+<li><p>LocalStorage<br>優點：存放不會消失，不需要擔心頁面關閉或重整/新開分頁等問題<br>缺點：因為永久存放(除非user手動清除)，必須加上時效性自行判斷，或特殊操作時要將其手動清除  </p>
+</li>
+<li><p>SessionStorage<br>優點：頁籤開著的時候會一直存在著，即使是重新整理，頁籤關閉時會自動銷毀被儲存的資訊<br>缺點：只在當前頁籤存在，開新分頁並不會被傳遞  </p>
+</li>
+</ol>
+<p>看起來不論選用哪個都會有優點或缺點，基於Vue專案Vuex是避不太了的基礎上，剩下只能擇一了。  </p>
+<h3 id="Vuex-SessionStorage"><a href="#Vuex-SessionStorage" class="headerlink" title="Vuex + SessionStorage"></a>Vuex + SessionStorage</h3><p>這裡我選用Vuex + sessionStorage做搭配，<br>把重要的資訊(User資訊、Token..等)在sessionStorage中做一份備份，<br>當頁面重整時再透過sessionStorage重新賦值給Vuex，<br>來達到程式碼管理的統一性(各組件邏輯一樣都統一使用Vuex做操作)，<br>也可以避免當頁面被關閉或重新開啟瀏覽器時要對LocalStorage資訊再做一次判斷與驗證的工。  </p>
+<p>但缺點如上面所說，當User開新分頁時，新長出來的頁籤並不會有sessionStorage所儲存的資料，<br>也就不會被同步到Vuex，為了解決這個問題我們得想辦法讓sessionStorage的資訊可以被分享傳遞到新的頁籤中。  </p>
+<h2 id="sessionStorage多頁籤共享"><a href="#sessionStorage多頁籤共享" class="headerlink" title="sessionStorage多頁籤共享"></a>sessionStorage多頁籤共享</h2><p>我在查找方案時看到這篇文章<a href="https://blog.guya.net/2015/06/12/sharing-sessionstorage-between-tabs-for-secure-multi-tab-authentication/" target="_blank" rel="noopener">Sharing sessionStorage between tabs for secure multi-tab authentication</a><br>網路上也有一些譯文，對我幫助非常多，我最終的解決方案也是基於這篇文章來做的。  </p>
+<h3 id="主要的作法簡述"><a href="#主要的作法簡述" class="headerlink" title="主要的作法簡述"></a>主要的作法簡述</h3><blockquote>
+<p>我有寫一個簡單的的登入範例，可以參考上方的連結  </p>
+</blockquote>
+<ol>
+<li>登入的邏輯取回token時，將token存於sessionStorage中  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">userLogin () &#123;</span><br><span class="line">  <span class="comment">// ...登入邏輯</span></span><br><span class="line">  xxxApi.userLogin().then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">window</span>.sessionStorage.setItem(<span class="string">'token'</span>, res.token)</span><br><span class="line">    <span class="comment">// ...跳轉至首頁</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li>再Vue專案裡的index.html中加上這段，我替程式碼加上了註解  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 註：此範例為複製全部sessionStorage內資料 */</span></span><br><span class="line">(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 判斷當前頁面是否存在sessionStorage</span></span><br><span class="line">  <span class="keyword">if</span> (!<span class="built_in">window</span>.sessionStorage.length) &#123;</span><br><span class="line">    <span class="comment">// 若不存在則加上一個localStorage Item, Key = getSessionStorageData</span></span><br><span class="line">    <span class="built_in">window</span>.localStorage.setItem(<span class="string">'getSessionStorageData'</span>, <span class="built_in">Date</span>.now())</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 增加window監聽事件'storage'</span></span><br><span class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">'storage'</span>, (event) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 如果偵聽到的事件是key是getSessionStorageData</span></span><br><span class="line">    <span class="keyword">if</span> (event.key === <span class="string">'getSessionStorageData'</span>) &#123;</span><br><span class="line">      <span class="comment">// 再新增一個localstorage Item, key = sessionStorageData，value就是當前的sessionStorage</span></span><br><span class="line">      <span class="built_in">window</span>.localStorage.setItem(<span class="string">'sessionStorageData'</span>, <span class="built_in">JSON</span>.stringify(<span class="built_in">window</span>.sessionStorage))</span><br><span class="line">      <span class="comment">// 刪除localstorage中key = sessionStorageData的item</span></span><br><span class="line">      <span class="built_in">window</span>.localStorage.removeItem(<span class="string">'sessionStorageData'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 如果偵聽到的事件是key是sessionStorageData, 且當前的sessionStorage是空的</span></span><br><span class="line">    <span class="keyword">if</span> (event.key === <span class="string">'sessionStorageData'</span> &amp;&amp; !<span class="built_in">window</span>.sessionStorage.length) &#123;</span><br><span class="line">      <span class="comment">// 把sessionStorageData的資料parse出來</span></span><br><span class="line">      <span class="keyword">const</span> data = <span class="built_in">JSON</span>.parse(event.newValue)</span><br><span class="line">      <span class="comment">// 賦值到當前頁面的sessionStorage中</span></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> data) &#123;</span><br><span class="line">        <span class="built_in">window</span>.sessionStorage.setItem(key, data[key])</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="整體流程簡述"><a href="#整體流程簡述" class="headerlink" title="整體流程簡述"></a>整體流程簡述</h3><ol>
+<li>判斷頁面是否存在sessionStorage，並加上store事件的偵聽  </li>
+<li>若不存在，就把原本的sessionStorage內的資料設定到localStorage中並取名為sessionStorageData  </li>
+<li>若storage事件偵聽到Key為sessionStorageData的事件，就把其內容透過for賦值到頁面sessionStorage中  </li>
+</ol>
+<p>比較難懂的是這段<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (event.key === <span class="string">'getSessionStorageData'</span>) &#123;</span><br><span class="line">  <span class="comment">// 再新增一個localstorage Item, key = sessionStorageData，value就是當前的sessionStorage</span></span><br><span class="line">  <span class="built_in">window</span>.localStorage.setItem(<span class="string">'sessionStorageData'</span>, <span class="built_in">JSON</span>.stringify(<span class="built_in">window</span>.sessionStorage))</span><br><span class="line">  <span class="comment">// 刪除localstorage中key = sessionStorageData的item</span></span><br><span class="line">  <span class="built_in">window</span>.localStorage.removeItem(<span class="string">'sessionStorageData'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>為什麼設定完後又直接刪除？  </p>
+</blockquote>
+<p>注意，我們有為window添加偵聽事件<code>window.addEventListener(&#39;storage&#39;, ..)</code><br>這意味著每次storage事件被戳到的時候都會執行，所以當<code>setItem(&#39;sessionStorage&#39;)</code>的當下，也會接收到事件，<br>代表著<code>window.localStorage.removeItem(&#39;sessionStorage&#39;)</code>其實是發生在sessionStorage被寫入之後的事情了，<br>也因此才能達到同一個步驟做寫入與刪除，不留下過程中的localStorage資訊。  </p>
+<blockquote>
+<p>或許你可能會跟我一樣好奇，新開的頁面為啥會有sessionStorage可以提供複製？  </p>
+</blockquote>
+<p>查詢API(<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API" target="_blank" rel="noopener">Using the Web Storage API | MDN</a>)後才知道，各頁籤只要是同域名，<br>有對storage動作時全部都會被連動，沒有詳閱過API真的還不知道storage事件可以做到同域名的狀態監測。  </p>
+<h3 id="storage事件的測試"><a href="#storage事件的測試" class="headerlink" title="storage事件的測試"></a>storage事件的測試</h3><p>關於這點可以簡單地做一個測試，隨便開兩個同網域的頁籤後，分別都開啟開發者工具：  </p>
+<ol>
+<li>在A頁籤中寫下<br><code>window.addEventListener(&#39;storage&#39;, (event) =&gt; console.log(event))</code>  </li>
+<li>在B頁籤寫下<br><code>window.localStorage.setItem(’storageTest’, ‘test’)</code>  </li>
+<li>再回頭看A頁籤，就會發現已經被偵聽到storage事件了！  </li>
+</ol>
+<p>透過這樣的事件偵聽，就可以達到藉由localStorage來傳遞sessionStorage的目的。  </p>
+<h3 id="sessionStorage與vuex的同步，修改登入判斷邏輯"><a href="#sessionStorage與vuex的同步，修改登入判斷邏輯" class="headerlink" title="sessionStorage與vuex的同步，修改登入判斷邏輯"></a>sessionStorage與vuex的同步，修改登入判斷邏輯</h3><p>所以現在，修改router.beforeEach中的邏輯讓前往頁面的同時使sessionStorage的資料與vuex做同步。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 一開始登入時寫進去的token</span></span><br><span class="line">  <span class="keyword">const</span> token = <span class="built_in">window</span>.sessionStorage.getItem(<span class="string">'token'</span>)</span><br><span class="line">  <span class="keyword">if</span> (to.matched.some(<span class="function"><span class="params">res</span> =&gt;</span> res.meta.requiresAuth)) &#123;</span><br><span class="line">    <span class="keyword">if</span> (token) &#123;</span><br><span class="line">      <span class="comment">// 同步到vuex中</span></span><br><span class="line">      store.dispatch(<span class="string">'root/setToken'</span>, token)</span><br><span class="line">      next()</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      next(&#123; <span class="attr">name</span>: <span class="string">'Login'</span> &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    next()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="關於登出"><a href="#關於登出" class="headerlink" title="關於登出"></a>關於登出</h2><p>我們也可以同樣利用storage的特性，<br>當登出時同步清除所有頁籤的sessionStorage並reload頁面：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (!<span class="built_in">window</span>.sessionStorage.length) &#123;</span><br><span class="line">    <span class="built_in">window</span>.localStorage.setItem(<span class="string">'getSessionStorageData'</span>, <span class="built_in">Date</span>.now())</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">'storage'</span>, (event) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (event.key === <span class="string">'getSessionStorageData'</span>) &#123;</span><br><span class="line">      <span class="built_in">window</span>.localStorage.setItem(<span class="string">'sessionStorageData'</span>, <span class="built_in">JSON</span>.stringify(<span class="built_in">window</span>.sessionStorage))</span><br><span class="line">      <span class="built_in">window</span>.localStorage.removeItem(<span class="string">'sessionStorageData'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (event.key === <span class="string">'sessionStorageData'</span> &amp;&amp; !<span class="built_in">window</span>.sessionStorage.length) &#123;</span><br><span class="line">      <span class="keyword">const</span> data = <span class="built_in">JSON</span>.parse(event.newValue)</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> data) &#123;</span><br><span class="line">        <span class="built_in">window</span>.sessionStorage.setItem(key, data[key])</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// ========== 加下面這段 ==========</span></span><br><span class="line">    <span class="keyword">if</span> (event.key === <span class="string">'logout'</span>) &#123;</span><br><span class="line">      <span class="comment">// 接收到logout事件時，進行sessionStorage的清除與頁面reload</span></span><br><span class="line">      <span class="built_in">window</span>.sessionStorage.clear()</span><br><span class="line">      <span class="built_in">window</span>.location.reload()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>即便這樣看起來很OK了，但還是有些缺陷，如同原文作者有提到的：<br>於Chrome, FireFox的恢復分頁功能會將sessionStorage的資料一併恢復，<br>這可能會導致一些安全性的問題(不過相較於localStorage, 這應該不算問題?)  </p>
+<p>另外要注意的就是，這個資料是在分頁被開啟的同時獲取的，<br>意味著如果你的sessionStorage儲存著經常被異動的資料，必須得再多寫一些事件去做攔截與複製，<br>因為storage事件不會偵聽到其他頁面的sessionStorage異動。  </p>
+<p>以上為個人測試與實作的紀錄分享，如果有錯誤或更好的做法再請各位大大指教了:) !</p>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><ol>
+<li><a href="https://blog.guya.net/2015/06/12/sharing-sessionstorage-between-tabs-for-secure-multi-tab-authentication/" target="_blank" rel="noopener">Sharing sessionStorage between tabs for secure multi-tab authentication</a>  </li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API" target="_blank" rel="noopener">Using the Web Storage API | MDN</a>  </li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
+          
+            <a href="/tags/Vuex/" rel="tag"># Vuex</a>
+          
+            <a href="/tags/Storage/" rel="tag"># Storage</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/thef2e-challenge-finish/" rel="next" title="TheF2E 前端挑戰 - 結束">
+                <i class="fa fa-chevron-left"></i> TheF2E 前端挑戰 - 結束
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站資料
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="GuaHsu" />
+          <p class="site-author-name" itemprop="name">GuaHsu</p>
+           
+              <p class="site-description motion-element" itemprop="description">背不起來的就寫下來吧。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分類</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/guahsu" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#範例連結"><span class="nav-text">範例連結</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#常見的登入判斷"><span class="nav-text">常見的登入判斷</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Token存哪？"><span class="nav-text">Token存哪？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vuex-SessionStorage"><span class="nav-text">Vuex + SessionStorage</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sessionStorage多頁籤共享"><span class="nav-text">sessionStorage多頁籤共享</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主要的作法簡述"><span class="nav-text">主要的作法簡述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#整體流程簡述"><span class="nav-text">整體流程簡述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#storage事件的測試"><span class="nav-text">storage事件的測試</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sessionStorage與vuex的同步，修改登入判斷邏輯"><span class="nav-text">sessionStorage與vuex的同步，修改登入判斷邏輯</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#關於登出"><span class="nav-text">關於登出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#參考資料"><span class="nav-text">參考資料</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GuaHsu</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=201711210001"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=201711210001"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=201711210001"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=201711210001"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=201711210001"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://guahsu-io.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://guahsu.io/2018/10/vue-sessionstorage-sharing-and-sync-vuex/';
+          this.page.identifier = '2018/10/vue-sessionstorage-sharing-and-sync-vuex/';
+          this.page.title = '多頁籤共享sessionStorage並同步至vuex';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://guahsu-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (search_path.endsWith("json")) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
