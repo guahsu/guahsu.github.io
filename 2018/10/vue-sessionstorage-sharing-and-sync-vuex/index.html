@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="範例連結https://guahsu.io/Vue-sessionStorage/dist/   再vue專案中，如果有使用到vuex來做狀態管理，那很常會遇到一件事情就是重新整理後就遺失了原本的狀態，這裡紀錄我的解決方案：使多頁籤共享SessionStorage並透過同步達到Vuex資料的持久化。   常見的登入判斷我們常在頁面判斷(vue-route: beforeEach)中寫下了像這樣的程">
+<meta name="description" content="範例連結https://guahsu.io/Vue-sessionStorage/dist/   再vue專案中，如果有使用到vuex來做狀態管理，那很常會遇到一件事情就是重新整理後就遺失了原本的狀態，這裡紀錄我的解決方案：使多頁籤共享SessionStorage並透過同步達到Vuex資料的持久化。">
 <meta name="keywords" content="JavaScript,Vue,Vuex,Storage">
 <meta property="og:type" content="article">
 <meta property="og:title" content="多頁籤共享sessionStorage並同步至vuex">
 <meta property="og:url" content="https://guahsu.io/2018/10/vue-sessionstorage-sharing-and-sync-vuex/index.html">
 <meta property="og:site_name" content="Gua&#39;s Note">
-<meta property="og:description" content="範例連結https://guahsu.io/Vue-sessionStorage/dist/   再vue專案中，如果有使用到vuex來做狀態管理，那很常會遇到一件事情就是重新整理後就遺失了原本的狀態，這裡紀錄我的解決方案：使多頁籤共享SessionStorage並透過同步達到Vuex資料的持久化。   常見的登入判斷我們常在頁面判斷(vue-route: beforeEach)中寫下了像這樣的程">
+<meta property="og:description" content="範例連結https://guahsu.io/Vue-sessionStorage/dist/   再vue專案中，如果有使用到vuex來做狀態管理，那很常會遇到一件事情就是重新整理後就遺失了原本的狀態，這裡紀錄我的解決方案：使多頁籤共享SessionStorage並透過同步達到Vuex資料的持久化。">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2018-10-12T14:10:31.489Z">
+<meta property="og:updated_time" content="2018-10-12T14:16:03.343Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多頁籤共享sessionStorage並同步至vuex">
-<meta name="twitter:description" content="範例連結https://guahsu.io/Vue-sessionStorage/dist/   再vue專案中，如果有使用到vuex來做狀態管理，那很常會遇到一件事情就是重新整理後就遺失了原本的狀態，這裡紀錄我的解決方案：使多頁籤共享SessionStorage並透過同步達到Vuex資料的持久化。   常見的登入判斷我們常在頁面判斷(vue-route: beforeEach)中寫下了像這樣的程">
+<meta name="twitter:description" content="範例連結https://guahsu.io/Vue-sessionStorage/dist/   再vue專案中，如果有使用到vuex來做狀態管理，那很常會遇到一件事情就是重新整理後就遺失了原本的狀態，這裡紀錄我的解決方案：使多頁籤共享SessionStorage並透過同步達到Vuex資料的持久化。">
 
 
 
@@ -435,6 +435,7 @@
       
         <h1 id="範例連結"><a href="#範例連結" class="headerlink" title="範例連結"></a>範例連結</h1><p><a href="https://guahsu.io/Vue-sessionStorage/dist/">https://guahsu.io/Vue-sessionStorage/dist/</a>  </p>
 <p>再vue專案中，如果有使用到vuex來做狀態管理，<br>那很常會遇到一件事情就是重新整理後就遺失了原本的狀態，<br>這裡紀錄我的解決方案：使多頁籤共享SessionStorage並透過同步達到Vuex資料的持久化。  </p>
+<a id="more"></a>
 <h2 id="常見的登入判斷"><a href="#常見的登入判斷" class="headerlink" title="常見的登入判斷"></a>常見的登入判斷</h2><p>我們常在頁面判斷(vue-route: beforeEach)中寫下了像這樣的程式，<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> token = <span class="comment">// 各種存放token的地方</span></span><br><span class="line">  <span class="comment">// 頁面跳轉前如果沒token就把帶到登入頁</span></span><br><span class="line">	<span class="keyword">if</span> (!token) &#123;</span><br><span class="line">    next(&#123; <span class="attr">path</span>: <span class="string">'/login'</span> &#125;)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    next()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 <h2 id="Token存哪？"><a href="#Token存哪？" class="headerlink" title="Token存哪？"></a>Token存哪？</h2><p>登入時取回的token我們有幾個地方可以選擇存放：  </p>
 <ol>
