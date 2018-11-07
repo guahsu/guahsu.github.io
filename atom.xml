@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Gua&#39;s Note</title>
+  
+  <subtitle>背不起來的就寫下來吧</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://guahsu.io/"/>
+  <updated>2018-11-03T15:34:13.397Z</updated>
+  <id>https://guahsu.io/</id>
+  
+  <author>
+    <name>GuaHsu</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>用Vue + CSS寫一個吃角子老虎機(拉霸)</title>
+    <link href="https://guahsu.io/2018/11/vue-slot-machine/"/>
+    <id>https://guahsu.io/2018/11/vue-slot-machine/</id>
+    <published>2018-11-03T05:38:57.000Z</published>
+    <updated>2018-11-03T15:34:13.397Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://github.com/guahsu/Vue-SlotMachine/blob/master/demo.png?raw=true&quot; alt=&quot;image&quot;&gt;  &lt;/p&gt;
+&lt;p&gt;這次又用了Vue + CSS寫一個吃角子老虎機(拉霸)來玩，&lt;br&gt;很多想法繼承年初寫的&lt;a href=&quot;https://github.com/guahsu/Vue-TurnTable/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;大轉盤&lt;/a&gt;，&lt;br&gt;主要藉由CSS 3D做獎項的主體，透過JS寫入CSS變數來更改起始與結束的旋轉角度，&lt;br&gt;也一樣有寫成可以透過Config來調節獎項內容與樣式。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Project" scheme="https://guahsu.io/categories/Project/"/>
+    
+    
+      <category term="CSS" scheme="https://guahsu.io/tags/CSS/"/>
+    
+      <category term="JavaScript" scheme="https://guahsu.io/tags/JavaScript/"/>
+    
+      <category term="Vue" scheme="https://guahsu.io/tags/Vue/"/>
+    
+      <category term="3D" scheme="https://guahsu.io/tags/3D/"/>
+    
+      <category term="Animation" scheme="https://guahsu.io/tags/Animation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>多頁籤共享sessionStorage並同步至vuex</title>
+    <link href="https://guahsu.io/2018/10/vue-sessionstorage-sharing-and-sync-vuex/"/>
+    <id>https://guahsu.io/2018/10/vue-sessionstorage-sharing-and-sync-vuex/</id>
+    <published>2018-10-12T13:54:19.000Z</published>
+    <updated>2018-10-12T14:16:03.343Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;範例連結&quot;&gt;&lt;a href=&quot;#範例連結&quot; class=&quot;headerlink&quot; title=&quot;範例連結&quot;&gt;&lt;/a&gt;範例連結&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://guahsu.io/Vue-sessionStorage/dist/&quot;&gt;https://guahsu.io/Vue-sessionStorage/dist/&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;再vue專案中，如果有使用到vuex來做狀態管理，&lt;br&gt;那很常會遇到一件事情就是重新整理後就遺失了原本的狀態，&lt;br&gt;這裡紀錄我的解決方案：使多頁籤共享SessionStorage並透過同步達到Vuex資料的持久化。  &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Project" scheme="https://guahsu.io/categories/Project/"/>
+    
+    
+      <category term="JavaScript" scheme="https://guahsu.io/tags/JavaScript/"/>
+    
+      <category term="Vue" scheme="https://guahsu.io/tags/Vue/"/>
+    
+      <category term="Vuex" scheme="https://guahsu.io/tags/Vuex/"/>
+    
+      <category term="Storage" scheme="https://guahsu.io/tags/Storage/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TheF2E 前端挑戰 - 結束</title>
+    <link href="https://guahsu.io/2018/08/thef2e-challenge-finish/"/>
+    <id>https://guahsu.io/2018/08/thef2e-challenge-finish/</id>
+    <published>2018-08-12T12:45:38.000Z</published>
+    <updated>2018-08-12T12:45:51.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/2018/08/thef2e-challenge-finish/theF2E.png&quot;&gt;
+&lt;p&gt;為期九週的挑戰終於結束，總算是可以好好休息了(?)&lt;br&gt;這九週的挑戰真的是各種練習都出現了，&lt;br&gt;也因為可利用時間不多的關係，感覺也是挑戰了寫草稿跟整理code的速度。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="CODE" scheme="https://guahsu.io/categories/CODE/"/>
+    
+    
+      <category term="Challenge" scheme="https://guahsu.io/tags/Challenge/"/>
+    
+      <category term="Fun" scheme="https://guahsu.io/tags/Fun/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>透過v-if與v-show共用來節省渲染資源</title>
+    <link href="https://guahsu.io/2018/08/vue-if-with-vue-show-singleton/"/>
+    <id>https://guahsu.io/2018/08/vue-if-with-vue-show-singleton/</id>
+    <published>2018-08-04T05:30:47.000Z</published>
+    <updated>2018-08-12T12:29:25.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在Vue裡面撰寫時，條件渲染的&lt;code&gt;v-if&lt;/code&gt; &amp;amp; &lt;code&gt;v-show&lt;/code&gt;在渲染上比較大的區別是：&lt;br&gt;&lt;code&gt;v-if&lt;/code&gt;條件為&lt;code&gt;true&lt;/code&gt;時會把內容的DOM渲染出來，條件為&lt;code&gt;false&lt;/code&gt;時會把DOM移掉，&lt;br&gt;&lt;code&gt;v-show&lt;/code&gt;則是一開始就先把DOM渲染出來，當條件切換時只做&lt;code&gt;display: none&lt;/code&gt;的切換。&lt;/p&gt;
+&lt;p&gt;而有時候我們需要透過&lt;code&gt;v-if&lt;/code&gt;來避免&lt;code&gt;v-show&lt;/code&gt;預先渲染了不必要的資料，&lt;br&gt;但又希望&lt;code&gt;v-if&lt;/code&gt;條件達成後就繼續保留在頁面中不被移除，這時候就可以混在一起用了:)&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="CODE" scheme="https://guahsu.io/categories/CODE/"/>
+    
+    
+      <category term="Vue" scheme="https://guahsu.io/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TheF2E 前端挑戰</title>
+    <link href="https://guahsu.io/2018/06/thef2e-challenge/"/>
+    <id>https://guahsu.io/2018/06/thef2e-challenge/</id>
+    <published>2018-06-30T14:50:48.000Z</published>
+    <updated>2018-08-12T12:33:11.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;這個月下班跟假日幾乎都在擠時間玩六角舉辦的TheF2E挑戰，&lt;br&gt;每個禮拜要做出一個作品真的是滿ㄍㄧㄥ的，但也又重新學習到了不少東西。  &lt;/p&gt;
+&lt;p&gt;目前進行到第四週，初試Grid覺得非常有趣..&lt;br&gt;心得暫時先記錄在自己挑戰的&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="CODE" scheme="https://guahsu.io/categories/CODE/"/>
+    
+    
+      <category term="Challenge" scheme="https://guahsu.io/tags/Challenge/"/>
+    
+      <category term="Fun" scheme="https://guahsu.io/tags/Fun/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>利用serveo把local開發環境發佈到internet中</title>
+    <link href="https://guahsu.io/2018/06/expose-local-servers-to-the-internet-by-serveo/"/>
+    <id>https://guahsu.io/2018/06/expose-local-servers-to-the-internet-by-serveo/</id>
+    <published>2018-06-12T13:40:34.000Z</published>
+    <updated>2018-06-12T14:22:30.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在local開發程式時，如果要把程式放到手機或給其他同事測試時，&lt;br&gt;除了deploy到測試server外，可以透過serveo來簡易達成！&lt;br&gt;記錄如何使用serveo自訂subdomain並分享local vue專案。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="CODE" scheme="https://guahsu.io/categories/CODE/"/>
+    
+    
+      <category term="Tools" scheme="https://guahsu.io/tags/Tools/"/>
+    
+      <category term="Serveo" scheme="https://guahsu.io/tags/Serveo/"/>
+    
+      <category term="Server" scheme="https://guahsu.io/tags/Server/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript取出”陣列-物件“重複/不重複值的方法</title>
+    <link href="https://guahsu.io/2018/04/JavaScript-Duplicates-Array-Object/"/>
+    <id>https://guahsu.io/2018/04/JavaScript-Duplicates-Array-Object/</id>
+    <published>2018-04-12T14:58:09.000Z</published>
+    <updated>2018-04-12T16:17:13.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;昨天在 FB 社團看到有人提問：&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; arr = [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#123; &lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;alex&quot;&lt;/span&gt;, &lt;span class=&quot;attr&quot;&gt;value&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt; &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#123; &lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;alex&quot;&lt;/span&gt;, &lt;span class=&quot;attr&quot;&gt;value&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;20&lt;/span&gt; &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#123; &lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;tom&quot;&lt;/span&gt;, &lt;span class=&quot;attr&quot;&gt;value&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;30&lt;/span&gt; &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#123; &lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;tom&quot;&lt;/span&gt;, &lt;span class=&quot;attr&quot;&gt;value&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;40&lt;/span&gt; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;];&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;想變成&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; arr = [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#123; &lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;alex&quot;&lt;/span&gt;, &lt;span class=&quot;attr&quot;&gt;value&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt; &amp;#125;, &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#123; &lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&quot;tom&quot;&lt;/span&gt;, &lt;span class=&quot;attr&quot;&gt;value&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;30&lt;/span&gt; &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  ];&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;想了一陣子想到用&lt;code&gt;Set&lt;/code&gt;&amp;amp;&lt;code&gt;Filter&lt;/code&gt;來處理..&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="CODE" scheme="https://guahsu.io/categories/CODE/"/>
+    
+    
+      <category term="JavaScript" scheme="https://guahsu.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>實用小技巧-複製開發者工具取得的資訊</title>
+    <link href="https://guahsu.io/2018/03/devtool-copy-console-data/"/>
+    <id>https://guahsu.io/2018/03/devtool-copy-console-data/</id>
+    <published>2018-03-31T15:37:28.000Z</published>
+    <updated>2018-03-31T15:52:24.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;有時候從API或console印出的陣列或物件資料想存在local使用，&lt;br&gt;在chrome的開發者工具對想要儲存的對象按右鍵&lt;code&gt;store as global
+        
+      
+    
+    </summary>
+    
+      <category term="CODE" scheme="https://guahsu.io/categories/CODE/"/>
+    
+    
+      <category term="DevTool" scheme="https://guahsu.io/tags/DevTool/"/>
+    
+      <category term="Chrome" scheme="https://guahsu.io/tags/Chrome/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2017的回顧跟2018的目標</title>
+    <link href="https://guahsu.io/2018/02/2017-review-and-2018-target/"/>
+    <id>https://guahsu.io/2018/02/2017-review-and-2018-target/</id>
+    <published>2018-02-18T14:08:19.000Z</published>
+    <updated>2018-08-12T12:32:33.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;想到什麼寫什麼，有點亂七八糟的紀錄。    &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Diary" scheme="https://guahsu.io/categories/Diary/"/>
+    
+    
+      <category term="Review" scheme="https://guahsu.io/tags/Review/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用 Vue.js 製作幸運大轉盤～</title>
+    <link href="https://guahsu.io/2018/01/vue-turntable/"/>
+    <id>https://guahsu.io/2018/01/vue-turntable/</id>
+    <published>2018-01-12T13:04:37.000Z</published>
+    <updated>2018-01-18T17:28:26.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/2018/01/vue-turntable/Vue-TurnTable-1.png&quot;&gt;
+&lt;p&gt;來用vue.js寫一個前端大轉盤吧!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;01/19 更新整體編輯模式&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Project" scheme="https://guahsu.io/categories/Project/"/>
+    
+    
+      <category term="Fun" scheme="https://guahsu.io/tags/Fun/"/>
+    
+      <category term="Vue" scheme="https://guahsu.io/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue-cli透過webpack來加載使用pug/scss及BootStrap4</title>
+    <link href="https://guahsu.io/2017/12/vue-cli-webpack-pug-scss-bootstrap4/"/>
+    <id>https://guahsu.io/2017/12/vue-cli-webpack-pug-scss-bootstrap4/</id>
+    <published>2017-12-17T08:54:41.000Z</published>
+    <updated>2018-08-12T12:32:04.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/2017/12/vue-cli-webpack-pug-scss-bootstrap4/vue-cli.png&quot;&gt;
+&lt;p&gt;這兩週一直在看BootStrap4跟Vue，真的覺得好好玩啊！&lt;br&gt;在此紀錄Vue-cli中使用pug/scss/BootStrap4的方法。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="CODE" scheme="https://guahsu.io/categories/CODE/"/>
+    
+    
+      <category term="Vue" scheme="https://guahsu.io/tags/Vue/"/>
+    
+      <category term="BootStrap" scheme="https://guahsu.io/tags/BootStrap/"/>
+    
+      <category term="Webpack" scheme="https://guahsu.io/tags/Webpack/"/>
+    
+      <category term="Scss" scheme="https://guahsu.io/tags/Scss/"/>
+    
+      <category term="Pug" scheme="https://guahsu.io/tags/Pug/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HEXO-NexT的Local Search轉圈圈問題</title>
+    <link href="https://guahsu.io/2017/12/Hexo-Next-LocalSearch-cant-work/"/>
+    <id>https://guahsu.io/2017/12/Hexo-Next-LocalSearch-cant-work/</id>
+    <published>2017-12-03T02:40:36.000Z</published>
+    <updated>2017-12-03T14:51:45.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/2017/12/Hexo-Next-LocalSearch-cant-work/LocalSearch_ERROR.png&quot;&gt;
+&lt;p&gt;有時候更新完文章，會莫名導致NexT的LocalSearsh有問題，&lt;br&gt;像是上圖一樣的卡住轉圈圈狀態也沒辦法解掉，這篇紀錄如何解決。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="CODE" scheme="https://guahsu.io/categories/CODE/"/>
+    
+    
+      <category term="HEXO" scheme="https://guahsu.io/tags/HEXO/"/>
+    
+      <category term="NEXT" scheme="https://guahsu.io/tags/NEXT/"/>
+    
+      <category term="XML" scheme="https://guahsu.io/tags/XML/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「JS30紀錄＆心得」完結 ＆ Gif切換與loading效果</title>
+    <link href="https://guahsu.io/2017/11/JavaScript30-Final-Gif-Loader/"/>
+    <id>https://guahsu.io/2017/11/JavaScript30-Final-Gif-Loader/</id>
+    <published>2017-11-25T05:42:17.000Z</published>
+    <updated>2017-11-25T15:02:57.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/2017/11/JavaScript30-Final-Gif-Loader/demo31.png&quot; class=&quot;gua-gif&quot;&gt;
+&lt;h2 id=&quot;JavaScript30系列終於完成啦！！&quot;&gt;&lt;a href=&quot;#JavaScript30系列終於完成啦！！&quot; class=&quot;headerlink&quot; title=&quot;JavaScript30系列終於完成啦！！&quot;&gt;&lt;/a&gt;JavaScript30系列終於完成啦！！&lt;/h2&gt;&lt;p&gt;寫了一個&lt;a href=&quot;https://guahsu.io/JavaScript30/&quot;&gt;列表網站&lt;/a&gt;擺放每一篇的練習概要與截圖，&lt;br&gt;這個&lt;a href=&quot;https://guahsu.io/JavaScript30/&quot;&gt;列表站&lt;/a&gt;也是沒使用任何外部函式庫與框架，&lt;br&gt;最後一篇紀錄這個小站中做的靜/動態圖切換、loading效果。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="JavaScript30" scheme="https://guahsu.io/categories/JavaScript30/"/>
+    
+    
+      <category term="CSS" scheme="https://guahsu.io/tags/CSS/"/>
+    
+      <category term="JavaScript" scheme="https://guahsu.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「JS30紀錄＆心得」30 - Whack A Mole</title>
+    <link href="https://guahsu.io/2017/11/JavaScript30-30-Whack-A-Mole/"/>
+    <id>https://guahsu.io/2017/11/JavaScript30-30-Whack-A-Mole/</id>
+    <published>2017-11-14T14:50:29.000Z</published>
+    <updated>2017-11-23T01:57:14.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/2017/11/JavaScript30-30-Whack-A-Mole/demo30.png&quot; class=&quot;gua-gif&quot;&gt;
+&lt;h2 id=&quot;主題&quot;&gt;&lt;a href=&quot;#主題&quot; class=&quot;headerlink&quot; title=&quot;主題&quot;&gt;&lt;/a&gt;&lt;strong&gt;主題&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;JS30的最終篇啦！這次要來做一個打地鼠的小遊戲:D&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="JavaScript30" scheme="https://guahsu.io/categories/JavaScript30/"/>
+    
+    
+      <category term="CSS" scheme="https://guahsu.io/tags/CSS/"/>
+    
+      <category term="JavaScript" scheme="https://guahsu.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Mac」更新CommandLine後無法使用git指令問題</title>
+    <link href="https://guahsu.io/2017/11/mac-update-cant-use-git/"/>
+    <id>https://guahsu.io/2017/11/mac-update-cant-use-git/</id>
+    <published>2017-11-12T14:17:26.000Z</published>
+    <updated>2017-11-12T14:26:48.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;昨天更新Ｍac的Command Line Tools後發現使用git指令無法使用：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+      <category term="CODE" scheme="https://guahsu.io/categories/CODE/"/>
+    
+    
+      <category term="Mac" scheme="https://guahsu.io/tags/Mac/"/>
+    
+      <category term="CommandLine" scheme="https://guahsu.io/tags/CommandLine/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「JS30紀錄＆心得」29 - Countdown Timer</title>
+    <link href="https://guahsu.io/2017/11/JavaScript30-29-Countdown-Timer/"/>
+    <id>https://guahsu.io/2017/11/JavaScript30-29-Countdown-Timer/</id>
+    <published>2017-11-03T12:34:22.000Z</published>
+    <updated>2017-11-23T02:04:20.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/2017/11/JavaScript30-29-Countdown-Timer/demo29.png&quot; class=&quot;gua-gif&quot;&gt;
+&lt;h2 id=&quot;主題&quot;&gt;&lt;a href=&quot;#主題&quot; class=&quot;headerlink&quot; title=&quot;主題&quot;&gt;&lt;/a&gt;&lt;strong&gt;主題&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;製作一個倒數計時器。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="JavaScript30" scheme="https://guahsu.io/categories/JavaScript30/"/>
+    
+    
+      <category term="JavaScript" scheme="https://guahsu.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「JS30紀錄＆心得」28 - Video Speed Controller</title>
+    <link href="https://guahsu.io/2017/10/JavaScript30-28-Video-Speed-Controller/"/>
+    <id>https://guahsu.io/2017/10/JavaScript30-28-Video-Speed-Controller/</id>
+    <published>2017-10-29T12:37:44.000Z</published>
+    <updated>2017-11-23T02:04:19.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/2017/10/JavaScript30-28-Video-Speed-Controller/demo28.png&quot; class=&quot;gua-gif&quot;&gt;
+&lt;h2 id=&quot;主題&quot;&gt;&lt;a href=&quot;#主題&quot; class=&quot;headerlink&quot; title=&quot;主題&quot;&gt;&lt;/a&gt;&lt;strong&gt;主題&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;製作一個可控制影片速率的拉把。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="JavaScript30" scheme="https://guahsu.io/categories/JavaScript30/"/>
+    
+    
+      <category term="CSS" scheme="https://guahsu.io/tags/CSS/"/>
+    
+      <category term="JavaScript" scheme="https://guahsu.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「CSScomb」好用的CSS屬性排版插件</title>
+    <link href="https://guahsu.io/2017/10/CSScomb-css-sort-format/"/>
+    <id>https://guahsu.io/2017/10/CSScomb-css-sort-format/</id>
+    <published>2017-10-28T05:54:50.000Z</published>
+    <updated>2017-10-29T12:09:02.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/2017/10/CSScomb-css-sort-format/CSScomb_demo.gif&quot;&gt;
+&lt;p&gt;超棒的CSS屬性排版插件，依據屬性類別擺好排好超舒服：D&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="CODE" scheme="https://guahsu.io/categories/CODE/"/>
+    
+    
+      <category term="CSS" scheme="https://guahsu.io/tags/CSS/"/>
+    
+      <category term="Tools" scheme="https://guahsu.io/tags/Tools/"/>
+    
+      <category term="VScode" scheme="https://guahsu.io/tags/VScode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「JS30紀錄＆心得」27 - Click and Drag</title>
+    <link href="https://guahsu.io/2017/10/JavaScript30-27-Click-and-Drag/"/>
+    <id>https://guahsu.io/2017/10/JavaScript30-27-Click-and-Drag/</id>
+    <published>2017-10-27T16:08:34.000Z</published>
+    <updated>2017-11-23T02:04:18.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/2017/10/JavaScript30-27-Click-and-Drag/demo27.png&quot; class=&quot;gua-gif&quot;&gt;
+&lt;h2 id=&quot;主題&quot;&gt;&lt;a href=&quot;#主題&quot; class=&quot;headerlink&quot; title=&quot;主題&quot;&gt;&lt;/a&gt;&lt;strong&gt;主題&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;製作一個可拖曳移動的水平捲軸。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="JavaScript30" scheme="https://guahsu.io/categories/JavaScript30/"/>
+    
+    
+      <category term="CSS" scheme="https://guahsu.io/tags/CSS/"/>
+    
+      <category term="JavaScript" scheme="https://guahsu.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「JS30紀錄＆心得」26 - Stripe Follow Along Nav</title>
+    <link href="https://guahsu.io/2017/10/JavaScript30-26-Stripe-Follow-Along-Nav/"/>
+    <id>https://guahsu.io/2017/10/JavaScript30-26-Stripe-Follow-Along-Nav/</id>
+    <published>2017-10-23T14:08:16.000Z</published>
+    <updated>2017-11-23T02:04:17.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/2017/10/JavaScript30-26-Stripe-Follow-Along-Nav/demo26.png&quot; class=&quot;gua-gif&quot;&gt;
+&lt;h2 id=&quot;主題&quot;&gt;&lt;a href=&quot;#主題&quot; class=&quot;headerlink&quot; title=&quot;主題&quot;&gt;&lt;/a&gt;&lt;strong&gt;主題&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;延續上次的練習&lt;a href=&quot;https://guahsu.io/2017/10/JavaScript30-22-Follow-Along-Link-Highlighter/&quot;&gt;JS30紀錄＆心得」22 - Follow Along Link Highlighter&lt;/a&gt;，&lt;br&gt;這次用相同的原理來製作一個隨著滑鼠移動展開的選單效果。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="JavaScript30" scheme="https://guahsu.io/categories/JavaScript30/"/>
+    
+    
+      <category term="CSS" scheme="https://guahsu.io/tags/CSS/"/>
+    
+      <category term="JavaScript" scheme="https://guahsu.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+</feed>

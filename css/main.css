@@ -1756,17 +1756,17 @@ pre .javascript .function {
 .feed-link a {
   display: inline-block;
   padding: 0 15px;
-  color: #fc6423;
-  border: 1px solid #fc6423;
+  color: #42b983;
+  border: 1px solid #42b983;
   border-radius: 4px;
 }
 .feed-link a i {
-  color: #fc6423;
+  color: #42b983;
   font-size: 14px;
 }
 .feed-link a:hover {
   color: #fff;
-  background: #fc6423;
+  background: #42b983;
 }
 .feed-link a:hover i {
   color: #fff;
@@ -1790,7 +1790,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #0e6c34;
+  background: #ff3e90;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -1829,11 +1829,11 @@ pre .javascript .function {
   margin-left: 10px;
 }
 .sidebar-nav .sidebar-nav-active {
-  color: #87daff;
-  border-bottom-color: #87daff;
+  color: #42b983;
+  border-bottom-color: #42b983;
 }
 .sidebar-nav .sidebar-nav-active:hover {
-  color: #87daff;
+  color: #42b983;
 }
 .sidebar-panel {
   display: none;
@@ -1892,14 +1892,14 @@ pre .javascript .function {
   display: block;
 }
 .post-toc .nav .active > a {
-  color: #87daff;
-  border-bottom-color: #87daff;
+  color: #42b983;
+  border-bottom-color: #42b983;
 }
 .post-toc .nav .active-current > a {
-  color: #87daff;
+  color: #42b983;
 }
 .post-toc .nav .active-current > a:hover {
-  color: #87daff;
+  color: #42b983;
 }
 .footer {
   font-size: 14px;
@@ -1938,6 +1938,25 @@ pre .javascript .function {
 }
 .cc-license img {
   display: inline-block;
+}
+.footer-feed-link {
+  margin-left: 10px;
+  display: inline-block;
+  padding: 0 15px;
+  color: #42b983;
+  border: 1px solid #42b983;
+  border-radius: 4px;
+}
+.footer-feed-link i {
+  color: #42b983;
+  font-size: 14px;
+}
+.footer-feed-link:hover {
+  color: #fff;
+  background: #42b983;
+}
+.footer-feed-link:hover i {
+  color: #fff;
 }
 .theme-next #ds-thread #ds-reset {
   color: #555;
@@ -2559,7 +2578,7 @@ pre .javascript .function {
   }
 }
 .page-post-detail .sidebar-toggle-line {
-  background: #87daff;
+  background: #42b983;
 }
 .page-post-detail .comments {
   overflow: hidden;
