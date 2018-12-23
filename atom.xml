@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://guahsu.io/"/>
-  <updated>2018-12-23T02:32:59.569Z</updated>
+  <updated>2018-12-23T02:37:41.296Z</updated>
   <id>https://guahsu.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://guahsu.io/2018/12/vue-cli3-load-yaml-and-set-env/"/>
     <id>https://guahsu.io/2018/12/vue-cli3-load-yaml-and-set-env/</id>
     <published>2018-12-23T01:46:48.000Z</published>
-    <updated>2018-12-23T02:32:59.569Z</updated>
+    <updated>2018-12-23T02:37:41.296Z</updated>
     
     <summary type="html">
     
@@ -30,6 +30,14 @@
     
     </summary>
     
+      <category term="CODE" scheme="https://guahsu.io/categories/CODE/"/>
+    
+    
+      <category term="Vue" scheme="https://guahsu.io/tags/Vue/"/>
+    
+      <category term="Webpack" scheme="https://guahsu.io/tags/Webpack/"/>
+    
+      <category term="Vue-cli3" scheme="https://guahsu.io/tags/Vue-cli3/"/>
     
   </entry>
   

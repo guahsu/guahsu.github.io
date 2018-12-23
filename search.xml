@@ -4,6 +4,14 @@
     <title><![CDATA[Vue-cli3 - 讀取yaml檔並寫入env]]></title>
     <url>%2F2018%2F12%2Fvue-cli3-load-yaml-and-set-env%2F</url>
     <content type="text"><![CDATA[最近新專案使用 vue-cli3 來建構，原本預設專案內的一堆 webpack 的設定檔都消失了，要在專案根目錄底下自己建立一個 vue.config.js 來設置。 記錄一下一些基本設定跟讀環境設定檔(yaml格式)的方法： 用vue-cli3開的專案原本那些 webpack 的設定已經被包裝好了，vue.config.js的使用方法基本上就可以想像成覆寫，有額外要做或調整的就在這份檔案中調整。 基本調整例如原本我們經常會修改當 npm run dev 時的 port 及輸出的 path：1234567module.exports = &#123; baseUrl: '/', outputDir: '../public/', // 輸出目錄 devServer: &#123; port: 9700 // local server port &#125;&#125; 就只要這樣寫就好了，要注意 vue-cli3 是使用 npm run serve 來執行 server 另外要注意，vue-cli3 執行 npm run build 後會先把輸出目錄內的東西都刪除再建立，意味著原本可能有其他的資料夾、文件也會一併被刪除，為了要避免這情形要修改一下執行指令：把 build 指令後面加上 --no-clean12/* package.json */"build": "vue-cli-service build --no-clean" 其實官方文件寫的滿多預設調整的方式，可以參閱vue-cli3配置參考 讀取yaml檔不同的環境部署通常都有不同的設定檔來做配合，像是 API 會依據不同環境 development, staging, production 等..有不同的路徑。舉例：123456789development: SHOP: http://127.0.0.1:3000 CART: http://127.0.0.1:5000staging: SHOP: http://staging-shop.com CART: http://staging-cart.comproduction: SHOP: http://production-shop.com CART: http://production-cart.com 不同的環境中可能會用一份api_urls.yml來提供前後端做設定，查看 package.json 發現已經有載入js-yaml了，就直接拿來搭配 node.js 的 fs 用： 123456789/* vue.config.js */const yaml = require('js-yaml')const fs = require('fs')// 讀取yaml, 會先轉為Objectconst apiUrlObject = yaml.safeLoad(fs.readFileSync('../config/api_urls.yml', 'utf8'))// 判斷當前環境const currentEnv = process.env.ENV || 'development'// 取出當前環境對應的資料const currentApiUrls = JSON.stringify(apiUrlObject[currentEnv]） 寫入 env 原本再 vue-cli2 時是透過 DefinePlugin 來寫入：123new webpack.DefinePlugin(&#123; 'process.env': env&#125;) vue-cli3 時要透過 chainWebpack 來做寫入 env：12345678910111213/* vue.config.js */module.exports = &#123; // ... chainWebpack: config =&gt; &#123; config.plugin('define').tap(definitions =&gt; &#123; Object.assign(definitions[0]['process.env'], &#123; name: '"vuejs"', ApiUrls: currentApiUrls &#125;) return definitions &#125;) &#125;&#125; 參考 vue-cli3#chainWebpack 接著就可以在專案中可以透過 process.env 來存取部署時寫入的資訊了12const shopApiUrl = process.env.ApiUrls.SHOPconst cartApiUrl = process.env.ApiUrls.CART 這樣就可以透過讓前後端專案使用同一份設定檔，避免同一份設定寫兩次了 :D]]></content>
+      <categories>
+        <category>CODE</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+        <tag>Webpack</tag>
+        <tag>Vue-cli3</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[用Vue + CSS寫一個吃角子老虎機(拉霸)]]></title>
