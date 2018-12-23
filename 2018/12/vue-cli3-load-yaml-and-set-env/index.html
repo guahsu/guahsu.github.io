@@ -98,16 +98,17 @@
 
 
 
-<meta name="description" content="背不起來的就寫下來吧。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gua&#39;s Note">
-<meta property="og:url" content="https://guahsu.io/tags/DevTool/index.html">
+<meta name="description" content="最近新專案使用 vue-cli3 來建構，原本預設專案內的一堆 webpack 的設定檔都消失了，要在專案根目錄底下自己建立一個 vue.config.js 來設置。 記錄一下一些基本設定跟讀環境設定檔(yaml格式)的方法：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue-cli3 - 讀取yaml檔並寫入env">
+<meta property="og:url" content="https://guahsu.io/2018/12/vue-cli3-load-yaml-and-set-env/index.html">
 <meta property="og:site_name" content="Gua&#39;s Note">
-<meta property="og:description" content="背不起來的就寫下來吧。">
+<meta property="og:description" content="最近新專案使用 vue-cli3 來建構，原本預設專案內的一堆 webpack 的設定檔都消失了，要在專案根目錄底下自己建立一個 vue.config.js 來設置。 記錄一下一些基本設定跟讀環境設定檔(yaml格式)的方法：">
 <meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2018-12-23T02:32:59.569Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gua&#39;s Note">
-<meta name="twitter:description" content="背不起來的就寫下來吧。">
+<meta name="twitter:title" content="Vue-cli3 - 讀取yaml檔並寫入env">
+<meta name="twitter:description" content="最近新專案使用 vue-cli3 來建構，原本預設專案內的一堆 webpack 的設定檔都消失了，要在專案根目錄底下自己建立一個 vue.config.js 來設置。 記錄一下一些基本設定跟讀環境設定檔(yaml格式)的方法：">
 
 
 
@@ -135,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="https://guahsu.io/tags/DevTool/"/>
+  <link rel="canonical" href="https://guahsu.io/2018/12/vue-cli3-load-yaml-and-set-env/"/>
 
 
 
 
 
-  <title>標籤: DevTool | Gua's Note</title>
+  <title>Vue-cli3 - 讀取yaml檔並寫入env | Gua's Note</title>
   
 <script>
   window.fbAsyncInit = function() {
@@ -199,7 +200,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -326,72 +327,188 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>DevTool<small>標籤</small>
-      </h1>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/devtool-copy-console-data/" itemprop="url">
-              
-                <span itemprop="name">實用小技巧-複製開發者工具取得的資訊</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-31T23:37:28+08:00"
-              content="2018-03-31" >
-          03-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/JavaScript30-09-Dev-Tools-Domination/" itemprop="url">
-              
-                <span itemprop="name">「JS30紀錄＆心得」09 - Dev Tools Domination</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-24T13:05:45+08:00"
-              content="2017-06-24" >
-          06-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://guahsu.io/2018/12/vue-cli3-load-yaml-and-set-env/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GuaHsu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gua's Note">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Vue-cli3 - 讀取yaml檔並寫入env</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-12-23T09:46:48+08:00">
+                2018-12-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/vue-cli3-load-yaml-and-set-env/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/12/vue-cli3-load-yaml-and-set-env/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近新專案使用 vue-cli3 來建構，<br>原本預設專案內的一堆 webpack 的設定檔都消失了，<br>要在專案根目錄底下自己建立一個 <code>vue.config.js</code> 來設置。</p>
+<p>記錄一下一些基本設定跟讀環境設定檔(yaml格式)的方法：</p>
+<a id="more"></a>
+<p>用vue-cli3開的專案原本那些 webpack 的設定已經被包裝好了，<br><code>vue.config.js</code>的使用方法基本上就可以想像成覆寫，<br>有額外要做或調整的就在這份檔案中調整。</p>
+<h3 id="基本調整"><a href="#基本調整" class="headerlink" title="基本調整"></a>基本調整</h3><p>例如原本我們經常會修改當 <code>npm run dev</code> 時的 port 及輸出的 path：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  baseUrl: <span class="string">'/'</span>,</span><br><span class="line">  outputDir: <span class="string">'../public/'</span>, <span class="comment">// 輸出目錄</span></span><br><span class="line">  devServer: &#123;</span><br><span class="line">    port: <span class="number">9700</span> <span class="comment">// local server port</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>就只要這樣寫就好了，要注意 vue-cli3 是使用 <code>npm run serve</code> 來執行 server</p>
+</blockquote>
+<p>另外要注意，vue-cli3 執行 <code>npm run build</code> 後會先把輸出目錄內的東西都刪除再建立，<br>意味著原本可能有其他的資料夾、文件也會一併被刪除，為了要避免這情形要修改一下執行指令：<br>把 build 指令後面加上 <code>--no-clean</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* package.json */</span></span><br><span class="line"><span class="string">"build"</span>: <span class="string">"vue-cli-service build --no-clean"</span></span><br></pre></td></tr></table></figure></p>
+<p>其實官方文件寫的滿多預設調整的方式，可以參閱<a href="https://cli.vuejs.org/zh/config/#assetsdir" target="_blank" rel="noopener">vue-cli3配置參考</a></p>
+<h3 id="讀取yaml檔"><a href="#讀取yaml檔" class="headerlink" title="讀取yaml檔"></a>讀取yaml檔</h3><p>不同的環境部署通常都有不同的設定檔來做配合，<br>像是 API 會依據不同環境 <code>development</code>, <code>staging</code>, <code>production</code> 等..有不同的路徑。<br>舉例：<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">development:</span></span><br><span class="line"><span class="attr">  SHOP:</span> <span class="attr">http://127.0.0.1:3000</span></span><br><span class="line"><span class="attr">  CART:</span> <span class="attr">http://127.0.0.1:5000</span></span><br><span class="line"><span class="attr">staging:</span></span><br><span class="line"><span class="attr">  SHOP:</span> <span class="attr">http://staging-shop.com</span></span><br><span class="line"><span class="attr">  CART:</span> <span class="attr">http://staging-cart.com</span></span><br><span class="line"><span class="attr">production:</span></span><br><span class="line"><span class="attr">  SHOP:</span> <span class="attr">http://production-shop.com</span></span><br><span class="line"><span class="attr">  CART:</span> <span class="attr">http://production-cart.com</span></span><br></pre></td></tr></table></figure></p>
+<p>不同的環境中可能會用一份<code>api_urls.yml</code>來提供前後端做設定，<br>查看 package.json 發現已經有載入<code>js-yaml</code>了，就直接拿來搭配 node.js 的 <code>fs</code> 用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* vue.config.js */</span></span><br><span class="line"><span class="keyword">const</span> yaml = <span class="built_in">require</span>(<span class="string">'js-yaml'</span>)</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</span><br><span class="line"><span class="comment">// 讀取yaml, 會先轉為Object</span></span><br><span class="line"><span class="keyword">const</span> apiUrlObject = yaml.safeLoad(fs.readFileSync(<span class="string">'../config/api_urls.yml'</span>, <span class="string">'utf8'</span>))</span><br><span class="line"><span class="comment">// 判斷當前環境</span></span><br><span class="line"><span class="keyword">const</span> currentEnv = process.env.ENV || <span class="string">'development'</span></span><br><span class="line"><span class="comment">// 取出當前環境對應的資料</span></span><br><span class="line"><span class="keyword">const</span> currentApiUrls = <span class="built_in">JSON</span>.stringify(apiUrlObject[currentEnv]）</span><br></pre></td></tr></table></figure>
+<p>寫入 env 原本再 vue-cli2 時是透過 DefinePlugin 來寫入：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> webpack.DefinePlugin(&#123;</span><br><span class="line">  <span class="string">'process.env'</span>: env</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>vue-cli3 時要透過 <code>chainWebpack</code> 來做寫入 env：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* vue.config.js */</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  chainWebpack: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">    config.plugin(<span class="string">'define'</span>).tap(<span class="function"><span class="params">definitions</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">Object</span>.assign(definitions[<span class="number">0</span>][<span class="string">'process.env'</span>], &#123;</span><br><span class="line">        name: <span class="string">'"vuejs"'</span>,</span><br><span class="line">        ApiUrls: currentApiUrls</span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="keyword">return</span> definitions</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>參考 <a href="https://cli.vuejs.org/zh/config/#chainwebpack" target="_blank" rel="noopener">vue-cli3#chainWebpack</a></p>
+</blockquote>
+<p>接著就可以在專案中可以透過 <code>process.env</code> 來存取部署時寫入的資訊了<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> shopApiUrl = process.env.ApiUrls.SHOP</span><br><span class="line"><span class="keyword">const</span> cartApiUrl = process.env.ApiUrls.CART</span><br></pre></td></tr></table></figure></p>
+<p>這樣就可以透過讓前後端專案使用同一份設定檔，<br>避免同一份設定寫兩次了 :D</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/vue-slot-machine/" rel="next" title="用Vue + CSS寫一個吃角子老虎機(拉霸)">
+                <i class="fa fa-chevron-left"></i> 用Vue + CSS寫一個吃角子老虎機(拉霸)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -399,6 +516,17 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -418,8 +546,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站資料
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -499,6 +636,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本調整"><span class="nav-text">基本調整</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#讀取yaml檔"><span class="nav-text">讀取yaml檔</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -615,10 +768,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=201711210001"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=201711210001"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=201711210001"></script>
 
-  
+
 
   
 
@@ -636,6 +789,18 @@
       <script id="dsq-count-scr" src="https://guahsu-io.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://guahsu.io/2018/12/vue-cli3-load-yaml-and-set-env/';
+          this.page.identifier = '2018/12/vue-cli3-load-yaml-and-set-env/';
+          this.page.title = 'Vue-cli3 - 讀取yaml檔並寫入env';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://guahsu-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   

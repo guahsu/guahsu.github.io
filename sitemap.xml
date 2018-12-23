@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://guahsu.io/2018/12/vue-cli3-load-yaml-and-set-env/</loc>
+    
+    <lastmod>2018-12-23T02:32:59.569Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://guahsu.io/2018/11/vue-slot-machine/</loc>
     
     <lastmod>2018-11-03T15:34:13.397Z</lastmod>

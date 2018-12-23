@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://guahsu.io/"/>
-  <updated>2018-11-03T15:34:13.397Z</updated>
+  <updated>2018-12-23T02:32:59.569Z</updated>
   <id>https://guahsu.io/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue-cli3 - 讀取yaml檔並寫入env</title>
+    <link href="https://guahsu.io/2018/12/vue-cli3-load-yaml-and-set-env/"/>
+    <id>https://guahsu.io/2018/12/vue-cli3-load-yaml-and-set-env/</id>
+    <published>2018-12-23T01:46:48.000Z</published>
+    <updated>2018-12-23T02:32:59.569Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近新專案使用 vue-cli3 來建構，&lt;br&gt;原本預設專案內的一堆 webpack 的設定檔都消失了，&lt;br&gt;要在專案根目錄底下自己建立一個 &lt;code&gt;vue.config.js&lt;/code&gt; 來設置。&lt;/p&gt;
+&lt;p&gt;記錄一下一些基本設定跟讀環境設定檔(yaml格式)的方法：&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>用Vue + CSS寫一個吃角子老虎機(拉霸)</title>
@@ -472,29 +489,6 @@
     
       &lt;img src=&quot;/2017/10/JavaScript30-27-Click-and-Drag/demo27.png&quot; class=&quot;gua-gif&quot;&gt;
 &lt;h2 id=&quot;主題&quot;&gt;&lt;a href=&quot;#主題&quot; class=&quot;headerlink&quot; title=&quot;主題&quot;&gt;&lt;/a&gt;&lt;strong&gt;主題&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;製作一個可拖曳移動的水平捲軸。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="JavaScript30" scheme="https://guahsu.io/categories/JavaScript30/"/>
-    
-    
-      <category term="CSS" scheme="https://guahsu.io/tags/CSS/"/>
-    
-      <category term="JavaScript" scheme="https://guahsu.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「JS30紀錄＆心得」26 - Stripe Follow Along Nav</title>
-    <link href="https://guahsu.io/2017/10/JavaScript30-26-Stripe-Follow-Along-Nav/"/>
-    <id>https://guahsu.io/2017/10/JavaScript30-26-Stripe-Follow-Along-Nav/</id>
-    <published>2017-10-23T14:08:16.000Z</published>
-    <updated>2017-11-23T02:04:17.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;img src=&quot;/2017/10/JavaScript30-26-Stripe-Follow-Along-Nav/demo26.png&quot; class=&quot;gua-gif&quot;&gt;
-&lt;h2 id=&quot;主題&quot;&gt;&lt;a href=&quot;#主題&quot; class=&quot;headerlink&quot; title=&quot;主題&quot;&gt;&lt;/a&gt;&lt;strong&gt;主題&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;延續上次的練習&lt;a href=&quot;https://guahsu.io/2017/10/JavaScript30-22-Follow-Along-Link-Highlighter/&quot;&gt;JS30紀錄＆心得」22 - Follow Along Link Highlighter&lt;/a&gt;，&lt;br&gt;這次用相同的原理來製作一個隨著滑鼠移動展開的選單效果。&lt;/p&gt;
     
     </summary>
     
