@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://guahsu.io/"/>
-  <updated>2018-12-23T02:37:41.296Z</updated>
+  <updated>2019-01-31T14:00:26.415Z</updated>
   <id>https://guahsu.io/</id>
   
   <author>
@@ -15,6 +15,22 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2018 回顧</title>
+    <link href="https://guahsu.io/2019/02/2018-review/"/>
+    <id>https://guahsu.io/2019/02/2018-review/</id>
+    <published>2019-02-01T01:22:46.000Z</published>
+    <updated>2019-01-31T14:00:26.415Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;每年的 Review 都是在農曆年前XD，&lt;br&gt;今年是正式踏入前端的第一年，收穫頗豐。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Vue-cli3 - 讀取yaml檔並寫入env</title>
@@ -483,29 +499,6 @@
       <category term="Tools" scheme="https://guahsu.io/tags/Tools/"/>
     
       <category term="VScode" scheme="https://guahsu.io/tags/VScode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「JS30紀錄＆心得」27 - Click and Drag</title>
-    <link href="https://guahsu.io/2017/10/JavaScript30-27-Click-and-Drag/"/>
-    <id>https://guahsu.io/2017/10/JavaScript30-27-Click-and-Drag/</id>
-    <published>2017-10-27T16:08:34.000Z</published>
-    <updated>2017-11-23T02:04:18.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;img src=&quot;/2017/10/JavaScript30-27-Click-and-Drag/demo27.png&quot; class=&quot;gua-gif&quot;&gt;
-&lt;h2 id=&quot;主題&quot;&gt;&lt;a href=&quot;#主題&quot; class=&quot;headerlink&quot; title=&quot;主題&quot;&gt;&lt;/a&gt;&lt;strong&gt;主題&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;製作一個可拖曳移動的水平捲軸。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="JavaScript30" scheme="https://guahsu.io/categories/JavaScript30/"/>
-    
-    
-      <category term="CSS" scheme="https://guahsu.io/tags/CSS/"/>
-    
-      <category term="JavaScript" scheme="https://guahsu.io/tags/JavaScript/"/>
     
   </entry>
   
