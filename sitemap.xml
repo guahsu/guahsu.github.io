@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://guahsu.io/2019/12/2019-review/</loc>
+    
+    <lastmod>2019-12-29T05:46:57.731Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://guahsu.io/2019/02/2018-review/</loc>
     
-    <lastmod>2019-01-31T14:00:26.415Z</lastmod>
+    <lastmod>2019-01-31T14:19:30.749Z</lastmod>
     
   </url>
   
@@ -240,14 +247,14 @@
   </url>
   
   <url>
-    <loc>https://guahsu.io/2017/07/JavaScript30-11-Custom-Video-Player/</loc>
+    <loc>https://guahsu.io/2017/07/JavaScript30-12-Key-Sequence-Detection/</loc>
     
     <lastmod>2017-11-23T02:03:57.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://guahsu.io/2017/07/JavaScript30-12-Key-Sequence-Detection/</loc>
+    <loc>https://guahsu.io/2017/07/JavaScript30-11-Custom-Video-Player/</loc>
     
     <lastmod>2017-11-23T02:03:57.000Z</lastmod>
     

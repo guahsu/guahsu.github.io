@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://guahsu.io/"/>
-  <updated>2019-01-31T14:00:26.415Z</updated>
+  <updated>2019-12-29T05:46:57.731Z</updated>
   <id>https://guahsu.io/</id>
   
   <author>
@@ -17,11 +17,27 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2019 回顧</title>
+    <link href="https://guahsu.io/2019/12/2019-review/"/>
+    <id>https://guahsu.io/2019/12/2019-review/</id>
+    <published>2019-12-29T05:22:46.000Z</published>
+    <updated>2019-12-29T05:46:57.731Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今年的 Review 總算是在西元年前寫完了,&lt;br&gt;踏入前端的第二年, 收穫超豐。  &lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>2018 回顧</title>
     <link href="https://guahsu.io/2019/02/2018-review/"/>
     <id>https://guahsu.io/2019/02/2018-review/</id>
     <published>2019-02-01T01:22:46.000Z</published>
-    <updated>2019-01-31T14:00:26.415Z</updated>
+    <updated>2019-01-31T14:19:30.749Z</updated>
     
     <summary type="html">
     
@@ -474,31 +490,6 @@
       <category term="CSS" scheme="https://guahsu.io/tags/CSS/"/>
     
       <category term="JavaScript" scheme="https://guahsu.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>「CSScomb」好用的CSS屬性排版插件</title>
-    <link href="https://guahsu.io/2017/10/CSScomb-css-sort-format/"/>
-    <id>https://guahsu.io/2017/10/CSScomb-css-sort-format/</id>
-    <published>2017-10-28T05:54:50.000Z</published>
-    <updated>2017-10-29T12:09:02.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;img src=&quot;/2017/10/CSScomb-css-sort-format/CSScomb_demo.gif&quot;&gt;
-&lt;p&gt;超棒的CSS屬性排版插件，依據屬性類別擺好排好超舒服：D&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="CODE" scheme="https://guahsu.io/categories/CODE/"/>
-    
-    
-      <category term="CSS" scheme="https://guahsu.io/tags/CSS/"/>
-    
-      <category term="Tools" scheme="https://guahsu.io/tags/Tools/"/>
-    
-      <category term="VScode" scheme="https://guahsu.io/tags/VScode/"/>
     
   </entry>
   
